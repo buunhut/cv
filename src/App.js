@@ -237,7 +237,7 @@ function App() {
                   <div className="skills">
                     <div className="text">
                       <div className="textFlex">
-                        <p>shop-online:</p> <h4><a href="http://bachhoahanhan.com">http://bachhoahanhan.com</a></h4>
+                        <p>Shop-online:</p> <h4><a href="http://bachhoahanhan.com">http://bachhoahanhan.com</a></h4>
                       </div>
                     </div>
                   </div>
@@ -335,6 +335,11 @@ function App() {
                     {/* <p>Facebook:</p> <h4><a href="https://facebook.com/buunhut">facebook.com/buunhut</a></h4> */}
                     <p className='info'><i class="fa-brands fa-facebook"></i></p> <h4><a href="https://facebook.com/buunhut">facebook.com/buunhut</a></h4>
                   </div>
+                  <div className="textFlex">
+                    {/* <p>Facebook:</p> <h4><a href="https://facebook.com/buunhut">facebook.com/buunhut</a></h4> */}
+                    <p className='info'><i className="fa-solid fa-globe"></i></p> <h4><a href="http://www.nodejs.edu.vn">nodejs.edu.vn</a></h4>
+                  </div>
+
 
                 </div>
               </div>
