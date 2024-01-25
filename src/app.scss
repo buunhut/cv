@@ -126,7 +126,6 @@ body {
               a {
                 color: black;
                 text-decoration: none;
-                transition: all 0.3s;
                 &:hover {
                   color: royalblue;
                 }
@@ -171,6 +170,9 @@ body {
                   a {
                     color: black;
                     text-decoration: none;
+                    &:hover {
+                      color: royalblue;
+                    }
                   }
                 }
               }
@@ -307,7 +309,6 @@ body.dark {
               a {
                 color: silver;
                 text-decoration: none;
-                transition: all 0.3s;
                 &:hover {
                   color: royalblue;
                 }
@@ -338,6 +339,9 @@ body.dark {
                 a {
                   color: silver;
                   text-decoration: none;
+                  &:hover {
+                    color: royalblue;
+                  }
                 }
               }
             }
