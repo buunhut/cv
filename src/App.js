@@ -120,7 +120,7 @@ function App() {
               </div>
               <div className="info">
                 <p>
-                  I am a fesher full-stake web developer, full of enthusiasm and responsibility for my work. Eager to learn and absorb new knowledge to improve my skills. My hard work and dedication will contribute positively to any project I am involved in.
+                  I am a fesher full-stack web developer, full of enthusiasm and responsibility for my work. Eager to learn and absorb new knowledge to improve my skills. My hard work and dedication will contribute positively to any project I am involved in.
                 </p>
 
               </div>
