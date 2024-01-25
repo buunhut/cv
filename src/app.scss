@@ -13,10 +13,10 @@ body {
       background-color: orangered;
       position: sticky;
       top: 0;
-      .content {
+      div.content {
         width: 1140px;
         margin: 0 auto;
-        padding: 10px 40px;
+        padding: 5px 40px;
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -34,7 +34,7 @@ body {
           button {
             background-color: white;
             color: orangered;
-            padding: 3px 5px;
+            padding: 0px 5px;
             border: none;
             border-radius: 6px;
             font-weight: 600;
@@ -159,17 +159,27 @@ body {
               .textFlex {
                 margin-bottom: 3px;
                 display: flex;
+                align-items: center;
                 gap: 10px;
                 p {
                   width: 140px;
+                  // padding-top: 3px;
                 }
                 h4 {
                   width: 100%;
                   font-weight: 400;
+                  line-height: 1.6;
                   a {
                     color: black;
                     text-decoration: none;
                     &:hover {
+                      color: royalblue;
+                    }
+                  }
+                  b{
+                    display: block;
+                    margin: 5px 0;
+                    a.link {
                       color: royalblue;
                     }
                   }
@@ -222,7 +232,7 @@ body {
       gap: 5px;
       input {
         width: 100%;
-        height: 28px;
+        height: 32px;
         padding: 0 3px;
         outline: none;
         border: none;
@@ -241,7 +251,7 @@ body {
     }
     button {
       width: 100%;
-      height: 28px;
+      height: 32px;
       margin-top: 5px;
       text-align: center;
       background-color: orangered;
@@ -261,25 +271,28 @@ body {
     }
   }
 }
+
 body.dark {
   background-color: rgb(55, 55, 55);
   #app {
     header {
       background-color: rgb(50, 50, 50);
-      div {
+      div.content {
+        h3 {
+          color: rgb(190, 190, 190);
+        }
         button {
           background-color: rgb(55, 55, 55);
           border: 1px solid silver;
-
-          color: silver;
+          color: rgb(130, 130, 130);
           i {
-            color: silver;
+            color: rgb(130, 130, 130);
           }
         }
       }
 
       p {
-        color: silver;
+        color: rgb(130, 130, 130);
       }
       //   i {
       //     color: silver;
@@ -294,19 +307,19 @@ body.dark {
       }
       .title {
         h2 {
-          color: rgb(240, 240, 240);
+          color: rgb(190, 190, 190);
         }
       }
       .info {
         .text {
           .textFlex {
             p {
-              color: silver;
+              color: rgb(130, 130, 130);
             }
             h4 {
-              color: silver;
+              color: rgb(130, 130, 130);
               a {
-                color: silver;
+                color: rgb(130, 130, 130);
                 text-decoration: none;
                 &:hover {
                   color: royalblue;
@@ -316,27 +329,27 @@ body.dark {
           }
         }
         p {
-          color: silver;
+          color: rgb(130, 130, 130);
         }
       }
       h3 {
-        color: silver;
+        color: rgb(130, 130, 130);
       }
       ul {
         li {
-          color: silver;
+          color: rgb(130, 130, 130);
         }
 
         .skills {
           .text {
             .textFlex {
               p {
-                color: silver;
+                color: rgb(130, 130, 130);
               }
               h4 {
-                color: silver;
+                color: rgb(130, 130, 130);
                 a {
-                  color: silver;
+                  color: rgb(130, 130, 130);
                   text-decoration: none;
                   &:hover {
                     color: royalblue;
@@ -346,7 +359,7 @@ body.dark {
             }
           }
           p {
-            color: silver;
+            color: rgb(130, 130, 130);
           }
         }
       }

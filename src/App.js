@@ -167,7 +167,7 @@ function App() {
                   <div className="skills">
                     <div className="text">
                       <div className="textFlex">
-                        <p>Fontend:</p> <h4>ReactJS, JavaScript, HTML-5, CSS-3, SCSS, ...</h4>
+                        <p>Fontend:</p> <h4>ReactJS, JavaScript, HTML-5, CSS-3, SCSS,...</h4>
                       </div>
                     </div>
                   </div>
@@ -177,7 +177,7 @@ function App() {
                   <div className="skills">
                     <div className="text">
                       <div className="textFlex">
-                        <p>Backend:</p> <h4>NodeJS, NestJS, ExpressJS, MySQL, Docker, VPS, Hosting, Domain,  ...</h4>
+                        <p>Backend:</p> <h4>NodeJS, NestJS, ExpressJS, RESTful API, Swagger, MySQL, Docker, VPS, Hosting, Domain,...</h4>
                       </div>
                     </div>
                   </div>
@@ -188,7 +188,7 @@ function App() {
                   <div className="skills">
                     <div className="text">
                       <div className="textFlex">
-                        <p>Libraries:</p> <h4>Axios, Redux, Prisma, Sequelize, Ant-design, Tailwind, BootStrap, ...</h4>
+                        <p>Libraries:</p> <h4>Ant-design, Tailwind, BootStrap, Axios, Redux, Prisma, Sequelize,...</h4>
                       </div>
                     </div>
                   </div>
@@ -228,22 +228,29 @@ function App() {
                   <div className="skills">
                     <div className="text">
                       <div className="textFlex">
-                        <p>Shop-online:</p> <h4><a href="http://bachhoahanhan.com">http://bachhoahanhan.com</a></h4>
+                        <h4>
+                          Online, offline Sales website <i>(code by customer requirements)).</i>
+                          <b>User interface:</b>
+                          + Sign in, login, logout, order. <br></br>
+                          + Search products. <br></br>
+                          + Add to cart, increase or decrease quantity, delete from cart. <br></br>
+                          + Confirm orders, cancel orders, track status. <br></br>
+                          + Accumulated amount, paid by accumulated wallet. <br></br>
+                          <b>Admin interface:</b>
+                          + Create products <i>(add, edit, delete, manage: import price, selling price, discount, unit, inventory, order limit,...).</i> <br></br>
+                          + Online orders management: process orders, change status, select delivery staff, automatically subtract or add inventory,,... <br></br>
+                          + Offline sales management: importing goods, exporting goods, payment suggestions, adding and subtracting inventory,... <br></br>
+                          + Debt management: revenue reporting by date, customer, product,... <br></br>
+                          + Parnerts management: manage suppliers, customers, and employees. <br></br>
+                          + Configuration: temporary off, shipping fee, customer refund percentage,...
+                          <b>Link: <a href="http://bachhoahanhan.com" className='link'>http://bachhoahanhan.com</a> <br></br></b>
+                          + Code both fontend and backend alone by my-self <br></br>
+                          + <i>((Pushed srouce to github, bought domain name and rented one VPS. Deployed on VPS and given to customers for use)).</i>
+                        </h4>
                       </div>
                     </div>
                   </div>
-
                 </li>
-                {/* <li>
-              <div className="skills">
-                <div className="text">
-                  <div className="textFlex">
-                    <p>shop-online</p> <h4><a href="http://congtythuanphat.com/dangnhap">http://congthuanphat.com</a></h4>
-                  </div>
-                </div>
-              </div>
-
-            </li> */}
               </ul>
 
 
@@ -394,7 +401,7 @@ function App() {
                   <div className="skills">
                     <div className="text">
                       <div className="textFlex">
-                        <p>Fontend:</p> <h4>ReactJS, JavaScript, HTML-5, CSS-3, SCSS, ...,</h4>
+                        <p>Fontend:</p> <h4>ReactJS, JavaScript, HTML-5, CSS-3, SCSS,...</h4>
                       </div>
                     </div>
                   </div>
@@ -404,7 +411,7 @@ function App() {
                   <div className="skills">
                     <div className="text">
                       <div className="textFlex">
-                        <p>Backend:</p> <h4>NodeJS, NestJS, ExpressJS, MySQL, Docker, VPS, Hosting, Domain, ...,</h4>
+                        <p>Backend:</p> <h4>NodeJS, NestJS, ExpressJS, RESTful API, Swagger, MySQL, Docker, VPS, Hosting, Domain,...</h4>
                       </div>
                     </div>
                   </div>
@@ -414,7 +421,7 @@ function App() {
                   <div className="skills">
                     <div className="text">
                       <div className="textFlex">
-                        <p>Libraries:</p> <h4>Axios, Redux, Prisma, Sequelize, Ant-design, Tailwind, BootStrap, ...,</h4>
+                        <p>Libraries:</p> <h4>Ant-design, Tailwind, BootStrap, Axios, Redux, Prisma, Sequelize,...</h4>
                       </div>
                     </div>
                   </div>
@@ -459,11 +466,28 @@ function App() {
                   <div className="skills">
                     <div className="text">
                       <div className="textFlex">
-                        <p>Web bán hàng:</p> <h4><a href="http://bachhoahanhan.com">http://bachhoahanhan.com</a></h4>
+                        <h4>
+                          Web bán hàng online, offline <i>(Viết theo yêu cầu của khách hàng).</i>
+                          <b>Giao diện người dùng:</b>
+                          + Đăng ký tài khoản, đăng nhập, đăng xuất, đặt hàng. <br></br>
+                          + Tìm kiếm sản phẩm. <br></br>
+                          + Thêm sản phẩm vào giỏ hàng, tăng giảm số lượng, xoá khỏi giỏ hàng. <br></br>
+                          + Xác nhận đơn, huỷ đơn, theo dõi trạng thái. <br></br>
+                          + Số tiền tích luỹ, thanh toán bằng ví tích luỹ. <br></br>
+                          <b>Giao diện quản lý:</b>
+                          + Tạo sản phẩm <i>(thêm, sửa, xoá, quản lý: giá nhập, giá bán, giá giảm, đơn vị tính, tồn kho, giới hạn đặt hàng,...).</i> <br></br>
+                          + Quản lý đơn hàng online: xử lý đơn, chuyển trạng thái, chọn nhân viên giao hàng, tự động trừ kho hoặc cộng kho,... <br></br>
+                          + Bán hàng offline: nhập hàng, xuất hàng, gợi ý thanh toán, cộng trừ kho,... <br></br>
+                          + Quản lý công nợ, báo cáo danh thu theo ngày tháng, khách hàng, sản phẩm,... <br></br>
+                          + Quản lý nhà cung cấp, khách hàng, nhân viên. <br></br>
+                          + Cấu hình: tạm tắt shop, phí vận chuyển, phần trăm tiền hoàn cho khách,...
+                          <b>Link: <a href="http://bachhoahanhan.com" className='link'>http://bachhoahanhan.com</a> <br></br></b>
+                          + Một mình viết cả fontent và backend. <br></br>
+                          + <i>(Đã đẩy src lên github, mua tên miền và thuê VPS. Triển khai trên VPS và đã bàn giao cho khách hàng sử dụng).</i>
+                        </h4>
                       </div>
                     </div>
                   </div>
-
                 </li>
               </ul>
 
