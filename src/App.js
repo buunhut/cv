@@ -90,15 +90,19 @@ function App() {
                   </div>
                   <div className="textFlex">
                     {/* <p>Phone:</p> <h4>(+84) 909 240 886</h4> */}
-                    <p className='info'><i className="fa-solid fa-phone"></i></p> <h4>(+84) 909 240 886</h4>
+                    <p className='info'><i className="fa-solid fa-phone"></i></p> <h4><a href="tel:+84909240886">(+84) 909 240 886</a></h4>
                   </div>
                   <div className="textFlex">
                     {/* <p>Email:</p> <h4>nhut.nta@gmail.com</h4> */}
-                    <p className='info'><i className="fa-solid fa-envelope"></i></p> <h4>nhut.nta@gmail.com</h4>
+                    <p className='info'><i className="fa-solid fa-envelope"></i></p> <h4><a href="mailto:nhut.nta@gmail.com">nhut.nta@gmail.com</a></h4>
                   </div>
                   <div className="textFlex">
                     {/* <p>Facebook:</p> <h4><a href="https://facebook.com/buunhut">facebook.com/buunhut</a></h4> */}
                     <p className='info'><i className="fa-brands fa-facebook"></i></p> <h4><a href="https://facebook.com/buunhut">facebook.com/buunhut</a></h4>
+                  </div>
+                  <div className="textFlex">
+                    {/* <p>Facebook:</p> <h4><a href="https://facebook.com/buunhut">facebook.com/buunhut</a></h4> */}
+                    <p className='info'><i className="fa-solid fa-globe"></i></p> <h4><a href="http://www.nodejs.edu.vn">nodejs.edu.vn</a></h4>
                   </div>
 
                 </div>
