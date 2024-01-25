@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
 import './app.scss';
+import { QRCode, Space } from 'antd';
+
 
 function App() {
   const [dark, setDark] = useState(false);
@@ -35,6 +37,9 @@ function App() {
     const formLogin = document.getElementById('formLogin').classList.toggle('trans0')
     window.scrollTo(0, 0);
   }
+
+  //qr code
+
 
 
   return (
@@ -74,6 +79,11 @@ function App() {
               <div className="info">
                 <div className="photo">
                   <img src="img/photo.png" alt="3x4" />
+                  {/* qr code */}
+                  <Space className='qrCode'>
+                    <QRCode value={'http://nodejs.edu.vn'} />
+                  </Space>
+
                 </div>
                 <div className='text'>
                   <div className="textFlex">
@@ -307,6 +317,11 @@ function App() {
               <div className="info">
                 <div className="photo">
                   <img src="img/photo.png" alt="3x4" />
+                  {/* qr code */}
+                  <Space className='qrCode'>
+                    <QRCode value={'http://nodejs.edu.vn'} />
+                  </Space>
+
                 </div>
                 <div className='text'>
                   <div className="textFlex">
@@ -520,9 +535,9 @@ function App() {
           </div>
         )
       }
+
+
       <div className={overlay ? 'overlay' : ''} onClick={handleEdit}>
-
-
       </div>
       <div id='formLogin'>
         <form action="">
