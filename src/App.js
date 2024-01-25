@@ -245,7 +245,7 @@ function App() {
                           + Configuration: temporary off, shipping fee, customer refund percentage,...
                           <b>Link: <a href="http://bachhoahanhan.com" className='link'>http://bachhoahanhan.com</a> <br></br></b>
                           + Code both fontend and backend alone by my-self <br></br>
-                          + <i>((Pushed srouce to github, bought domain name and rented one VPS. Deployed on VPS and given to customers for use)).</i>
+                          + <i>(Pushed srouce to github, bought domain name and rented one VPS. Deployed on VPS and given to customers for use).</i>
                         </h4>
                       </div>
                     </div>
