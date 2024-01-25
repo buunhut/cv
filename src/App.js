@@ -183,21 +183,12 @@ function App() {
                   </div>
 
                 </li>
-                <li>
-                  <div className="skills">
-                    <div className="text">
-                      <div className="textFlex">
-                        <p>Framework:</p> <h4>Axios, Redux, Prisma, Sequelize, ...</h4>
-                      </div>
-                    </div>
-                  </div>
 
-                </li>
                 <li>
                   <div className="skills">
                     <div className="text">
                       <div className="textFlex">
-                        <p>Lirbary:</p> <h4>Ant-design, Tailwind, BootStrap, ...</h4>
+                        <p>Libraries:</p> <h4>Axios, Redux, Prisma, Sequelize, Ant-design, Tailwind, BootStrap, ...</h4>
                       </div>
                     </div>
                   </div>
@@ -265,7 +256,7 @@ function App() {
               </div>
               <div className="info">
                 <p>
-                  I am looking for this intern position in order to improve my web development skills. Thank you very much for checking out my CV, I hope to receive your results as soon as possible.
+                  I am looking for this intern position in order to improve my web development skills. Thank you very much for checking out my CV. I hope to receive your results as soon as possible.
                 </p>
 
               </div>
@@ -423,7 +414,7 @@ function App() {
                   <div className="skills">
                     <div className="text">
                       <div className="textFlex">
-                        <p>Framework:</p> <h4>Axios, Redux, Prisma, Sequelize, ...,</h4>
+                        <p>Libraries:</p> <h4>Axios, Redux, Prisma, Sequelize, Ant-design, Tailwind, BootStrap, ...,</h4>
                       </div>
                     </div>
                   </div>
@@ -433,17 +424,7 @@ function App() {
                   <div className="skills">
                     <div className="text">
                       <div className="textFlex">
-                        <p>Lirbary:</p> <h4>Ant-design, Tailwind, BootStrap, ...,</h4>
-                      </div>
-                    </div>
-                  </div>
-
-                </li>
-                <li>
-                  <div className="skills">
-                    <div className="text">
-                      <div className="textFlex">
-                        <p>English:</p> <h4>Tiếng Anh giao tiếp cơ bản, đọc hiểu tài liệu kỹ thuật.</h4>
+                        <p>Tiếng Anh:</p> <h4>Tiếng Anh giao tiếp cơ bản, đọc hiểu tài liệu kỹ thuật.</h4>
                       </div>
                     </div>
                   </div>
