@@ -424,7 +424,7 @@ function App() {
                   <div className="skills">
                     <div className="text">
                       <div className="textFlex">
-                        <p>Tiếng Anh:</p> <h4>Tiếng Anh giao tiếp cơ bản, đọc hiểu tài liệu kỹ thuật.</h4>
+                        <p>Tiếng Anh:</p> <h4>Giao tiếp cơ bản, đọc hiểu tài liệu kỹ thuật.</h4>
                       </div>
                     </div>
                   </div>
