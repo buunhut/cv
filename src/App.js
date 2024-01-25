@@ -167,7 +167,7 @@ function App() {
                   <div className="skills">
                     <div className="text">
                       <div className="textFlex">
-                        <p>Fontend:</p> <h4>ReactJS, JavaScript, HTML-5, CSS-3, SCSS, Responsive...</h4>
+                        <p>Fontend:</p> <h4>ReactJS, JavaScript, HTML-5, CSS-3, SCSS, Responsive,...</h4>
                       </div>
                     </div>
                   </div>
