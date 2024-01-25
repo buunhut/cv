@@ -492,12 +492,12 @@ function App() {
             <main>
               <div className="title">
                 <h2>
-                  <i className="fa-solid fa-face-smile"></i> Mong muốn
+                  <i className="fa-solid fa-face-smile"></i> Mong Muốn
                 </h2>
               </div>
               <div className="info">
                 <p>
-                  Tôi đang tìm việc thực tập để cải thiện kỹ năng. Cảm ơn bạn đã xem hồ sơ của tôi, Hy vọng sớm nhận được phản hồi của bạn. Cảm ơn!
+                  Tôi đang tìm việc thực tập để cải thiện kỹ năng. Cảm ơn bạn đã xem hồ sơ của tôi. Hy vọng sớm nhận được phản hồi của bạn. Cảm ơn!
                 </p>
 
               </div>
