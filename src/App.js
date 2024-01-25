@@ -229,7 +229,7 @@ function App() {
                     <div className="text">
                       <div className="textFlex">
                         <h4>
-                          Online, offline Sales website <i>(code by customer requirements)).</i>
+                          Online, offline Sales website <i>(code by customer requirements).</i>
                           <b>User interface:</b>
                           + Sign in, login, logout, order. <br></br>
                           + Search products. <br></br>
