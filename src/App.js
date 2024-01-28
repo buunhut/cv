@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import './app.scss';
-import { QRCode, Space, Tooltip } from 'antd';
+import { QRCode, Space } from 'antd';
 
 
 function App() {
@@ -8,7 +8,6 @@ function App() {
   const [en, setEn] = useState(true)
   const [overlay, setOverlay] = useState(false)
   const [showPass, setShowPass] = useState(false)
-
   useEffect(() => {
     const storedDarkMode = JSON.parse(localStorage.getItem('darkMode'));
     if (storedDarkMode !== null) {
@@ -19,12 +18,12 @@ function App() {
       }
       setDark(storedDarkMode)
     }
+    //lượt truy cập
+    console.log("lượt truy cập")
   }, []); //chạy 1 lần 
-
   //chuyển ngôn ngữ
   const handleLangue = () => {
     setEn(!en);
-
   };
   //chuyển mode
   const handleDarkMode = () => {
@@ -32,22 +31,15 @@ function App() {
     localStorage.setItem('darkMode', JSON.stringify(!dark));
     document.body.classList.toggle('dark')
   };
-
   const handleEdit = () => {
     setOverlay(!overlay)
     const formLogin = document.getElementById('formLogin').classList.toggle('trans0')
     window.scrollTo(0, 0);
   }
-
-  //qr code
-
-
-
   return (
     <>
       {
         en ? (
-
           <div id="app">
             <header>
               <div className="content">
@@ -57,29 +49,19 @@ function App() {
                 <div>
                   {
                     en ? (
-                      // <Tooltip placement="bottom" title={'Vietnamese'} color={dark ? 'rgb(36, 36, 40)' : 'orangered'}>
                       <button onClick={handleLangue}>VN</button>
-                      // </Tooltip>
-
                     ) : (
-                      // <Tooltip placement="bottom" title={'English'} color={dark ? 'rgb(36, 36, 40)' : 'orangered'} >
                       <button onClick={handleLangue}>EN</button>
-                      // </Tooltip>
                     )
                   }
                   {dark ? (
-
-                    // <Tooltip placement="bottom" title={'Light theme'} color={dark ? 'rgb(36, 36, 40)' : 'orangered'}>
                     <button onClick={handleDarkMode}>
                       <i className="fa-regular fa-sun"></i>
                     </button>
-                    // </Tooltip>
                   ) : (
-                    // <Tooltip placement="bottom" title={'Dark theme'} color={dark ? 'rgb(36, 36, 40)' : 'orangered'}>
                     <button onClick={handleDarkMode}>
                       <i className="fa-regular fa-moon"></i>
                     </button>
-                    // </Tooltip>
                   )
                   }
                 </div>
@@ -98,44 +80,34 @@ function App() {
                   <Space className='qrCode'>
                     <QRCode value={'http://nodejs.edu.vn'} />
                   </Space>
-
                 </div>
                 <div className='text'>
                   <div className="textFlex">
-                    {/* <p>Full name:</p> <h4>Truong Buu Nhut</h4> */}
                     <p className='info'><i className="fa-solid fa-user"></i></p> <h4>Truong Buu Nhut</h4>
                   </div>
                   <div className="textFlex">
-                    {/* <p>Birthday:</p> <h4>24/08/1986</h4> */}
                     <p className='info'><i className="fa-regular fa-calendar-days"></i></p> <h4>24/08/1986</h4>
                   </div>
                   <div className="textFlex">
-                    {/* <p>Address:</p> <h4>Binh Tan District, Ho Chi Minh City, VietNam</h4> */}
                     <p className='info'><i className="fa-solid fa-location-dot"></i></p> <h4>Binh Tan District, Ho Chi Minh City, VietNam</h4>
                   </div>
                   <div className="textFlex">
-                    {/* <p>Phone:</p> <h4>(+84) 909 240 886</h4> */}
                     <p className='info'><i className="fa-solid fa-phone"></i></p> <h4><a href="tel:+84909240886">(+84) 909 240 886</a></h4>
                   </div>
                   <div className="textFlex">
-                    {/* <p>Email:</p> <h4>nhut.nta@gmail.com</h4> */}
                     <p className='info'><i className="fa-solid fa-envelope"></i></p> <h4><a href="mailto:nhut.nta@gmail.com">nhut.nta@gmail.com</a></h4>
                   </div>
                   <div className="textFlex">
-                    {/* <p>Facebook:</p> <h4><a href="https://facebook.com/buunhut">facebook.com/buunhut</a></h4> */}
                     <p className='info'><i className="fa-brands fa-facebook"></i></p> <h4><a href="https://facebook.com/buunhut">facebook.com/buunhut</a></h4>
                   </div>
                   <div className="textFlex">
-                    {/* <p>Facebook:</p> <h4><a href="https://facebook.com/buunhut">facebook.com/buunhut</a></h4> */}
                     <p className='info'><i className="fa-solid fa-globe"></i></p> <h4><a href="http://www.nodejs.edu.vn">nodejs.edu.vn</a></h4>
                   </div>
-
                 </div>
               </div>
               <h3>
                 Web Developer
               </h3>
-
             </main>
             <main>
               <div className="title">
@@ -147,7 +119,6 @@ function App() {
                 <p>
                   I am a fesher full-stack web developer, full of enthusiasm and responsibility for my work. Eager to learn and absorb new knowledge to improve my skills. My hard work and dedication will contribute positively to any project I am involved in.
                 </p>
-
               </div>
             </main>
             <main>
@@ -165,7 +136,6 @@ function App() {
                       </div>
                     </div>
                   </div>
-
                 </li>
                 <li>
                   <div className="skills">
@@ -175,11 +145,8 @@ function App() {
                       </div>
                     </div>
                   </div>
-
                 </li>
               </ul>
-
-
             </main>
             <main>
               <div className="title">
@@ -196,7 +163,6 @@ function App() {
                       </div>
                     </div>
                   </div>
-
                 </li>
                 <li>
                   <div className="skills">
@@ -206,9 +172,7 @@ function App() {
                       </div>
                     </div>
                   </div>
-
                 </li>
-
                 <li>
                   <div className="skills">
                     <div className="text">
@@ -217,7 +181,6 @@ function App() {
                       </div>
                     </div>
                   </div>
-
                 </li>
                 <li>
                   <div className="skills">
@@ -227,20 +190,8 @@ function App() {
                       </div>
                     </div>
                   </div>
-
                 </li>
-                {/* <li>
-              <div className="skills">
-                <div className="text">
-                  <div className="textFlex">
-                    <p>Support</p> <h4>Chat GPT.</h4>
-                  </div>
-                </div>
-              </div>
-
-            </li> */}
               </ul>
-
             </main>
             <main>
               <div className="title">
@@ -277,8 +228,6 @@ function App() {
                   </div>
                 </li>
               </ul>
-
-
             </main>
             <main>
               <div className="title">
@@ -290,7 +239,6 @@ function App() {
                 <p>
                   I am looking for this intern position in order to improve my web development skills. Thank you very much for checking out my CV. I hope to receive your results as soon as possible.
                 </p>
-
               </div>
             </main>
             <footer>
@@ -309,29 +257,19 @@ function App() {
                 <div>
                   {
                     en ? (
-                      // <Tooltip placement="bottom" title={'Tiếng Việt'} color={dark ? 'rgb(36, 36, 40)' : 'orangered'} >
                       <button onClick={handleLangue}>VN</button>
-                      // </Tooltip>
-
                     ) : (
-                      // <Tooltip placement="bottom" title={'Tiếng Anh'} color={dark ? 'rgb(36, 36, 40)' : 'orangered'}  >
                       <button onClick={handleLangue}>EN</button>
-                      // </Tooltip>
                     )
                   }
                   {dark ? (
-                    // <Tooltip placement="bottom" title={'Giao diện sáng'} color={dark ? 'rgb(36, 36, 40)' : 'orangered'}  >
                     <button onClick={handleDarkMode}>
                       <i className="fa-regular fa-sun"></i>
                     </button>
-                    // </Tooltip>
                   ) : (
-                    // <Tooltip placement="bottom" title={'Giao diện tối'} color={dark ? 'rgb(36, 36, 40)' : 'orangered'}  >
-
                     <button onClick={handleDarkMode}>
                       <i className="fa-regular fa-moon"></i>
                     </button>
-                    // </Tooltip>
                   )}
                 </div>
               </div>
@@ -349,45 +287,34 @@ function App() {
                   <Space className='qrCode'>
                     <QRCode value={'http://nodejs.edu.vn'} />
                   </Space>
-
                 </div>
                 <div className='text'>
                   <div className="textFlex">
-                    {/* <p>Full name:</p> <h4>Truong Buu Nhut</h4> */}
                     <p className='info'><i className="fa-solid fa-user"></i></p> <h4>Trương Bửu Nhựt</h4>
                   </div>
                   <div className="textFlex">
-                    {/* <p>Birthday:</p> <h4>24/08/1986</h4> */}
                     <p className='info'><i className="fa-regular fa-calendar-days"></i></p> <h4>24/08/1986</h4>
                   </div>
                   <div className="textFlex">
-                    {/* <p>Address:</p> <h4>Binh Tan District, Ho Chi Minh City, VietNam</h4> */}
                     <p className='info'><i className="fa-solid fa-location-dot"></i></p> <h4>Quận Bình Tân, Thành Phố Hồ Chí Minh, Việt Nam</h4>
                   </div>
                   <div className="textFlex">
-                    {/* <p>Phone:</p> <h4>(+84) 909 240 886</h4> */}
                     <p className='info'><i className="fa-solid fa-phone"></i></p> <h4><a href="tel:+84909240886">(+84) 909 240 886</a></h4>
                   </div>
                   <div className="textFlex">
-                    {/* <p>Email:</p> <h4>nhut.nta@gmail.com</h4> */}
                     <p className='info'><i className="fa-solid fa-envelope"></i></p> <h4><a href="mailto:nhut.nta@gmail.com">nhut.nta@gmail.com</a></h4>
                   </div>
                   <div className="textFlex">
-                    {/* <p>Facebook:</p> <h4><a href="https://facebook.com/buunhut">facebook.com/buunhut</a></h4> */}
                     <p className='info'><i class="fa-brands fa-facebook"></i></p> <h4><a href="https://facebook.com/buunhut">facebook.com/buunhut</a></h4>
                   </div>
                   <div className="textFlex">
-                    {/* <p>Facebook:</p> <h4><a href="https://facebook.com/buunhut">facebook.com/buunhut</a></h4> */}
                     <p className='info'><i className="fa-solid fa-globe"></i></p> <h4><a href="http://www.nodejs.edu.vn">nodejs.edu.vn</a></h4>
                   </div>
-
-
                 </div>
               </div>
               <h3>
                 Lập Trình Viên Web
               </h3>
-
             </main>
             <main>
               <div className="title">
@@ -399,7 +326,6 @@ function App() {
                 <p>
                   Tôi là một lập trình viên mới, đầy nhiệt huyết và trách nhiệm với công việc. Ham học hỏi tiếp thu những kiến thức mới để nâng cao kỹ năng của bản thân. Sự chăm chỉ và tận tâm của tôi sẽ đóng góp tích cực vào bất kỳ dự án nào tôi tham gia.
                 </p>
-
               </div>
             </main>
             <main>
@@ -417,7 +343,6 @@ function App() {
                       </div>
                     </div>
                   </div>
-
                 </li>
                 <li>
                   <div className="skills">
@@ -427,11 +352,8 @@ function App() {
                       </div>
                     </div>
                   </div>
-
                 </li>
               </ul>
-
-
             </main>
             <main>
               <div className="title">
@@ -448,7 +370,6 @@ function App() {
                       </div>
                     </div>
                   </div>
-
                 </li>
                 <li>
                   <div className="skills">
@@ -458,7 +379,6 @@ function App() {
                       </div>
                     </div>
                   </div>
-
                 </li>
                 <li>
                   <div className="skills">
@@ -468,7 +388,6 @@ function App() {
                       </div>
                     </div>
                   </div>
-
                 </li>
                 <li>
                   <div className="skills">
@@ -478,25 +397,8 @@ function App() {
                       </div>
                     </div>
                   </div>
-
                 </li>
-                {/* <li>
-              <div className="skills">
-                <div className="text">
-                  <div className="textFlex">
-                    <p>Support</p> <h4>Chat GPT.</h4>
-                  </div>
-                </div>
-              </div>
-
-            </li> */}
               </ul>
-
-
-
-
-
-
             </main>
             <main>
               <div className="title">
@@ -552,19 +454,17 @@ function App() {
                 <p>
                   Tôi đang tìm việc thực tập để cải thiện kỹ năng. Cảm ơn bạn đã xem hồ sơ của tôi. Hy vọng sớm nhận được phản hồi của bạn. Cảm ơn!
                 </p>
-
               </div>
             </main>
             <footer>
               <span>
                 truongbuunhut's cv - 2024
               </span>
+              {/* <p><i className="fa-regular fa-eye"></i> 19</p> */}
             </footer>
           </div>
         )
       }
-
-
       <div className={overlay ? 'overlay' : ''} onClick={handleEdit}>
       </div>
       <div id='formLogin'>
@@ -582,9 +482,7 @@ function App() {
           <button type='button'>Login</button>
         </form>
       </div>
-
     </>
   );
 }
-
 export default App;

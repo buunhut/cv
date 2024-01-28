@@ -147,7 +147,7 @@ body {
       h3 {
         width: 200px;
         text-align: center;
-        font-size: 16px;
+        font-size: 20px;
         font-weight: 600;
         color: black;
         margin-top: 10px;
@@ -207,6 +207,10 @@ body {
         color: silver;
         font-size: 13px;
         font-weight: 400;
+      }
+      p {
+        font-size: 12px;
+        color: silver;
       }
     }
   }
@@ -414,30 +418,16 @@ body.dark {
     }
   }
 }
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 786px) {
   body {
-    background-color: whitesmoke;
     #app {
       margin: 0 auto;
       //   padding: 0 10px;
       header {
-        // background-color: orangered;
-        // position: sticky;
-        // top: 0;
-        // left: 0;
-        // right: 0;
         div.content {
           width: 100%;
           margin: 0 auto;
-          padding: 5px 10px;
-
-          //   display: flex;
-          //   align-items: center;
-          //   justify-content: space-between;
-          //   padding: 10px;
-          //   h3 {
-          //     color: white;
-          //   }
+          padding: 6px 10px;
           div {
             display: flex;
             align-items: center;
@@ -473,32 +463,24 @@ body.dark {
         //   border-radius: 0px 20px 0px 20px;
         border-left: 3px solid transparent;
         transition: all 0.5s;
-        //   cursor: pointer;
         &:hover {
           border-left: 3px solid orangered;
         }
         .title {
           h2 {
-            i {
-              // width: 30px;
-              // text-align: center;
-            }
             font-size: 22px;
             color: orangered;
           }
         }
         .info {
           width: 100%;
-          margin: 20px auto 0;
+          margin: 20px auto;
           display: flex;
-          // align-items: center;
           gap: 10px;
           flex-wrap: wrap;
           .photo {
             width: 100%;
             height: 200px;
-            //   background-color: red;
-            //   border: 1px solid silver;
             border-radius: 8px;
             display: flex;
             flex-wrap: wrap;
@@ -506,7 +488,6 @@ body.dark {
               width: 200px;
               height: 200px;
               border-radius: 8px;
-              // margin: 0 auto;
             }
             .qrCode {
               display: none;
@@ -544,58 +525,16 @@ body.dark {
         }
         h3 {
           width: 100%;
-          //   text-align: center;
           font-size: 24px;
           border-top: 1px solid silver;
           padding-top: 5px;
-
-          //   font-weight: 600;
-          //   color: black;
-          //   margin-top: 10px;
         }
         ul {
           margin-left: 18px;
-          //   li {
-          //     .skills {
-          //       width: 100%;
-          //       margin: 20px auto;
-          //       display: flex;
-          //       gap: 10px;
-          //       .text {
-          //         width: 100%;
-          //         font-size: 18px;
-          //         .textFlex {
-          //           margin-bottom: 3px;
-          //           display: flex;
-          //           gap: 10px;
-          //           p {
-          //             width: 120px;
-          //           }
-          //           h4 {
-          //             width: 100%;
-          //             font-weight: 400;
-          //             a {
-          //               color: black;
-          //               text-decoration: none;
-          //             }
-          //           }
-          //         }
-          //       }
-          //     }
-          //   }
         }
       }
       footer {
         width: 100%;
-        // margin: 20px auto;
-        // padding: 20px 40px 0;
-        // text-align: center;
-        // span {
-        //   text-align: center;
-        //   color: silver;
-        //   font-size: 13px;
-        //   font-weight: 400;
-        // }
       }
     }
   }
@@ -619,12 +558,6 @@ body.dark {
         p {
           color: silver;
         }
-        //   i {
-        //     color: silver;
-        //     &:hover {
-        //       color: purple;
-        //     }
-        //   }
       }
       main {
         &:hover {
