@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import './app.scss';
-import { QRCode, Space } from 'antd';
+import { QRCode, Space, Image } from 'antd';
 
 
 function App() {
@@ -43,9 +43,9 @@ function App() {
           <div id="app">
             <header>
               <div className="content">
-                <h3>My CV <i className="fa-regular fa-pen-to-square"
+                <h3><i className="fa-regular fa-pen-to-square"
                   onClick={handleEdit}
-                ></i></h3>
+                ></i> My CV</h3>
                 <div>
                   {
                     en ? (
@@ -75,7 +75,11 @@ function App() {
               </div>
               <div className="info">
                 <div className="photo">
-                  <img src="img/photo.png" alt="3x4" />
+                  {/* <img src="img/photo.png" alt="3x4" /> */}
+                  <Image
+                    width={400}
+                    src="img/photo.png"
+                  />
                   {/* qr code */}
                   <Space className='qrCode'>
                     <QRCode value={'http://nodejs.edu.vn'} />
@@ -251,9 +255,9 @@ function App() {
           <div id="app">
             <header>
               <div className="content">
-                <h3>Hồ Sơ Của Tôi <i className="fa-regular fa-pen-to-square"
+                <h3><i className="fa-regular fa-pen-to-square"
                   onClick={handleEdit}
-                ></i></h3>
+                ></i> Hồ Sơ Của Tôi </h3>
                 <div>
                   {
                     en ? (
