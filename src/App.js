@@ -75,11 +75,7 @@ function App() {
               </div>
               <div className="info">
                 <div className="photo">
-                  {/* <img src="img/photo.png" alt="3x4" /> */}
-                  <Image
-                    width={400}
-                    src="img/photo.png"
-                  />
+                  <img src="img/photo.png" alt="3x4" />
                   {/* qr code */}
                   <Space className='qrCode'>
                     <QRCode value={'http://nodejs.edu.vn'} />
