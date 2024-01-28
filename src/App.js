@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import './app.scss';
-import { QRCode, Space } from 'antd';
+import { QRCode, Space, Tooltip } from 'antd';
 
 
 function App() {
@@ -55,18 +55,32 @@ function App() {
                 ></i></h3>
                 <div>
                   {
-                    en ? (<button type='button' onClick={handleLangue}>VN</button>) : (<button type='button' onClick={handleLangue}>EN</button>)
+                    en ? (
+                      <Tooltip placement="bottom" title={'Vietnamese'} color={dark ? 'rgb(36, 36, 40)' : 'orangered'}>
+                        <button type='button' onClick={handleLangue}>VN</button>
+                      </Tooltip>
+
+                    ) : (
+                      <Tooltip placement="bottom" title={'English'} color={dark ? 'rgb(36, 36, 40)' : 'orangered'} >
+                        <button type='button' onClick={handleLangue}>EN</button>
+                      </Tooltip>
+                    )
                   }
                   {dark ? (
 
-                    <button type='button' onClick={handleDarkMode}>
-                      <i className="fa-regular fa-sun"></i>
-                    </button>
+                    <Tooltip placement="bottom" title={'Light theme'} color={dark ? 'rgb(36, 36, 40)' : 'orangered'}>
+                      <button type='button' onClick={handleDarkMode}>
+                        <i className="fa-regular fa-sun"></i>
+                      </button>
+                    </Tooltip>
                   ) : (
-                    <button type='button' onClick={handleDarkMode}>
-                      <i className="fa-regular fa-moon"></i>
-                    </button>
-                  )}
+                    <Tooltip placement="bottom" title={'Dark theme'} color={dark ? 'rgb(36, 36, 40)' : 'orangered'}>
+
+                      <button type='button' onClick={handleDarkMode}>
+                        <i className="fa-regular fa-moon"></i>
+                      </button>
+                    </Tooltip>)
+                  }
                 </div>
               </div>
             </header>
@@ -293,17 +307,30 @@ function App() {
                 ></i></h3>
                 <div>
                   {
-                    en ? (<button type='button' onClick={handleLangue}>VN</button>) : (<button type='button' onClick={handleLangue}>EN</button>)
+                    en ? (
+                      <Tooltip placement="bottom" title={'Tiếng Việt'} color={dark ? 'rgb(36, 36, 40)' : 'orangered'} >
+                        <button type='button' onClick={handleLangue}>VN</button>
+                      </Tooltip>
+
+                    ) : (
+                      <Tooltip placement="bottom" title={'Tiếng Anh'} color={dark ? 'rgb(36, 36, 40)' : 'orangered'}  >
+                        <button type='button' onClick={handleLangue}>EN</button>
+                      </Tooltip>
+                    )
                   }
                   {dark ? (
-
-                    <button type='button' onClick={handleDarkMode}>
-                      <i className="fa-regular fa-sun"></i>
-                    </button>
+                    <Tooltip placement="bottom" title={'Giao diện sáng'} color={dark ? 'rgb(36, 36, 40)' : 'orangered'}  >
+                      <button type='button' onClick={handleDarkMode}>
+                        <i className="fa-regular fa-sun"></i>
+                      </button>
+                    </Tooltip>
                   ) : (
-                    <button type='button' onClick={handleDarkMode}>
-                      <i className="fa-regular fa-moon"></i>
-                    </button>
+                    <Tooltip placement="bottom" title={'Giao diện tối'} color={dark ? 'rgb(36, 36, 40)' : 'orangered'}  >
+
+                      <button type='button' onClick={handleDarkMode}>
+                        <i className="fa-regular fa-moon"></i>
+                      </button>
+                    </Tooltip>
                   )}
                 </div>
               </div>
