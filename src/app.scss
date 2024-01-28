@@ -51,9 +51,6 @@ body {
 
               cursor: pointer;
               transition: all 0.3s;
-              &:hover {
-                color: purple;
-              }
             }
           }
         }
@@ -461,12 +458,8 @@ body.dark {
                 color: orangered;
                 // font-size: 16px;
                 font-weight: 600;
-
                 cursor: pointer;
                 transition: all 0.3s;
-                &:hover {
-                  color: purple;
-                }
               }
             }
           }
