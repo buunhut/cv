@@ -723,20 +723,14 @@ body.dark {
 
 @media print {
   body {
-    // * {
-    //   color: black !important;
-    // }
-    background-color: white;
-
-    background-color: white;
+    background-color: white !important;
     margin: 0 5px;
     #app {
-      background-color: white;
-
+      background-color: white !important;
       main {
         width: 99%;
         box-shadow: none;
-        background-color: white;
+        background-color: white !important;
         border-bottom: 1px solid silver;
         h2 {
           font-size: 34px !important;
@@ -746,6 +740,11 @@ body.dark {
           font-size: 24px !important;
         }
       }
+    }
+  }
+  body.dark {
+    * {
+      color: black !important;
     }
   }
   header,
