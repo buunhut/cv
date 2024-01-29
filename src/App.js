@@ -243,9 +243,9 @@ function App() {
                     <div className="text">
                       <div className="textFlex">
                         <h4>
-                          <b>1/ My CV</b><br />
+                          <b>1/ My CV</b> <i>(Personal use).</i><br />
                           <b>User interface:</b> <br />
-                          + Show infomation, dark them, light them, English, VietNamese, Print. <br></br>
+                          + Show infomation, dark them, light them, English, Vietnamese, Print CV. <br></br>
                           + Responsive web, amination css. Only code fontend. <br />
                           Link: <a href="http://nodejs.edu.vn" className='link'>http://nodejs.edu.vn</a>
 
@@ -259,7 +259,7 @@ function App() {
                     <div className="text">
                       <div className="textFlex">
                         <h4>
-                          <b>2/ Online, offline Sales website <i>(code by customer requirements).</i></b> <br />
+                          <b>2/ Online, offline Sales website</b> <i>(code by customer requirements).</i> <br />
                           <b>User interface:</b> <br />
                           + Sign in, log in, log out, order. <br></br>
                           + Search products. <br></br>
@@ -268,12 +268,12 @@ function App() {
                           + Accumulated amount, paid by accumulated wallet. <br></br>
                           <b>Admin interface:</b> <br />
                           + Create products <i>(add, edit, delete, manage: import price, selling price, discount, unit, inventory, order limit,...).</i> <br></br>
-                          + Online orders management: process orders, change status, select delivery staff, automatically subtract or add inventory,,... <br></br>
+                          + Online orders management: process orders, change status, select delivery staff, automatically subtract or add inventory,... <br></br>
                           + Offline sales management: importing goods, exporting goods, payment suggestions, adding and subtracting inventory,... <br></br>
                           + Debt management: revenue reporting by date, customer, product,... <br></br>
                           + Parnerts management: manage suppliers, customers, and employees. <br></br>
                           + Configuration: temporary off, shipping fee, customer refund percentage,... <br />
-                          + Code both fontend and backend alone by my-self <br></br>
+                          + Code both fontend and backend alone by my-self. <br></br>
                           + <i>(Pushed srouce to github, bought domain name and rented one VPS. Deployed on VPS and given to customers for use).</i> <br />
                           Link: <a href="http://bachhoahanhan.com" className='link'>http://bachhoahanhan.com</a> <br />
 
@@ -486,7 +486,7 @@ function App() {
                     <div className="text">
                       <div className="textFlex">
                         <h4>
-                          <b>1/ My CV</b> <br />
+                          <b>1/ My CV</b> <i>(Cá nhân).</i> <br />
                           <b>Giao diện người dùng:</b> <br />
                           + Hiển thị thông tin hồ sơ, chuyển giao diện tối, giao diện sáng, chuyển đổi ngôn ngữ tiếng Anh, tiếng Việt, chức năng in hồ sơ. <br></br>
                           + Responsive web, hiệu ứng css. Chỉ viết fontend. <br />
