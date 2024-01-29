@@ -245,7 +245,7 @@ function App() {
                         <h4>
                           Online, offline Sales website <i>(code by customer requirements).</i>
                           <b>User interface:</b>
-                          + Sign in, login, logout, order. <br></br>
+                          + Sign in, log in, log out, order. <br></br>
                           + Search products. <br></br>
                           + Add to cart, increase or decrease quantity, delete from cart. <br></br>
                           + Confirm orders, cancel orders, track status. <br></br>
