@@ -41,6 +41,10 @@ function App() {
     const formLogin = document.getElementById('formLogin').classList.toggle('trans0')
     window.scrollTo(0, 0);
   }
+  const handlePrint = () => {
+    window.print()
+
+  }
   //zalo chat
   const phoneNumber = '0909240886'; // Thay thế bằng số điện thoại của bạn
 
@@ -58,9 +62,14 @@ function App() {
             <header>
               <div className="content">
                 <div>
-                  <h3><i className="fa-regular fa-pen-to-square"
+                  <h3><i className="fa-solid fa-pen-to-square"
                     onClick={handleEdit}
                   ></i></h3>
+                  <h3>
+                    <i className="fa-solid fa-print"
+                      onClick={handlePrint}
+                    ></i>
+                  </h3>
                   <div class="flip-container">
                     <div class="flip-card">
                       <div class="flip-card-inner">
@@ -281,9 +290,14 @@ function App() {
             <header>
               <div className="content">
                 <div>
-                  <h3><i className="fa-regular fa-pen-to-square"
+                  <h3><i className="fa-solid fa-pen-to-square"
                     onClick={handleEdit}
                   ></i></h3>
+                  <h3>
+                    <i className="fa-solid fa-print"
+                      onClick={handlePrint}
+                    ></i>
+                  </h3>
                   <div class="flip-container">
                     <div class="flip-card">
                       <div class="flip-card-inner">
