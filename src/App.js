@@ -37,7 +37,7 @@ function App() {
     window.scrollTo(0, 0);
   }
   //zalo chat
-  const phoneNumber = '0835252527'; // Thay thế bằng số điện thoại của bạn
+  const phoneNumber = '0909240886'; // Thay thế bằng số điện thoại của bạn
 
   const openZaloChat = () => {
     window.open(`https://zalo.me/${phoneNumber}`, '_blank');
@@ -52,8 +52,8 @@ function App() {
             <header>
               <div className="content">
                 <h3><i className="fa-regular fa-pen-to-square"
-                  // onClick={handleEdit}
-                  onClick={openZaloChat}
+                  onClick={handleEdit}
+
                 ></i> My CV</h3>
                 <div>
                   {
@@ -261,8 +261,7 @@ function App() {
             <header>
               <div className="content">
                 <h3><i className="fa-regular fa-pen-to-square"
-                  // onClick={handleEdit}
-                  onClick={openZaloChat}
+                  onClick={handleEdit}
 
                 ></i> Hồ Sơ Của Tôi </h3>
                 <div>
@@ -492,6 +491,11 @@ function App() {
           </div>
           <button type='button'>Login</button>
         </form>
+      </div>
+      <div className='zaloChat'
+        onClick={openZaloChat}
+      >
+        <button>Zalo</button>
       </div>
     </>
   );

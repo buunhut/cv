@@ -286,6 +286,24 @@ body {
       border-color: orangered;
     }
   }
+  .zaloChat {
+    position: fixed;
+    bottom: 50px;
+    right: 20px;
+    button {
+      width: 40px;
+      height: 40px;
+      border: none;
+      border-radius: 50%;
+      background-color: #015bd1d6;
+      font-size: 14px;
+      font-weight: bold;
+      color: white;
+      cursor: pointer;
+      transition: all .3s;
+      animation: zaloChatAnimation 2s infinite; /* 2s là thời gian mỗi chu kỳ, infinite để lặp lại vô hạn */
+    }
+  }
 }
 
 body.dark {
@@ -418,6 +436,7 @@ body.dark {
     }
   }
 }
+
 @media screen and (max-width: 786px) {
   body {
     #app {
@@ -537,6 +556,10 @@ body.dark {
         width: 100%;
       }
     }
+    .zaloChat {
+      right: 15px;
+    }
+  
   }
   body.dark {
     background-color: rgb(55, 55, 55);
@@ -620,3 +643,17 @@ body.dark {
   }
 }
 
+@keyframes zaloChatAnimation {
+  0% {
+    transform: scale(1);
+    background-color: #015bd1d6;
+  }
+  50% {
+    transform: scale(1.2);
+    background-color: rgba(255, 68, 0, 0.8);
+  }
+  100% {
+    background-color: #015bd1d6;
+    transform: scale(1);
+  }
+}
