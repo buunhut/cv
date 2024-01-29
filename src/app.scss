@@ -300,7 +300,7 @@ body {
       font-weight: bold;
       color: white;
       cursor: pointer;
-      transition: all .3s;
+      transition: all 0.3s;
       animation: zaloChatAnimation 2s infinite; /* 2s là thời gian mỗi chu kỳ, infinite để lặp lại vô hạn */
     }
   }
@@ -557,9 +557,9 @@ body.dark {
       }
     }
     .zaloChat {
+      bottom: 40px;
       right: 15px;
     }
-  
   }
   body.dark {
     background-color: rgb(55, 55, 55);
