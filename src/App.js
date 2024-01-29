@@ -243,23 +243,40 @@ function App() {
                     <div className="text">
                       <div className="textFlex">
                         <h4>
-                          Online, offline Sales website <i>(code by customer requirements).</i>
-                          <b>User interface:</b>
+                          <b>1/ My CV</b><br />
+                          <b>User interface:</b> <br />
+                          + Show infomation, dark them, light them, English, VietNamese, Print. <br></br>
+                          + Responsive web, amination css. Only code fontend. <br />
+                          Link: <a href="http://nodejs.edu.vn" className='link'>http://nodejs.edu.vn</a>
+
+                        </h4>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div className="skills">
+                    <div className="text">
+                      <div className="textFlex">
+                        <h4>
+                          <b>2/ Online, offline Sales website <i>(code by customer requirements).</i></b> <br />
+                          <b>User interface:</b> <br />
                           + Sign in, log in, log out, order. <br></br>
                           + Search products. <br></br>
                           + Add to cart, increase or decrease quantity, delete from cart. <br></br>
                           + Confirm orders, cancel orders, track status. <br></br>
                           + Accumulated amount, paid by accumulated wallet. <br></br>
-                          <b>Admin interface:</b>
+                          <b>Admin interface:</b> <br />
                           + Create products <i>(add, edit, delete, manage: import price, selling price, discount, unit, inventory, order limit,...).</i> <br></br>
                           + Online orders management: process orders, change status, select delivery staff, automatically subtract or add inventory,,... <br></br>
                           + Offline sales management: importing goods, exporting goods, payment suggestions, adding and subtracting inventory,... <br></br>
                           + Debt management: revenue reporting by date, customer, product,... <br></br>
                           + Parnerts management: manage suppliers, customers, and employees. <br></br>
-                          + Configuration: temporary off, shipping fee, customer refund percentage,...
-                          <b>Link: <a href="http://bachhoahanhan.com" className='link'>http://bachhoahanhan.com</a> <br></br></b>
+                          + Configuration: temporary off, shipping fee, customer refund percentage,... <br />
                           + Code both fontend and backend alone by my-self <br></br>
-                          + <i>(Pushed srouce to github, bought domain name and rented one VPS. Deployed on VPS and given to customers for use).</i>
+                          + <i>(Pushed srouce to github, bought domain name and rented one VPS. Deployed on VPS and given to customers for use).</i> <br />
+                          Link: <a href="http://bachhoahanhan.com" className='link'>http://bachhoahanhan.com</a> <br />
+
                         </h4>
                       </div>
                     </div>
@@ -469,23 +486,39 @@ function App() {
                     <div className="text">
                       <div className="textFlex">
                         <h4>
-                          Web bán hàng online, offline <i>(Viết theo yêu cầu của khách hàng).</i>
-                          <b>Giao diện người dùng:</b>
+                          <b>1/ My CV</b> <br />
+                          <b>Giao diện người dùng:</b> <br />
+                          + Hiển thị thông tin hồ sơ, chuyển giao diện tối, giao diện sáng, chuyển đổi ngôn ngữ tiếng Anh, tiếng Việt, chức năng in hồ sơ. <br></br>
+                          + Responsive web, hiệu ứng css. Chỉ viết fontend. <br />
+                          Link: <a href="http://nodejs.edu.vn" className='link'>http://nodejs.edu.vn</a>
+
+                        </h4>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div className="skills">
+                    <div className="text">
+                      <div className="textFlex">
+                        <h4>
+                          <b>2/ Web bán hàng online, offline</b> <i>(Viết theo yêu cầu của khách hàng).</i> <br />
+                          <b>Giao diện người dùng:</b> <br />
                           + Đăng ký tài khoản, đăng nhập, đăng xuất, đặt hàng. <br></br>
                           + Tìm kiếm sản phẩm. <br></br>
                           + Thêm sản phẩm vào giỏ hàng, tăng giảm số lượng, xoá khỏi giỏ hàng. <br></br>
                           + Xác nhận đơn, huỷ đơn, theo dõi trạng thái. <br></br>
                           + Số tiền tích luỹ, thanh toán bằng ví tích luỹ. <br></br>
-                          <b>Giao diện quản lý:</b>
+                          <b>Giao diện quản lý:</b> <br />
                           + Tạo sản phẩm <i>(thêm, sửa, xoá, quản lý: giá nhập, giá bán, giá giảm, đơn vị tính, tồn kho, giới hạn đặt hàng,...).</i> <br></br>
                           + Quản lý đơn hàng online: xử lý đơn, chuyển trạng thái, chọn nhân viên giao hàng, tự động trừ kho hoặc cộng kho,... <br></br>
                           + Bán hàng offline: nhập hàng, xuất hàng, gợi ý thanh toán, cộng trừ kho,... <br></br>
                           + Quản lý công nợ, báo cáo danh thu theo ngày tháng, khách hàng, sản phẩm,... <br></br>
                           + Quản lý nhà cung cấp, khách hàng, nhân viên. <br></br>
-                          + Cấu hình: tạm tắt shop, phí vận chuyển, phần trăm tiền hoàn cho khách,...
-                          <b>Link: <a href="http://bachhoahanhan.com" className='link'>http://bachhoahanhan.com</a> <br></br></b>
+                          + Cấu hình: tạm tắt shop, phí vận chuyển, phần trăm tiền hoàn cho khách,... <br />
                           + Một mình viết cả fontent và backend. <br></br>
-                          + <i>(Đã đẩy src lên github, mua tên miền và thuê VPS. Triển khai trên VPS và đã bàn giao cho khách hàng sử dụng).</i>
+                          + <i>(Đã đẩy src lên github, mua tên miền và thuê VPS. Triển khai trên VPS và đã bàn giao cho khách hàng sử dụng).</i> <br />
+                          Link: <a href="http://bachhoahanhan.com" className='link'>http://bachhoahanhan.com</a>
                         </h4>
                       </div>
                     </div>
