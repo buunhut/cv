@@ -261,7 +261,9 @@ function App() {
             <header>
               <div className="content">
                 <h3><i className="fa-regular fa-pen-to-square"
-                  onClick={handleEdit}
+                  // onClick={handleEdit}
+                  onClick={openZaloChat}
+
                 ></i> Hồ Sơ Của Tôi </h3>
                 <div>
                   {
