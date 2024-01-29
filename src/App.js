@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 import './app.scss';
 import { QRCode, Space, Image } from 'antd';
+// import * as moment from 'moment'
+import moment from 'moment-timezone';
 
 
 function App() {
@@ -8,6 +10,10 @@ function App() {
   const [en, setEn] = useState(true)
   const [overlay, setOverlay] = useState(false)
   const [showPass, setShowPass] = useState(false)
+  const date = new Date()
+
+  const yourTimeZone = 'Asia/Ho_Chi_Minh';
+
   useEffect(() => {
     const storedDarkMode = JSON.parse(localStorage.getItem('darkMode'));
     if (storedDarkMode !== null) {
@@ -19,7 +25,6 @@ function App() {
       setDark(storedDarkMode)
     }
     //lượt truy cập
-    console.log("lượt truy cập")
   }, []); //chạy 1 lần 
   //chuyển ngôn ngữ
   const handleLangue = () => {
@@ -49,12 +54,27 @@ function App() {
       {
         en ? (
           <div id="app">
+
             <header>
               <div className="content">
-                <h3><i className="fa-regular fa-pen-to-square"
-                  onClick={handleEdit}
+                <div>
+                  <h3><i className="fa-regular fa-pen-to-square"
+                    onClick={handleEdit}
+                  ></i></h3>
+                  <div class="flip-container">
+                    <div class="flip-card">
+                      <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                          My CV
+                        </div>
+                        <div class="flip-card-back">
+                          My CV
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
 
-                ></i> My CV</h3>
                 <div>
                   {
                     en ? (
@@ -87,7 +107,7 @@ function App() {
                   <img src="img/photo.png" alt="3x4" />
                   {/* qr code */}
                   <Space className='qrCode'>
-                    <QRCode value={'http://nodejs.edu.vn'} />
+                    <QRCode value={'http://nodejs.edu.vn'} status='active' />
                   </Space>
                 </div>
                 <div className='text'>
@@ -252,7 +272,7 @@ function App() {
             </main>
             <footer>
               <span>
-                truongbuunhut's cv - 2024
+                truongbuunhut's cv - {moment().tz(yourTimeZone).format('YYYY')}
               </span>
             </footer>
           </div>
@@ -260,10 +280,23 @@ function App() {
           <div id="app">
             <header>
               <div className="content">
-                <h3><i className="fa-regular fa-pen-to-square"
-                  onClick={handleEdit}
-
-                ></i> Hồ Sơ Của Tôi </h3>
+                <div>
+                  <h3><i className="fa-regular fa-pen-to-square"
+                    onClick={handleEdit}
+                  ></i></h3>
+                  <div class="flip-container">
+                    <div class="flip-card">
+                      <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                          Hồ Sơ
+                        </div>
+                        <div class="flip-card-back">
+                          Hồ Sơ
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
                 <div>
                   {
                     en ? (
@@ -468,7 +501,7 @@ function App() {
             </main>
             <footer>
               <span>
-                truongbuunhut's cv - 2024
+                truongbuunhut's cv - {moment().tz(yourTimeZone).format('YYYY')}
               </span>
               {/* <p><i className="fa-regular fa-eye"></i> 19</p> */}
             </footer>

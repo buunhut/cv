@@ -9,6 +9,8 @@
     "ant-design": "^1.0.0",
     "antd": "^5.13.2",
     "axios": "^1.6.5",
+    "moment": "^2.30.1",
+    "moment-timezone": "^0.5.44",
     "qrcode.react": "^3.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
