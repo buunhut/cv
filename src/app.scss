@@ -726,13 +726,8 @@ body.dark {
     // * {
     //   color: black !important;
     // }
-    h2 {
-      font-size: 34px !important;
-    }
-    p,
-    h4 {
-      font-size: 24px !important;
-    }
+    background-color: white;
+
     background-color: white;
     margin: 0 5px;
     #app {
@@ -743,6 +738,13 @@ body.dark {
         box-shadow: none;
         background-color: white;
         border-bottom: 1px solid silver;
+        h2 {
+          font-size: 34px !important;
+        }
+        p,
+        h4 {
+          font-size: 24px !important;
+        }
       }
     }
   }
