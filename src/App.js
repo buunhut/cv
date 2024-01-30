@@ -3,6 +3,7 @@ import './app.scss';
 import { QRCode, Space, Image } from 'antd';
 // import * as moment from 'moment'
 import moment from 'moment-timezone';
+import axios from 'axios'
 
 
 function App() {
@@ -10,9 +11,13 @@ function App() {
   const [en, setEn] = useState(true)
   const [overlay, setOverlay] = useState(false)
   const [showPass, setShowPass] = useState(false)
-  const date = new Date()
+  const [luotTruyCap, setLuotTruyCap] = useState(false)
+
 
   const yourTimeZone = 'Asia/Ho_Chi_Minh';
+  const date = new Date()
+  // console.log(moment(date).format('DD/MM/YYYY hh:mm'))
+
 
   useEffect(() => {
     const storedDarkMode = JSON.parse(localStorage.getItem('darkMode'));
@@ -25,29 +30,46 @@ function App() {
       setDark(storedDarkMode)
     }
     //lượt truy cập
+    axios({
+      url: 'http://bachhoahanhan.com:8080/users/dem-luot-truy-cap',
+      method: 'post',
+      data: {
+        ngay: date,
+        soLuong: 1
+      }
+
+    }).then((res) => {
+      setLuotTruyCap(res.data.content)
+    })
   }, []); //chạy 1 lần 
+
   //chuyển ngôn ngữ
   const handleLangue = () => {
     setEn(!en);
   };
+
   //chuyển mode
   const handleDarkMode = () => {
     setDark(!dark);
     localStorage.setItem('darkMode', JSON.stringify(!dark));
     document.body.classList.toggle('dark')
   };
+
+  //edit
   const handleEdit = () => {
     setOverlay(!overlay)
     const formLogin = document.getElementById('formLogin').classList.toggle('trans0')
     window.scrollTo(0, 0);
   }
+
+  //in
   const handlePrint = () => {
     window.print()
 
   }
+
   //zalo chat
   const phoneNumber = '0909240886'; // Thay thế bằng số điện thoại của bạn
-
   const openZaloChat = () => {
     window.open(`https://zalo.me/${phoneNumber}`, '_blank');
   };
@@ -58,7 +80,6 @@ function App() {
       {
         en ? (
           <div id="app">
-
             <header>
               <div className="content">
                 <div>
@@ -70,20 +91,19 @@ function App() {
                       onClick={handlePrint}
                     ></i>
                   </h3>
-                  <div class="flip-container">
-                    <div class="flip-card">
-                      <div class="flip-card-inner">
-                        <div class="flip-card-front">
+                  <div className="flip-container">
+                    <div className="flip-card">
+                      <div className="flip-card-inner">
+                        <div className="flip-card-front">
                           My CV
                         </div>
-                        <div class="flip-card-back">
+                        <div className="flip-card-back">
                           My CV
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
-
                 <div>
                   {
                     en ? (
@@ -298,7 +318,8 @@ function App() {
             </main>
             <footer>
               <span>
-                truongbuunhut's cv - {moment().tz(yourTimeZone).format('YYYY')}
+                truongbuunhut's cv - {moment().tz(yourTimeZone).format('YYYY')} <br />
+                <b className='luotTruyCap'>Access: {luotTruyCap.toLocaleString()}</b>
               </span>
             </footer>
           </div>
@@ -315,13 +336,13 @@ function App() {
                       onClick={handlePrint}
                     ></i>
                   </h3>
-                  <div class="flip-container">
-                    <div class="flip-card">
-                      <div class="flip-card-inner">
-                        <div class="flip-card-front">
+                  <div className="flip-container">
+                    <div className="flip-card">
+                      <div className="flip-card-inner">
+                        <div className="flip-card-front">
                           Hồ Sơ
                         </div>
-                        <div class="flip-card-back">
+                        <div className="flip-card-back">
                           Hồ Sơ
                         </div>
                       </div>
@@ -379,7 +400,7 @@ function App() {
                     <p className='info'><i className="fa-solid fa-envelope"></i></p> <h4><a href="mailto:nhut.nta@gmail.com">nhut.nta@gmail.com</a></h4>
                   </div>
                   <div className="textFlex">
-                    <p className='info'><i class="fa-brands fa-facebook"></i></p> <h4><a href="https://facebook.com/buunhut">facebook.com/buunhut</a></h4>
+                    <p className='info'><i className="fa-brands fa-facebook"></i></p> <h4><a href="https://facebook.com/buunhut">facebook.com/buunhut</a></h4>
                   </div>
                   <div className="textFlex">
                     <p className='info'><i className="fa-solid fa-globe"></i></p> <h4><a href="http://www.nodejs.edu.vn">nodejs.edu.vn</a></h4>
@@ -548,7 +569,8 @@ function App() {
             </main>
             <footer>
               <span>
-                truongbuunhut's cv - {moment().tz(yourTimeZone).format('YYYY')}
+                truongbuunhut's cv - {moment().tz(yourTimeZone).format('YYYY')} <br />
+                <b className='luotTruyCap'>Lượt truy cập: {luotTruyCap.toLocaleString()}</b>
               </span>
               {/* <p><i className="fa-regular fa-eye"></i> 19</p> */}
             </footer>

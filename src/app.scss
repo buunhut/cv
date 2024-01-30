@@ -738,6 +738,13 @@ body.dark {
           font-size: 24px !important;
         }
       }
+      footer {
+        span {
+          b.luotTruyCap {
+            display: none !important;
+          }
+        }
+      }
     }
   }
   body.dark {
