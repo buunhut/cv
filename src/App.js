@@ -11,7 +11,8 @@ function App() {
   const [en, setEn] = useState(true)
   const [overlay, setOverlay] = useState(false)
   const [showPass, setShowPass] = useState(false)
-  const [luotTruyCap, setLuotTruyCap] = useState(false)
+  const [luotTruyCap, setLuotTruyCap] = useState(0)
+  console.log(luotTruyCap)
 
 
   const yourTimeZone = 'Asia/Ho_Chi_Minh';
