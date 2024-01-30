@@ -12,11 +12,13 @@ function App() {
   const [overlay, setOverlay] = useState(false)
   const [showPass, setShowPass] = useState(false)
   const [luotTruyCap, setLuotTruyCap] = useState(1)
-
-
   const yourTimeZone = 'Asia/Ho_Chi_Minh';
   const date = new Date()
   // console.log(moment(date).format('DD/MM/YYYY hh:mm'))
+
+  const currentURL = window.location.href;
+  const url = new URL(currentURL);
+  // console.log(url.hostname)
 
 
   useEffect(() => {
@@ -35,7 +37,8 @@ function App() {
       method: 'post',
       data: {
         ngay: date,
-        soLuong: 1
+        soLuong: 1,
+        diaChi: url.hostname,
       }
 
     }).then((res) => {
