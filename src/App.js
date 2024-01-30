@@ -21,7 +21,7 @@ function App() {
   const url = new URL(currentURL);
   // console.log(url.hostname)
 
-  console.log(showBackToTop)
+  // console.log(showBackToTop)
 
   const handleScroll = () => {
     if (window.scrollY >= 60) {
