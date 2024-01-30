@@ -267,7 +267,7 @@ function App() {
                           <b>User interface:</b> <br />
                           + Show infomation, dark them, light them, English, Vietnamese, Print CV. <br></br>
                           + Responsive web, amination css. Only code fontend. <br />
-                          Link: <a href="http://nodejs.edu.vn" className='link'>http://nodejs.edu.vn</a>
+                          Link: <a href="https://nodejs.edu.vn" className='link'>https://nodejs.edu.vn</a>
 
                         </h4>
                       </div>
@@ -295,7 +295,7 @@ function App() {
                           + Configuration: temporary off, shipping fee, customer refund percentage,... <br />
                           + Code both fontend and backend alone by my-self. <br></br>
                           + <i>(Pushed srouce to github, bought domain name and rented one VPS. Deployed on VPS and given to customers for use).</i> <br />
-                          Link: <a href="http://bachhoahanhan.com" className='link'>http://bachhoahanhan.com</a> <br />
+                          Link: <a href="https://bachhoahanhan.com" className='link'>https://bachhoahanhan.com</a> <br />
 
                         </h4>
                       </div>
@@ -511,7 +511,7 @@ function App() {
                           <b>Giao diện người dùng:</b> <br />
                           + Hiển thị thông tin hồ sơ, chuyển giao diện tối, giao diện sáng, chuyển đổi ngôn ngữ tiếng Anh, tiếng Việt, chức năng in hồ sơ. <br></br>
                           + Responsive web, hiệu ứng css. Chỉ viết fontend. <br />
-                          Link: <a href="http://nodejs.edu.vn" className='link'>http://nodejs.edu.vn</a>
+                          Link: <a href="https://nodejs.edu.vn" className='link'>https://nodejs.edu.vn</a>
 
                         </h4>
                       </div>
@@ -539,7 +539,7 @@ function App() {
                           + Cấu hình: tạm tắt shop, phí vận chuyển, phần trăm tiền hoàn cho khách,... <br />
                           + Một mình viết cả fontent và backend. <br></br>
                           + <i>(Đã đẩy src lên github, mua tên miền và thuê VPS. Triển khai trên VPS và đã bàn giao cho khách hàng sử dụng).</i> <br />
-                          Link: <a href="http://bachhoahanhan.com" className='link'>http://bachhoahanhan.com</a>
+                          Link: <a href="https://bachhoahanhan.com" className='link'>https://bachhoahanhan.com</a>
                         </h4>
                       </div>
                     </div>
