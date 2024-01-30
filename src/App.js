@@ -32,7 +32,7 @@ function App() {
     }
     //lượt truy cập
     axios({
-      url: 'http://bachhoahanhan.com:8080/users/dem-luot-truy-cap',
+      url: 'https://api.bachhoahanhan.com/users/dem-luot-truy-cap',
       method: 'post',
       data: {
         ngay: date,
