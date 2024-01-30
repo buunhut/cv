@@ -12,6 +12,7 @@ function App() {
   const [overlay, setOverlay] = useState(false)
   const [showPass, setShowPass] = useState(false)
   const [luotTruyCap, setLuotTruyCap] = useState(1)
+  const [showBackToTop, setShowBackToTop] = useState(false);
   const yourTimeZone = 'Asia/Ho_Chi_Minh';
   const date = new Date()
   // console.log(moment(date).format('DD/MM/YYYY hh:mm'))
@@ -19,6 +20,16 @@ function App() {
   const currentURL = window.location.href;
   const url = new URL(currentURL);
   // console.log(url.hostname)
+
+  console.log(showBackToTop)
+
+  const handleScroll = () => {
+    if (window.scrollY >= 60) {
+      setShowBackToTop(true);
+    } else {
+      setShowBackToTop(false);
+    }
+  };
 
 
   useEffect(() => {
@@ -44,6 +55,18 @@ function App() {
     }).then((res) => {
       setLuotTruyCap(res.data.content)
     })
+
+
+    // Lắng nghe sự kiện cuộn để cập nhật trạng thái hiển thị nút
+    window.addEventListener('scroll', handleScroll);
+
+    // Hủy đăng ký sự kiện khi component unmount
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+
+
+
   }, []); //chạy 1 lần 
 
   //chuyển ngôn ngữ
@@ -71,12 +94,19 @@ function App() {
 
   }
 
+
+
   //zalo chat
   const phoneNumber = '0909240886'; // Thay thế bằng số điện thoại của bạn
   const openZaloChat = () => {
     window.open(`https://zalo.me/${phoneNumber}`, '_blank');
   };
 
+  //back to top
+  const handleBackToTop = () => {
+    // Cuộn lên đầu trang khi nút được click
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
 
   return (
     <>
@@ -596,6 +626,9 @@ function App() {
           </div>
           <button type='button'>Login</button>
         </form>
+      </div>
+      <div className="backToTop" style={{ display: showBackToTop ? 'block' : 'none' }} onClick={handleBackToTop}>
+        <button><i className="fa-solid fa-angles-up"></i></button>
       </div>
       <div className='zaloChat'
         onClick={openZaloChat}

@@ -284,16 +284,37 @@ body {
       border-color: orangered;
     }
   }
-  .zaloChat {
+  .backToTop {
     position: fixed;
-    bottom: 50px;
+    bottom: 87px;
     right: 20px;
     button {
       width: 40px;
       height: 40px;
       border: none;
       border-radius: 50%;
-      background-color: #015bd1d6;
+      background-color: rgba(255, 68, 0, 0.8);
+      font-size: 14px;
+      font-weight: bold;
+      color: white;
+      cursor: pointer;
+      // transition: all 0.3s;
+      i {
+        animation: fadeInUp 1s ease-in-out infinite;
+      }
+    }
+  }
+
+  .zaloChat {
+    position: fixed;
+    bottom: 40px;
+    right: 20px;
+    button {
+      width: 40px;
+      height: 40px;
+      border: none;
+      border-radius: 50%;
+      background-color: #015bd1c2;
       font-size: 14px;
       font-weight: bold;
       color: white;
@@ -608,6 +629,7 @@ body.dark {
         width: 100%;
       }
     }
+
     .zaloChat {
       bottom: 40px;
       right: 15px;
@@ -719,6 +741,21 @@ body.dark {
   }
 }
 
+@keyframes fadeInUp {
+  0% {
+    opacity: 0.5;
+    transform: translateY(5px);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(-5px);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+}
+
 @media print {
   body {
     background-color: white !important;
@@ -753,7 +790,8 @@ body.dark {
     }
   }
   header,
-  .zaloChat {
+  .zaloChat,
+  .backToTop {
     display: none;
   }
 }
