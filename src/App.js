@@ -131,17 +131,17 @@ function App() {
   //   10000,
   // ];
   let menhGia = [
-    20000,
-    20000, 20000,
+    // 20000,
+    // 20000, 20000,
     20000, 20000, 50000,
     20000, 20000, 50000, 100000,
     50000, 50000, 50000, 100000, 200000,
-    50000, 50000, 50000, 100000, 200000, 500000,
+    50000, 50000, 50000, 100000, 200000, 500000, 500000, 500000, 1000000, 1000000,
     50000, 50000, 50000, 100000, 200000,
     20000, 20000, 50000, 100000,
     20000, 20000, 50000,
-    20000, 20000,
-    20000,
+    // 20000, 20000,
+    // 20000,
   ];
 
   //show lì xì
@@ -643,7 +643,6 @@ function App() {
                 </div>
                 <div>
                   <button className='nhanLiXi' onClick={handleShowLiXi}>Nhận lì xì</button>
-
                   {
                     en ? (
                       <button onClick={handleLangue}>VN</button>
@@ -1028,12 +1027,6 @@ function App() {
                           </>
                         ) : (null)
                       }
-
-
-
-
-
-
                     </>
 
                   ) : (
@@ -1044,7 +1037,6 @@ function App() {
                             Chúc mừng năm mới. Sức khoẻ dồi dào, tràn đầy năng lượng.
                           </p>
                           <h3>Sức khoẻ</h3>
-
                         </div>
                         {
                           lock ? ('') : (<button id='sucKhoe' onClick={(event) => handleMoBao(event)}>Mở bao lì xì</button>)
@@ -1056,7 +1048,6 @@ function App() {
                             Chúc mừng năm mới. Tiền vào như nước, vàng bạc đầy nhà.
                           </p>
                           <h3>Tài lộc</h3>
-
                         </div>
                         {
                           lock ? ('') : (<button id='taiLoc' onClick={(event) => handleMoBao(event)}>Mở bao lì xì</button>)
@@ -1125,6 +1116,7 @@ function App() {
               <div className={liXi > 0 ? 'overlay' : ''} onClick={() => setLixi(0)}></div>
               <div id='formLogin' className={liXi == 0 ? '' : 'trans0'}>
                 <div className="contentLiXi">
+                  <img src="./img/rongLogo.jpeg" alt="" />
                   <h3>Lì xì</h3>
                   <h2>{liXi.toLocaleString()}đ</h2>
                   <h4>Chúc thật nhiều sức khoẻ</h4>
