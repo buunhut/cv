@@ -147,6 +147,8 @@ function App() {
   //show lì xì
   const [showLiXi, setShowLiXi] = useState(false)
   const handleShowLiXi = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+
     setShowLiXi(!showLiXi)
     if (!showLiXi) {
       document.body.style.overflowY = 'hidden'
