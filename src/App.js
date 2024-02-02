@@ -135,9 +135,9 @@ function App() {
     20000, 20000,
     20000, 20000, 50000,
     20000, 20000, 50000, 100000,
-    20000, 20000, 50000, 100000, 200000,
-    20000, 20000, 50000, 100000, 200000, 500000,
-    20000, 20000, 50000, 100000, 200000,
+    20000, 50000, 50000, 100000, 200000,
+    20000, 50000, 50000, 100000, 200000, 500000,
+    20000, 50000, 50000, 100000, 200000,
     20000, 20000, 50000, 100000,
     20000, 20000, 50000,
     20000, 20000,
@@ -285,7 +285,7 @@ function App() {
           const { lxId } = res.data.content
           setLxId(lxId)
           setLock(false)
-          message.success('Hãy chọn 1 bao lì xì phía dưới', 0)
+          message.success('Hãy chọn 1 bao lì xì bất kỳ', 0)
 
         } else {
           message.error('Có lỗi xảy ra', 5)
@@ -396,7 +396,7 @@ function App() {
                   </div>
                 </div>
                 <div>
-                  <button className='nhanLiXi' onClick={handleShowLiXi}>Nhận lì xì</button>
+                  <button className='nhanLiXi' onClick={handleShowLiXi}>Nhận Lì Xì</button>
                   {
                     en ? (
                       <button onClick={handleLangue}>VN</button>
@@ -904,200 +904,209 @@ function App() {
             </button>
             <div className="container">
               <div className="content">
-                <form action="">
-                  <div className="inputItem">
-                    <i className="fa-solid fa-user"
-                      style={{ color: alertForm.hoVaTen !== '' ? 'red' : '' }}
-                    ></i>
-                    <input id='hoVaTen' type="text" placeholder='Họ và tên' autoFocus
-                      value={formDangKy.hoVaTen}
-                      onChange={handleChangInput}
-                      onBlur={onBlurInput}
-                    />
-                  </div>
-                  <div className="inputItem">
-                    <i className="fa-solid fa-hashtag"
-                      style={{ color: alertForm.soTaiKhoan !== '' ? 'red' : '' }}
-                    ></i>
-                    <input id='soTaiKhoan' type="text" placeholder='Số tài khoản'
-                      value={formDangKy.soTaiKhoan}
-                      onChange={handleChangInput}
-                      onBlur={onBlurInput}
+                {
+                  lock ? (
+                    <form action="">
+                      <div className="inputItem">
+                        <i className="fa-solid fa-user"
+                          style={{ color: alertForm.hoVaTen !== '' ? 'red' : '' }}
+                        ></i>
+                        <input id='hoVaTen' type="text" placeholder='Họ và tên' autoFocus
+                          value={formDangKy.hoVaTen}
+                          onChange={handleChangInput}
+                          onBlur={onBlurInput}
+                        />
+                      </div>
+                      <div className="inputItem">
+                        <i className="fa-solid fa-hashtag"
+                          style={{ color: alertForm.soTaiKhoan !== '' ? 'red' : '' }}
+                        ></i>
+                        <input id='soTaiKhoan' type="text" placeholder='Số tài khoản'
+                          value={formDangKy.soTaiKhoan}
+                          onChange={handleChangInput}
+                          onBlur={onBlurInput}
 
-                    />
-                  </div>
-                  <div className="inputItem">
-                    <i className="fa-solid fa-building-columns"
-                      style={{ color: alertForm.nganHang !== '' ? 'red' : '' }}
-                    ></i>
-                    <select name="" id="nganHang"
-                      value={formDangKy.nganHang}
-                      onChange={handleChangInput}
-                      onBlur={onBlurInput}
+                        />
+                      </div>
+                      <div className="inputItem">
+                        <i className="fa-solid fa-building-columns"
+                          style={{ color: alertForm.nganHang !== '' ? 'red' : '' }}
+                        ></i>
+                        <select name="" id="nganHang"
+                          value={formDangKy.nganHang}
+                          onChange={handleChangInput}
+                          onBlur={onBlurInput}
 
-                    >
-                      <option value="">Ngân hàng</option>
-                      <option value="acb">Acb</option>
-                      <option value="vietcombank">Vietcombank</option>
-                      <option value="sacombank">Sacombank</option>
-                      <option value="techcombank">Techcombank</option>
-                      <option value="argibank">Argibank</option>
-                    </select>
-                  </div>
-                  <div className="inputItem">
-                    <i className="fa-solid fa-phone"
-                      style={{ color: alertForm.soDienThoai !== '' ? 'red' : '' }}
-                    ></i>
-                    <input id='soDienThoai' type="text" placeholder='Số điện thoại'
-                      value={formDangKy.soDienThoai}
-                      onChange={handleChangInput}
-                      onBlur={onBlurInput}
+                        >
+                          <option value="">Ngân hàng</option>
+                          <option value="acb">Acb</option>
+                          <option value="vietcombank">Vietcombank</option>
+                          <option value="sacombank">Sacombank</option>
+                          <option value="techcombank">Techcombank</option>
+                          <option value="argibank">Argibank</option>
+                        </select>
+                      </div>
+                      <div className="inputItem">
+                        <i className="fa-solid fa-phone"
+                          style={{ color: alertForm.soDienThoai !== '' ? 'red' : '' }}
+                        ></i>
+                        <input id='soDienThoai' type="text" placeholder='Số điện thoại'
+                          value={formDangKy.soDienThoai}
+                          onChange={handleChangInput}
+                          onBlur={onBlurInput}
 
-                    />
-                  </div>
+                        />
+                      </div>
 
-                  <div className="inputItem">
-                    <i className="fa-solid fa-pen"
-                      style={{ color: alertForm.loiChuc !== '' ? 'red' : '' }}
-                    ></i>
-                    <input id='loiChuc' type="text" placeholder='Gửi lời chúc năm mới'
-                      value={formDangKy.loiChuc}
-                      onChange={handleChangInput}
-                      onBlur={onBlurInput}
+                      <div className="inputItem">
+                        <i className="fa-solid fa-pen"
+                          style={{ color: alertForm.loiChuc !== '' ? 'red' : '' }}
+                        ></i>
+                        <input id='loiChuc' type="text" placeholder='Gửi lời chúc năm mới'
+                          value={formDangKy.loiChuc}
+                          onChange={handleChangInput}
+                          onBlur={onBlurInput}
 
-                    />
-                  </div>
-                  <button type='button' onClick={handleXacNhanThongTin}>Nhận lì xì ngay</button>
-                  <p><i>(Vui lòng điền chính xác thông tin, để hệ thống chuyển khoản tiền lì xì cho bạn nhé)</i></p>
+                        />
+                      </div>
+                      <button type='button' onClick={handleXacNhanThongTin}>Nhận Lì Xì Ngay</button>
+                      {/* <p><i>(Vui lòng điền chính xác thông tin, để hệ thống chuyển khoản tiền lì xì cho bạn nhé)</i></p> */}
+                    </form>
 
-                </form>
-                <div className="listBaoLiXi" style={{ display: lock ? 'none' : 'flex' }}>
-                  <div className="baoItem">
-                    <div className="baoContent">
-                      <p>
-                        Chúc mừng năm mới. Sức khoẻ dồi dào, tràn đầy năng lượng.
-                      </p>
-                      <h3>Sức khoẻ</h3>
+                  ) : (
+                    <div className="listBaoLiXi">
+                      <div className="baoItem">
+                        <div className="baoContent">
+                          <p>
+                            Chúc mừng năm mới. Sức khoẻ dồi dào, tràn đầy năng lượng.
+                          </p>
+                          <h3>Sức khoẻ</h3>
 
+                        </div>
+                        {
+                          lock ? ('') : (<button id='sucKhoe' onClick={(event) => handleMoBao(event)}>Mở bao lì xì</button>)
+                        }
+                      </div>
+                      <div className="baoItem">
+                        <div className="baoContent">
+                          <p>
+                            Chúc mừng năm mới. Tiền vào như nước, vàng bạc đầy nhà.
+                          </p>
+                          <h3>Tài lộc</h3>
+
+                        </div>
+                        {
+                          lock ? ('') : (<button id='taiLoc' onClick={(event) => handleMoBao(event)}>Mở bao lì xì</button>)
+                        }
+
+                      </div>
+                      <div className="baoItem">
+                        <div className="baoContent">
+                          <p>
+                            Chúc mừng năm mới. Hạnh phúc đong đầy, đường tình viên mãn.
+                          </p>
+                          <h3>Tình yêu</h3>
+
+                        </div>
+                        {
+                          lock ? ('') : (<button id='tinhYeu' onClick={(event) => handleMoBao(event)}>Mở bao lì xì</button>)
+                        }
+                      </div>
+                      <div className="baoItem">
+                        <div className="baoContent">
+                          <p>
+                            Chúc mừng năm mới. Sự nghiệp thăng tiến, mọi việc hanh thông.
+                          </p>
+                          <h3>Sự nghiệp</h3>
+
+                        </div>
+                        {
+                          lock ? ('') : (<button id='suNghiep' onClick={(event) => handleMoBao(event)}>Mở bao lì xì</button>)
+                        }
+
+                      </div>
+                      <div className="baoItem">
+                        <div className="baoContent">
+                          <p>
+                            Chúc mừng năm mới. Vạn sự như ý, cả năm gặp toàn điều may.
+                          </p>
+                          <h3>May mắn</h3>
+
+                        </div>
+                        {
+                          lock ? ('') : (<button id='mayMan' onClick={(event) => handleMoBao(event)}>Mở bao lì xì</button>)
+                        }
+                      </div>
+                      <div className="baoItem">
+                        <div className="baoContent">
+                          <p>
+                            Chúc mừng năm mới. Tiếng cười ngập tràn, luôn luôn tươi trẻ.
+                          </p>
+                          <h3>Niềm vui</h3>
+                        </div>
+                        {
+                          lock ? ('') : (<button id='niemVui' onClick={(event) => handleMoBao(event)}>Mở bao lì xì</button>)
+                        }
+
+                      </div>
                     </div>
-                    {
-                      lock ? ('') : (<button id='sucKhoe' onClick={(event) => handleMoBao(event)}>Mở bao lì xì</button>)
-                    }
-                  </div>
-                  <div className="baoItem">
-                    <div className="baoContent">
-                      <p>
-                        Chúc mừng năm mới. Tiền vào như nước, vàng bạc đầy nhà.
-                      </p>
-                      <h3>Tài lộc</h3>
-
-                    </div>
-                    {
-                      lock ? ('') : (<button id='taiLoc' onClick={(event) => handleMoBao(event)}>Mở bao lì xì</button>)
-                    }
-
-                  </div>
-                  <div className="baoItem">
-                    <div className="baoContent">
-                      <p>
-                        Chúc mừng năm mới. Hạnh phúc đong đầy, đường tình viên mãn.
-                      </p>
-                      <h3>Tình yêu</h3>
-
-                    </div>
-                    {
-                      lock ? ('') : (<button id='tinhYeu' onClick={(event) => handleMoBao(event)}>Mở bao lì xì</button>)
-                    }
-                  </div>
-                  <div className="baoItem">
-                    <div className="baoContent">
-                      <p>
-                        Chúc mừng năm mới. Sự nghiệp thăng tiến, mọi việc hanh thông.
-                      </p>
-                      <h3>Sự nghiệp</h3>
-
-                    </div>
-                    {
-                      lock ? ('') : (<button id='suNghiep' onClick={(event) => handleMoBao(event)}>Mở bao lì xì</button>)
-                    }
-
-                  </div>
-                  <div className="baoItem">
-                    <div className="baoContent">
-                      <p>
-                        Chúc mừng năm mới. Vạn sự như ý, cả năm gặp toàn điều may.
-                      </p>
-                      <h3>May mắn</h3>
-
-                    </div>
-                    {
-                      lock ? ('') : (<button id='mayMan' onClick={(event) => handleMoBao(event)}>Mở bao lì xì</button>)
-                    }
-                  </div>
-                  <div className="baoItem">
-                    <div className="baoContent">
-                      <p>
-                        Chúc mừng năm mới. Tiếng cười ngập tràn, luôn luôn tươi trẻ.
-                      </p>
-                      <h3>Niềm vui</h3>
-                    </div>
-                    {
-                      lock ? ('') : (<button id='niemVui' onClick={(event) => handleMoBao(event)}>Mở bao lì xì</button>)
-                    }
-
-                  </div>
-                </div>
+                  )
+                }
                 {/* <div className='footer'>
                   <span>Vui là chín</span>
                 </div> */}
 
                 {
                   listNguoiThamGia.length > 0 ? (
-                    <div className='danhSach'>
+                    <>
                       <h3>Danh sách</h3>
-                      <table>
-                        <thead>
-                          <tr>
-                            <td>Ngày</td>
-                            <td>Họ Và Tên</td>
-                            <td>Được Lì Xì</td>
-                            {/* <td>Trạng Thái</td> */}
-                          </tr>
-                        </thead>
-                        <tbody>
-                          {
-                            listNguoiThamGia?.map((item, index) => {
-                              tongTien += item.liXi
-                              return (
-                                <tr key={index}>
-                                  <td>
-                                    {moment(item.ngay).format('DD/MM/YYYY hh:mm')}
-                                  </td>
-                                  <td className='hoVaTen'>
-                                    {item.hoVaTen}
-                                  </td>
-                                  <td>
-                                    {item.liXi.toLocaleString()}
-                                  </td>
-                                  {/* <td>
+
+                      <div className='danhSach'>
+                        <table>
+                          <thead>
+                            <tr>
+                              <td>Ngày</td>
+                              <td>Họ Và Tên</td>
+                              <td>Được Lì Xì</td>
+                              {/* <td>Trạng Thái</td> */}
+                            </tr>
+                          </thead>
+                          <tbody>
+                            {
+                              listNguoiThamGia?.map((item, index) => {
+                                tongTien += item.liXi
+                                return (
+                                  <tr key={index}>
+                                    <td>
+                                      {moment(item.ngay).format('DD/MM/YYYY hh:mm')}
+                                    </td>
+                                    <td className='hoVaTen'>
+                                      {item.hoVaTen}
+                                    </td>
+                                    <td>
+                                      {item.liXi.toLocaleString()}
+                                    </td>
+                                    {/* <td>
                                     {
                                       item.trangThai ? 'Đã ck' : 'Chờ xử lý'
                                     }
 
                                   </td> */}
-                                </tr>
-                              )
-                            })
-                          }
-                        </tbody>
-                        <tfoot>
-                          <tr>
-                            <td colSpan={2}>Tổng tiền</td>
-                            <td>{tongTien.toLocaleString()}</td>
-                          </tr>
-                        </tfoot>
-                      </table>
-                    </div>
+                                  </tr>
+                                )
+                              })
+                            }
+                          </tbody>
+                          <tfoot>
+                            <tr>
+                              <td colSpan={2}>Tổng tiền</td>
+                              <td>{tongTien.toLocaleString()}</td>
+                            </tr>
+                          </tfoot>
+                        </table>
+
+                      </div>
+                    </>
                   ) : (null)
                 }
 
@@ -1105,7 +1114,6 @@ function App() {
               {/* <div className="overlay" className={liXi == 0 ? 'none' : ''} onClick={() => setLixi(0)}></div> */}
               <div className={liXi > 0 ? 'overlay' : ''} onClick={() => setLixi(0)}></div>
               <div id='formLogin' className={liXi == 0 ? '' : 'trans0'}>
-
                 <div className="contentLiXi">
                   <h3>Lì xì</h3>
                   <h2>{liXi.toLocaleString()}đ</h2>
