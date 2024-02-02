@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react';
 import './app.scss';
-import { QRCode, Space, Image } from 'antd';
+import { QRCode, Space, Image, message } from 'antd';
 // import * as moment from 'moment'
 import moment from 'moment-timezone';
 import axios from 'axios'
+import { io } from 'socket.io-client'
 
 
 function App() {
@@ -15,13 +16,11 @@ function App() {
   const [showBackToTop, setShowBackToTop] = useState(false);
   const yourTimeZone = 'Asia/Ho_Chi_Minh';
   const date = new Date()
-  // console.log(moment(date).format('DD/MM/YYYY hh:mm'))
-
   const currentURL = window.location.href;
   const url = new URL(currentURL);
-  // console.log(url.hostname)
 
-  // console.log(showBackToTop)
+
+
 
   const handleScroll = () => {
     if (window.scrollY >= 60) {
@@ -30,7 +29,6 @@ function App() {
       setShowBackToTop(false);
     }
   };
-
 
   useEffect(() => {
     const storedDarkMode = JSON.parse(localStorage.getItem('darkMode'));
@@ -56,6 +54,8 @@ function App() {
       setLuotTruyCap(res.data.content)
     })
 
+    //list người tham gia
+    getListNguoiThamGia()
 
     // Lắng nghe sự kiện cuộn để cập nhật trạng thái hiển thị nút
     window.addEventListener('scroll', handleScroll);
@@ -64,9 +64,6 @@ function App() {
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-
-
-
   }, []); //chạy 1 lần 
 
   //chuyển ngôn ngữ
@@ -94,8 +91,6 @@ function App() {
 
   }
 
-
-
   //zalo chat
   const phoneNumber = '0909240886'; // Thay thế bằng số điện thoại của bạn
   const openZaloChat = () => {
@@ -107,6 +102,281 @@ function App() {
     // Cuộn lên đầu trang khi nút được click
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
+
+  const [bao, setBao] = useState(0)
+  const [liXi, setLixi] = useState(0)
+  const [lock, setLock] = useState(true)
+
+  // console.log('Tiền lì xì của bạn: ', liXi.toLocaleString())
+
+  // let menhGia = [
+  //   10000,
+  //   10000, 20000,
+  //   10000, 20000, 50000,
+  //   10000, 20000, 50000,
+  //   10000, 20000, 50000, 100000,
+  //   10000, 20000, 50000, 100000,
+  //   10000, 20000, 50000, 100000, 200000,
+  //   10000, 20000, 50000, 100000, 200000,
+  //   10000, 20000, 50000, 100000, 200000, 500000,
+  //   10000, 20000, 50000, 100000, 200000, 500000, 1000000,
+  //   10000, 20000, 50000, 100000, 200000, 500000,
+  //   10000, 20000, 50000, 100000, 200000,
+  //   10000, 20000, 50000, 100000, 200000,
+  //   10000, 20000, 50000, 100000,
+  //   10000, 20000, 50000, 100000,
+  //   10000, 20000, 50000,
+  //   10000, 20000, 50000,
+  //   10000, 20000,
+  //   10000,
+  // ];
+  let menhGia = [
+    20000,
+    20000, 20000,
+    20000, 20000, 50000,
+    20000, 20000, 50000, 100000,
+    20000, 20000, 50000, 100000, 200000,
+    20000, 20000, 50000, 100000, 200000, 500000, 1000000,
+    20000, 20000, 50000, 100000, 200000,
+    20000, 20000, 50000, 100000,
+    20000, 20000, 50000,
+    20000, 20000,
+    20000
+  ];
+
+  //show lì xì
+  const [showLiXi, setShowLiXi] = useState(false)
+  const handleShowLiXi = () => {
+    setShowLiXi(!showLiXi)
+    if (!showLiXi) {
+      document.body.style.overflowY = 'hidden'
+    } else {
+      document.body.style.overflowY = 'scroll'
+    }
+  }
+
+  //xáo trộm
+  const shuffleArray = (array) => {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array
+  }
+
+  //alert form
+  const [alertForm, setAlertForm] = useState({
+    hoVaTen: '',
+    soDienThoai: '',
+    soTaiKhoan: '',
+    nganHang: '',
+    loiChuc: ''
+  })
+  // console.log(alertForm)
+  const [formDangKy, setFormDangKy] = useState({
+    hoVaTen: '',
+    soDienThoai: '',
+    soTaiKhoan: '',
+    nganHang: '',
+    loiChuc: ''
+  })
+  // console.log('form: ', formDangKy)
+
+  const handleChangInput = (e) => {
+    let { id, value } = e.target
+    if (id === 'soDienThoai' || id === 'soTaiKhoan') {
+      //chỉ lầy số, không được gõ ký tự abc
+      setFormDangKy((prevState) => ({
+        ...prevState,
+        [id]: value.replace(/\D/g, '')
+      }))
+
+    } else {
+      setFormDangKy((prevState) => ({
+        ...prevState,
+        [id]: value
+      }))
+    }
+  }
+
+  const onBlurInput = (e) => {
+    const { id, value } = e.target
+    if (value) {
+      setAlertForm((prevState) => ({
+        ...prevState,
+        [id]: ''
+      }))
+      if (id === 'hoVaTen' || id === 'soTaiKhoan') {
+        axios({
+          method: 'post',
+          url: 'http://api.bachhoahanhan.com/users/check-thong-tin',
+          data: { thongTin: value }
+        }).then((res) => {
+          const { statusCode } = res.data
+          if (statusCode === 209) {
+            setAlertForm((prevState) => ({
+              ...prevState,
+              [id]: 'Đã đăng ký'
+            }))
+            if (id === 'hoVaTen') {
+              message.warning(value.toUpperCase() + ' đã nhận lì xì rồi', 5)
+            } else if (id === 'soTaiKhoan') {
+              message.warning('Tài khoản ' + value + ' đã nhận lì xì rồi', 5)
+            }
+
+          }
+        }).catch((err) => {
+          console.log(err)
+        })
+      }
+      // else if (id === 'soTaiKhoan') {
+      //   axios({
+      //     method: 'post',
+      //     url: 'http://api.bachhoahanhan.com/users/check-thong-tin',
+      //     data: { thongTin: value }
+      //   }).then((res) => {
+      //     console.log(res.data)
+      //   }).catch((err) => {
+      //     console.log(err)
+      //   })
+      // }
+    } else {
+      setAlertForm((prevState) => ({
+        ...prevState,
+        [id]: 'Vui lòng nhập thông tin'
+      }))
+    }
+
+  }
+
+  const handleXacNhanThongTin = () => {
+    let valid = true
+    for (let key in formDangKy) {
+      if (formDangKy[key] === '') {
+        setAlertForm((prevState) => ({
+          ...prevState,
+          [key]: 'Vui lòng nhập thông tin'
+        }))
+        valid = false;
+      } else {
+        setAlertForm((prevState) => ({
+          ...prevState,
+          [key]: ''
+        }))
+      }
+    }
+    if (valid) {
+      const currentTime = new Date()
+      const data = {
+        ...formDangKy,
+        ngay: currentTime,
+        liXi: 0
+      };
+      axios({
+        method: 'post',
+        url: 'http://api.bachhoahanhan.com/users/dang-ky-nhan-li-xi',
+        data
+      }).then((res) => {
+        const { statusCode, content } = res.data
+        if (statusCode === 209) {
+          message.warning(content.hoVaTen.toUpperCase() + ' đã nhận lì xì rồi', 5)
+          setAlertForm((prevState) => ({
+            ...prevState,
+            hoVaTen: 'đã nhận lì xì rồi'
+          }))
+
+        } else if (statusCode === 208) {
+          message.warning('Số tk ' + content.soTaiKhoan + ' đã nhận lì xì rồi', 5)
+          setAlertForm((prevState) => ({
+            ...prevState,
+            soTaiKhoan: 'đã nhận lì xì rồi'
+          }))
+
+        } else if (statusCode === 200) {
+          const { lxId } = res.data.content
+          setLxId(lxId)
+          setLock(false)
+          message.success('Hãy chọn 1 bao lì xì phía dưới', 0)
+
+        } else {
+          message.error('Có lỗi xảy ra', 5)
+        }
+
+
+
+      }).catch((err) => {
+        console.log(err)
+      })
+
+
+    } else {
+      message.error('Vui lòng nhập đầy đủ thông tin', 5)
+
+    }
+  }
+
+  const [lxId, setLxId] = useState(0)
+
+  const handleMoBao = (e) => {
+    const { id } = e.target
+    shuffleArray(menhGia)
+    setLixi(menhGia[bao])
+    const liXiElement = document.querySelector('.liXi');
+    if (liXiElement) {
+      liXiElement.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+    setLock(true)
+
+    const data = {
+      lxId,
+      liXi: menhGia[bao],
+      ghiChu: id
+    }
+    axios({
+      method: 'post',
+      url: 'http://api.bachhoahanhan.com/users/update-li-xi',
+      data
+    }).then((res) => {
+      const { statusCode, content } = res.data
+      if (statusCode === 200) {
+        setFormDangKy({
+          hoVaTen: '',
+          soDienThoai: '',
+          soTaiKhoan: '',
+          nganHang: '',
+          loiChuc: ''
+        })
+        message.destroy()
+        getListNguoiThamGia()
+      }
+      // console.log(res.data.content)
+    }).catch((err) => {
+      console.log(err)
+    })
+
+
+
+  }
+
+  const [listNguoiThamGia, setListNguoiThamGia] = useState([])
+  // console.log(listNguoiThamGia)
+  const getListNguoiThamGia = () => {
+    axios({
+      method: 'get',
+      url: 'http://api.bachhoahanhan.com/users/get-list-nguoi-tham-gia',
+    }).then((res) => {
+      const { content } = res.data
+      if (content.length > 0) {
+        setListNguoiThamGia(content)
+      }
+    })
+
+  }
+  let tongTien = 0
+
+
+
+
 
   return (
     <>
@@ -138,6 +408,7 @@ function App() {
                   </div>
                 </div>
                 <div>
+                  <button className='nhanLiXi' onClick={handleShowLiXi}>Nhận lì xì</button>
                   {
                     en ? (
                       <button onClick={handleLangue}>VN</button>
@@ -383,6 +654,8 @@ function App() {
                   </div>
                 </div>
                 <div>
+                  <button className='nhanLiXi' onClick={handleShowLiXi}>Nhận lì xì</button>
+
                   {
                     en ? (
                       <button onClick={handleLangue}>VN</button>
@@ -610,8 +883,7 @@ function App() {
           </div>
         )
       }
-      <div className={overlay ? 'overlay' : ''} onClick={handleEdit}>
-      </div>
+      <div className={overlay ? 'overlay' : ''} onClick={handleEdit}></div>
       <div id='formLogin'>
         <form action="">
           {/* <h3>Xác nhận chính chủ</h3> */}
@@ -635,6 +907,229 @@ function App() {
       >
         <button>Zalo</button>
       </div>
+      {
+        showLiXi ? (
+          <div className='liXi'>
+            <h3>Chúc Mừng Năm Mới</h3>
+            <button onClick={handleShowLiXi} className='back'>
+              <i className="fa-solid fa-xmark"></i>
+            </button>
+            <div className="container">
+              <div className="content">
+                <form action="">
+                  <div className="inputItem">
+                    <i className="fa-solid fa-user"
+                      style={{ color: alertForm.hoVaTen !== '' ? 'red' : '' }}
+                    ></i>
+                    <input id='hoVaTen' type="text" placeholder='Họ và tên' autoFocus
+                      value={formDangKy.hoVaTen}
+                      onChange={handleChangInput}
+                      onBlur={onBlurInput}
+                    />
+                  </div>
+                  <div className="inputItem">
+                    <i className="fa-solid fa-hashtag"
+                      style={{ color: alertForm.soTaiKhoan !== '' ? 'red' : '' }}
+                    ></i>
+                    <input id='soTaiKhoan' type="text" placeholder='Số TK ngân hàng'
+                      value={formDangKy.soTaiKhoan}
+                      onChange={handleChangInput}
+                      onBlur={onBlurInput}
+
+                    />
+                  </div>
+                  <div className="inputItem">
+                    <i className="fa-solid fa-building-columns"
+                      style={{ color: alertForm.nganHang !== '' ? 'red' : '' }}
+                    ></i>
+                    <select name="" id="nganHang"
+                      value={formDangKy.nganHang}
+                      onChange={handleChangInput}
+                      onBlur={onBlurInput}
+
+                    >
+                      <option value="">Ngân hàng</option>
+                      <option value="acb">Acb</option>
+                      <option value="vietcombank">Vietcombank</option>
+                      <option value="sacombank">Sacombank</option>
+                      <option value="techcombank">Techcombank</option>
+                      <option value="argibank">Argibank</option>
+                    </select>
+                  </div>
+                  <div className="inputItem">
+                    <i className="fa-solid fa-phone"
+                      style={{ color: alertForm.soDienThoai !== '' ? 'red' : '' }}
+                    ></i>
+                    <input id='soDienThoai' type="text" placeholder='Số điện thoại'
+                      value={formDangKy.soDienThoai}
+                      onChange={handleChangInput}
+                      onBlur={onBlurInput}
+
+                    />
+                  </div>
+
+                  <div className="inputItem">
+                    <i className="fa-solid fa-pen"
+                      style={{ color: alertForm.loiChuc !== '' ? 'red' : '' }}
+                    ></i>
+                    <input id='loiChuc' type="text" placeholder='Gửi lời chúc năm mới'
+                      value={formDangKy.loiChuc}
+                      onChange={handleChangInput}
+                      onBlur={onBlurInput}
+
+                    />
+                  </div>
+                  <button type='button' onClick={handleXacNhanThongTin}>Nhận lì xì ngay</button>
+                  <p><i>(Vui lòng điền chính xác thông tin, để hệ thống chuyển khoản tiền lì xì cho bạn nhé)</i></p>
+
+                </form>
+                <div className="listBaoLiXi" style={{ display: lock ? 'none' : 'flex' }}>
+                  <div className="baoItem">
+                    <div className="baoContent">
+                      <p>
+                        Chúc mừng năm mới, sức khoẻ dồi dào, tràn đầy năng lượng.
+                      </p>
+                      <h3>Sức khoẻ</h3>
+
+                    </div>
+                    {
+                      lock ? ('') : (<button id='sucKhoe' onClick={(event) => handleMoBao(event)}>Mở bao lì xì</button>)
+                    }
+                  </div>
+                  <div className="baoItem">
+                    <div className="baoContent">
+                      <p>
+                        Chúc mừng năm mới, tiền vào như nước, vàng bạc đầy nhà.
+                      </p>
+                      <h3>Tài lộc</h3>
+
+                    </div>
+                    {
+                      lock ? ('') : (<button id='taiLoc' onClick={(event) => handleMoBao(event)}>Mở bao lì xì</button>)
+                    }
+
+                  </div>
+                  <div className="baoItem">
+                    <div className="baoContent">
+                      <p>
+                        Chúc mừng năm mới, hạnh phúc đong đầy, đường tình viên mãn.
+                      </p>
+                      <h3>Tình yêu</h3>
+
+                    </div>
+                    {
+                      lock ? ('') : (<button id='tinhYeu' onClick={(event) => handleMoBao(event)}>Mở bao lì xì</button>)
+                    }
+                  </div>
+                  <div className="baoItem">
+                    <div className="baoContent">
+                      <p>
+                        Chúc mừng năm mới, sự nghiệp thăng tiến, mọi việc hanh thông.
+                      </p>
+                      <h3>Sự nghiệp</h3>
+
+                    </div>
+                    {
+                      lock ? ('') : (<button id='suNghiep' onClick={(event) => handleMoBao(event)}>Mở bao lì xì</button>)
+                    }
+
+                  </div>
+                  <div className="baoItem">
+                    <div className="baoContent">
+                      <p>
+                        Chúc mừng năm mới, Vạn sự như ý, toàn gặp điều may.
+                      </p>
+                      <h3>May mắn</h3>
+
+                    </div>
+                    {
+                      lock ? ('') : (<button id='mayMan' onClick={(event) => handleMoBao(event)}>Mở bao lì xì</button>)
+                    }
+                  </div>
+                  <div className="baoItem">
+                    <div className="baoContent">
+                      <p>
+                        Chúc mừng năm mới, tiếng cười ngập tràn, luôn luôn tươi trẻ.
+                      </p>
+                      <h3>Niềm vui</h3>
+                    </div>
+                    {
+                      lock ? ('') : (<button id='niemVui' onClick={(event) => handleMoBao(event)}>Mở bao lì xì</button>)
+                    }
+
+                  </div>
+                </div>
+                {/* <div className='footer'>
+                  <span>Vui là chín</span>
+                </div> */}
+
+                {
+                  listNguoiThamGia.length > 0 ? (
+                    <div className='danhSach'>
+                      <h3>Danh sách</h3>
+                      <table>
+                        <thead>
+                          <tr>
+                            <td>Ngày</td>
+                            <td>Họ Và Tên</td>
+                            <td>Lì Xì</td>
+                            {/* <td>Trạng Thái</td> */}
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {
+                            listNguoiThamGia?.map((item, index) => {
+                              tongTien += item.liXi
+                              return (
+                                <tr key={index}>
+                                  <td>
+                                    {moment(item.ngay).format('DD/MM/YYYY hh:mm')}
+                                  </td>
+                                  <td className='hoVaTen'>
+                                    {item.hoVaTen}
+                                  </td>
+                                  <td>
+                                    {item.liXi.toLocaleString()}
+                                  </td>
+                                  {/* <td>
+                                    {
+                                      item.trangThai ? 'Đã ck' : 'Chờ xử lý'
+                                    }
+
+                                  </td> */}
+                                </tr>
+                              )
+                            })
+                          }
+                        </tbody>
+                        <tfoot>
+                          <tr>
+                            <td colSpan={2}>Tổng tiền</td>
+                            <td>{tongTien.toLocaleString()}</td>
+                          </tr>
+                        </tfoot>
+                      </table>
+                    </div>
+                  ) : (null)
+                }
+
+              </div>
+              {/* <div className="overlay" className={liXi == 0 ? 'none' : ''} onClick={() => setLixi(0)}></div> */}
+              <div className={liXi > 0 ? 'overlay' : ''} onClick={() => setLixi(0)}></div>
+              <div id='formLogin' className={liXi == 0 ? '' : 'trans0'}>
+
+                <div className="contentLiXi">
+                  <h3>Lì xì</h3>
+                  <h2>{liXi.toLocaleString()}đ</h2>
+                  <h4>Chúc thật nhiều sức khoẻ</h4>
+                  <p><i>Đợi nhận tiền nhé <i className="fa-regular fa-face-smile"></i></i></p>
+                </div>
+              </div>
+
+            </div>
+          </div >
+        ) : (null)
+      }
     </>
   );
 }

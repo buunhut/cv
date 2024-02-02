@@ -53,6 +53,9 @@ body {
               cursor: pointer;
               transition: all 0.3s;
             }
+            &.nhanLiXi {
+              width: 80px;
+            }
           }
         }
       }
@@ -218,7 +221,7 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    z-index: 1;
+    z-index: 103;
     background-color: rgba(0, 0, 0, 0.8);
   }
   #formLogin {
@@ -230,7 +233,7 @@ body {
     top: -100%;
     left: 50%;
     transform: translate(-50%, 0);
-    z-index: 2;
+    z-index: 104;
     .inputItem {
       display: flex;
       align-items: center;
@@ -277,6 +280,29 @@ body {
       transition: all 0.3s;
       top: 25%;
       transform: translate(-50%, -50%);
+    }
+    .contentLiXi {
+      border: 2px solid red;
+      border-radius: 10px;
+      padding: 10px;
+      h2 {
+        color: red;
+        margin: 10px auto 0px;
+        font-size: 39px;
+      }
+      h3 {
+        color: royalblue;
+        font: 22px;
+      }
+      h4 {
+        margin: 10px auto;
+        color: royalblue;
+        font-size: 23px;
+      }
+      p {
+        margin: 10px auto 0px;
+        color: silver;
+      }
     }
   }
   .custom-tooltip {
@@ -357,6 +383,228 @@ body {
           color: white;
           font-size: 22px;
           font-weight: 600;
+        }
+      }
+    }
+  }
+
+  .liXi {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background-color: whitesmoke;
+    z-index: 100;
+    text-align: center;
+    padding: 20px;
+    overflow-y: scroll;
+    h3 {
+      color: red;
+      font-size: 30px;
+    }
+    button.back {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      color: white;
+      background-color: orangered;
+      width: 30px;
+      height: 30px;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: all 0.3s;
+      &:hover {
+        background-color: red;
+      }
+    }
+    .container {
+      width: 1140px;
+      margin: 0 auto;
+      .content {
+        form {
+          margin: 20px auto;
+          padding: 10px;
+          width: 100%;
+          background-color: white;
+          // border: 1px solid silver;
+          box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+
+          .inputItem {
+            margin: 2px 0;
+            border-bottom: 1px solid silver;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            i {
+              // display: block;
+              width: 20px;
+              text-align: center;
+            }
+
+            input {
+              width: 100%;
+              height: 32px;
+              outline: none;
+              border: none;
+              padding: 0 0 0 10px;
+              font-size: 16px;
+              &::placeholder {
+                // color: black;
+              }
+            }
+            select {
+              width: 100%;
+              height: 32px;
+              outline: none;
+              border: none;
+              // color: rgb(117, 114, 114);
+              font-size: 16px;
+              padding: 0 0 0 7px;
+            }
+          }
+          button {
+            margin: 10px auto;
+            height: 34px;
+            background-color: orangered;
+            color: white;
+            border: none;
+            width: 100%;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s;
+            &:hover {
+              background-color: red;
+            }
+          }
+        }
+
+        .listBaoLiXi {
+          width: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: flex-start;
+          flex-wrap: wrap;
+          gap: 10px;
+          margin-bottom: 30px;
+          .baoItem {
+            width: 180px;
+            height: 200px;
+            margin-top: 40px;
+            padding: 10px;
+            position: relative;
+            &:hover {
+              .baoContent {
+                transform: translateY(-31px);
+              }
+            }
+            .baoContent {
+              text-align: center;
+              color: white;
+              position: absolute;
+              top: 0;
+              left: 0;
+              right: 0;
+              bottom: 0;
+              background-color: orangered;
+              z-index: 102;
+              transition: all 0.3s;
+              padding: 20px 10px;
+              border-radius: 10px 10px 0 0;
+              p {
+                width: 100%;
+                height: 40px;
+              }
+              h3 {
+                position: absolute;
+                bottom: 10px;
+                left: 0;
+                right: 0;
+                color: white;
+                text-align: center;
+              }
+            }
+            button {
+              position: absolute;
+              bottom: 0;
+              left: 0;
+              width: 100%;
+              height: 30px;
+              z-index: 101;
+              background-color: orangered;
+              color: white;
+              border: none;
+              border-radius: 20px;
+              transition: all 0.3s;
+              cursor: pointer;
+              &:hover {
+                background-color: red;
+              }
+            }
+          }
+        }
+        .footer {
+          margin: 20px auto 10px;
+          background-color: orangered;
+          padding: 10px 0;
+          span {
+            color: white;
+          }
+        }
+      }
+    }
+    .danhSach {
+      table {
+        width: 100%;
+        margin: 10px auto 20px;
+        border-collapse: collapse;
+        border: none;
+        thead {
+          tr {
+            font-weight: 500;
+            td {
+              text-align: left;
+              background-color: orangered;
+              color: white;
+              padding: 10px 5px;
+              &:last-child {
+                text-align: right;
+              }
+            }
+          }
+        }
+        tbody {
+          tr {
+            &:nth-child(even) {
+              background-color: rgba(224, 224, 224, 0.676);
+            }
+            td {
+              text-align: left;
+              padding: 10px 5px;
+
+              &:last-child {
+                text-align: right;
+              }
+              &.hoVaTen {
+                text-transform: capitalize;
+              }
+            }
+          }
+        }
+        tfoot {
+          font-weight: 600;
+          tr {
+            td {
+              text-align: left;
+              padding: 10px 5px;
+
+              &:last-child {
+                text-align: right;
+              }
+            }
+          }
         }
       }
     }
@@ -637,6 +885,20 @@ body.dark {
     .zaloChat {
       bottom: 40px;
       right: 15px;
+    }
+    .liXi {
+      padding: 20px 10px;
+      .container {
+        width: 100%;
+      }
+      #thongBao {
+        width: 100%;
+        &.show {
+          top: -500px;
+
+          margin: 0 auto;
+        }
+      }
     }
   }
   body.dark {
