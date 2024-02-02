@@ -912,7 +912,7 @@ function App() {
                           <i className="fa-solid fa-user"
                             style={{ color: alertForm.hoVaTen !== '' ? 'red' : '' }}
                           ></i>
-                          <input id='hoVaTen' type="text" placeholder='Họ và tên' autoFocus
+                          <input id='hoVaTen' type="text" placeholder='Họ và tên'
                             value={formDangKy.hoVaTen}
                             onChange={handleChangInput}
                             onBlur={onBlurInput}
