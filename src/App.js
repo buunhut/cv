@@ -1117,7 +1117,7 @@ function App() {
               <div id='formLogin' className={liXi == 0 ? '' : 'trans0'}>
                 <div className="contentLiXi">
                   <img src="./img/rongLogo.jpeg" alt="" />
-                  <h3>Lì xì</h3>
+                  <h3>Lì xì may mắn</h3>
                   <h2>{liXi.toLocaleString()}đ</h2>
                   <h4>Chúc thật nhiều sức khoẻ</h4>
                   <p><i>Đợi nhận tiền nhé <i className="fa-regular fa-face-smile"></i></i></p>
