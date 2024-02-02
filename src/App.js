@@ -977,7 +977,7 @@ function App() {
                       {
                         listNguoiThamGia.length > 0 ? (
                           <>
-                            <h3>Danh sách</h3>
+                            {/* <h3>Danh sách</h3> */}
 
                             <div className='danhSach'>
                               <table>
