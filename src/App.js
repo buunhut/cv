@@ -1061,7 +1061,7 @@ function App() {
                           <tr>
                             <td>Ngày</td>
                             <td>Họ Và Tên</td>
-                            <td>Lì Xì</td>
+                            <td>Được Lì Xì</td>
                             {/* <td>Trạng Thái</td> */}
                           </tr>
                         </thead>
