@@ -209,7 +209,7 @@ function App() {
       if (id === 'hoVaTen' || id === 'soTaiKhoan') {
         axios({
           method: 'post',
-          url: 'http://api.bachhoahanhan.com/users/check-thong-tin',
+          url: 'https://api.bachhoahanhan.com/users/check-thong-tin',
           data: { thongTin: value }
         }).then((res) => {
           const { statusCode } = res.data
@@ -229,17 +229,6 @@ function App() {
           console.log(err)
         })
       }
-      // else if (id === 'soTaiKhoan') {
-      //   axios({
-      //     method: 'post',
-      //     url: 'http://api.bachhoahanhan.com/users/check-thong-tin',
-      //     data: { thongTin: value }
-      //   }).then((res) => {
-      //     console.log(res.data)
-      //   }).catch((err) => {
-      //     console.log(err)
-      //   })
-      // }
     } else {
       setAlertForm((prevState) => ({
         ...prevState,
@@ -274,7 +263,7 @@ function App() {
       };
       axios({
         method: 'post',
-        url: 'http://api.bachhoahanhan.com/users/dang-ky-nhan-li-xi',
+        url: 'https://api.bachhoahanhan.com/users/dang-ky-nhan-li-xi',
         data
       }).then((res) => {
         const { statusCode, content } = res.data
@@ -334,7 +323,7 @@ function App() {
     }
     axios({
       method: 'post',
-      url: 'http://api.bachhoahanhan.com/users/update-li-xi',
+      url: 'https://api.bachhoahanhan.com/users/update-li-xi',
       data
     }).then((res) => {
       const { statusCode, content } = res.data
@@ -363,7 +352,7 @@ function App() {
   const getListNguoiThamGia = () => {
     axios({
       method: 'get',
-      url: 'http://api.bachhoahanhan.com/users/get-list-nguoi-tham-gia',
+      url: 'https://api.bachhoahanhan.com/users/get-list-nguoi-tham-gia',
     }).then((res) => {
       const { content } = res.data
       if (content.length > 0) {
