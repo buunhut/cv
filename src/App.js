@@ -898,7 +898,9 @@ function App() {
       {
         showLiXi ? (
           <div className='liXi'>
-            <h3>Chúc Mừng Năm Mới</h3>
+            <div className='topTitle'>
+              <h3>Chúc Mừng Năm Mới</h3>
+            </div>
             <button onClick={handleShowLiXi} className='back'>
               <i className="fa-solid fa-xmark"></i>
             </button>

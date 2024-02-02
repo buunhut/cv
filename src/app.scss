@@ -392,18 +392,33 @@ body {
 
   .liXi {
     position: fixed;
-    top: 0;
+    top: 0px;
     right: 0;
     left: 0;
     bottom: 0;
     background-color: whitesmoke;
     z-index: 100;
     text-align: center;
-    padding: 20px;
+    padding: 0 20px 20px;
     overflow-y: scroll;
-    h3 {
-      color: red;
-      font-size: 30px;
+    .topTitle {
+      width: 400px;
+      height: 150px;
+      margin: -20px auto 0px;
+      background-image: url("../public/img/rongVang.png");
+      background-size: contain; /* Có thể sử dụng 'contain' nếu bạn muốn hình ảnh hiển thị toàn bộ */
+      background-position: center; /* Căn hình ảnh vào giữa div */
+      background-repeat: no-repeat; /* Không lặp lại hình ảnh */
+      position: relative;
+
+      // background-color: royalblue;
+      h3 {
+        color: red;
+        font-size: 30px;
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+      }
     }
     button.back {
       position: absolute;
