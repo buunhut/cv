@@ -921,7 +921,7 @@ function App() {
                     <i className="fa-solid fa-hashtag"
                       style={{ color: alertForm.soTaiKhoan !== '' ? 'red' : '' }}
                     ></i>
-                    <input id='soTaiKhoan' type="text" placeholder='Số TK ngân hàng'
+                    <input id='soTaiKhoan' type="text" placeholder='Số tài khoản'
                       value={formDangKy.soTaiKhoan}
                       onChange={handleChangInput}
                       onBlur={onBlurInput}
