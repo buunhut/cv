@@ -136,7 +136,7 @@ function App() {
     20000, 20000, 50000,
     20000, 20000, 50000, 100000,
     50000, 50000, 50000, 100000, 200000,
-    50000, 50000, 50000, 100000, 200000, 500000, 500000, 500000, 1000000, 1000000,
+    50000, 50000, 50000, 100000, 200000, 500000, 500000, 1000000,
     50000, 50000, 50000, 100000, 200000,
     20000, 20000, 50000, 100000,
     20000, 20000, 50000,
@@ -311,6 +311,7 @@ function App() {
     const { id } = e.target
     shuffleArray(menhGia)
     setLixi(menhGia[bao])
+    handleBackToTop()
     const liXiElement = document.querySelector('.liXi');
     if (liXiElement) {
       liXiElement.scrollTo({ top: 0, behavior: 'smooth' });
