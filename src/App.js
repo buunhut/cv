@@ -906,72 +906,134 @@ function App() {
               <div className="content">
                 {
                   lock ? (
-                    <form action="">
-                      <div className="inputItem">
-                        <i className="fa-solid fa-user"
-                          style={{ color: alertForm.hoVaTen !== '' ? 'red' : '' }}
-                        ></i>
-                        <input id='hoVaTen' type="text" placeholder='Họ và tên' autoFocus
-                          value={formDangKy.hoVaTen}
-                          onChange={handleChangInput}
-                          onBlur={onBlurInput}
-                        />
-                      </div>
-                      <div className="inputItem">
-                        <i className="fa-solid fa-hashtag"
-                          style={{ color: alertForm.soTaiKhoan !== '' ? 'red' : '' }}
-                        ></i>
-                        <input id='soTaiKhoan' type="text" placeholder='Số tài khoản'
-                          value={formDangKy.soTaiKhoan}
-                          onChange={handleChangInput}
-                          onBlur={onBlurInput}
+                    <>
+                      <form action="">
+                        <div className="inputItem">
+                          <i className="fa-solid fa-user"
+                            style={{ color: alertForm.hoVaTen !== '' ? 'red' : '' }}
+                          ></i>
+                          <input id='hoVaTen' type="text" placeholder='Họ và tên' autoFocus
+                            value={formDangKy.hoVaTen}
+                            onChange={handleChangInput}
+                            onBlur={onBlurInput}
+                          />
+                        </div>
+                        <div className="inputItem">
+                          <i className="fa-solid fa-hashtag"
+                            style={{ color: alertForm.soTaiKhoan !== '' ? 'red' : '' }}
+                          ></i>
+                          <input id='soTaiKhoan' type="text" placeholder='Số tài khoản'
+                            value={formDangKy.soTaiKhoan}
+                            onChange={handleChangInput}
+                            onBlur={onBlurInput}
 
-                        />
-                      </div>
-                      <div className="inputItem">
-                        <i className="fa-solid fa-building-columns"
-                          style={{ color: alertForm.nganHang !== '' ? 'red' : '' }}
-                        ></i>
-                        <select name="" id="nganHang"
-                          value={formDangKy.nganHang}
-                          onChange={handleChangInput}
-                          onBlur={onBlurInput}
+                          />
+                        </div>
+                        <div className="inputItem">
+                          <i className="fa-solid fa-building-columns"
+                            style={{ color: alertForm.nganHang !== '' ? 'red' : '' }}
+                          ></i>
+                          <select name="" id="nganHang"
+                            value={formDangKy.nganHang}
+                            onChange={handleChangInput}
+                            onBlur={onBlurInput}
 
-                        >
-                          <option value="">Ngân hàng</option>
-                          <option value="acb">Acb</option>
-                          <option value="vietcombank">Vietcombank</option>
-                          <option value="sacombank">Sacombank</option>
-                          <option value="techcombank">Techcombank</option>
-                          <option value="argibank">Argibank</option>
-                        </select>
-                      </div>
-                      <div className="inputItem">
-                        <i className="fa-solid fa-phone"
-                          style={{ color: alertForm.soDienThoai !== '' ? 'red' : '' }}
-                        ></i>
-                        <input id='soDienThoai' type="text" placeholder='Số điện thoại'
-                          value={formDangKy.soDienThoai}
-                          onChange={handleChangInput}
-                          onBlur={onBlurInput}
+                          >
+                            <option value="">Ngân hàng</option>
+                            <option value="acb">Acb</option>
+                            <option value="vietcombank">Vietcombank</option>
+                            <option value="sacombank">Sacombank</option>
+                            <option value="techcombank">Techcombank</option>
+                            <option value="argibank">Argibank</option>
+                          </select>
+                        </div>
+                        <div className="inputItem">
+                          <i className="fa-solid fa-phone"
+                            style={{ color: alertForm.soDienThoai !== '' ? 'red' : '' }}
+                          ></i>
+                          <input id='soDienThoai' type="text" placeholder='Số điện thoại'
+                            value={formDangKy.soDienThoai}
+                            onChange={handleChangInput}
+                            onBlur={onBlurInput}
 
-                        />
-                      </div>
+                          />
+                        </div>
 
-                      <div className="inputItem">
-                        <i className="fa-solid fa-pen"
-                          style={{ color: alertForm.loiChuc !== '' ? 'red' : '' }}
-                        ></i>
-                        <input id='loiChuc' type="text" placeholder='Gửi lời chúc năm mới'
-                          value={formDangKy.loiChuc}
-                          onChange={handleChangInput}
-                          onBlur={onBlurInput}
+                        <div className="inputItem">
+                          <i className="fa-solid fa-pen"
+                            style={{ color: alertForm.loiChuc !== '' ? 'red' : '' }}
+                          ></i>
+                          <input id='loiChuc' type="text" placeholder='Gửi lời chúc năm mới'
+                            value={formDangKy.loiChuc}
+                            onChange={handleChangInput}
+                            onBlur={onBlurInput}
 
-                        />
-                      </div>
-                      <button type='button' onClick={handleXacNhanThongTin}>Nhận Lì Xì Ngay</button>
-                      {/* <p><i>(Vui lòng điền chính xác thông tin, để hệ thống chuyển khoản tiền lì xì cho bạn nhé)</i></p> */}
-                    </form>
+                          />
+                        </div>
+                        <button type='button' onClick={handleXacNhanThongTin}>Nhận Lì Xì Ngay</button>
+                        {/* <p><i>(Vui lòng điền chính xác thông tin, để hệ thống chuyển khoản tiền lì xì cho bạn nhé)</i></p> */}
+                      </form>
+
+                      {
+                        listNguoiThamGia.length > 0 ? (
+                          <>
+                            <h3>Danh sách</h3>
+
+                            <div className='danhSach'>
+                              <table>
+                                <thead>
+                                  <tr>
+                                    <td>Ngày</td>
+                                    <td>Họ Và Tên</td>
+                                    <td>Được Lì Xì</td>
+                                    {/* <td>Trạng Thái</td> */}
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  {
+                                    listNguoiThamGia?.map((item, index) => {
+                                      tongTien += item.liXi
+                                      return (
+                                        <tr key={index}>
+                                          <td>
+                                            {moment(item.ngay).format('DD/MM/YYYY hh:mm')}
+                                          </td>
+                                          <td className='hoVaTen'>
+                                            {item.hoVaTen}
+                                          </td>
+                                          <td>
+                                            {item.liXi.toLocaleString()}
+                                          </td>
+                                          {/* <td>
+                                    {
+                                      item.trangThai ? 'Đã ck' : 'Chờ xử lý'
+                                    }
+
+                                  </td> */}
+                                        </tr>
+                                      )
+                                    })
+                                  }
+                                </tbody>
+                                <tfoot>
+                                  <tr>
+                                    <td colSpan={2}>Tổng tiền</td>
+                                    <td>{tongTien.toLocaleString()}</td>
+                                  </tr>
+                                </tfoot>
+                              </table>
+
+                            </div>
+                          </>
+                        ) : (null)
+                      }
+
+
+
+
+
+
+                    </>
 
                   ) : (
                     <div className="listBaoLiXi">
@@ -1056,59 +1118,6 @@ function App() {
                   <span>Vui là chín</span>
                 </div> */}
 
-                {
-                  listNguoiThamGia.length > 0 ? (
-                    <>
-                      <h3>Danh sách</h3>
-
-                      <div className='danhSach'>
-                        <table>
-                          <thead>
-                            <tr>
-                              <td>Ngày</td>
-                              <td>Họ Và Tên</td>
-                              <td>Được Lì Xì</td>
-                              {/* <td>Trạng Thái</td> */}
-                            </tr>
-                          </thead>
-                          <tbody>
-                            {
-                              listNguoiThamGia?.map((item, index) => {
-                                tongTien += item.liXi
-                                return (
-                                  <tr key={index}>
-                                    <td>
-                                      {moment(item.ngay).format('DD/MM/YYYY hh:mm')}
-                                    </td>
-                                    <td className='hoVaTen'>
-                                      {item.hoVaTen}
-                                    </td>
-                                    <td>
-                                      {item.liXi.toLocaleString()}
-                                    </td>
-                                    {/* <td>
-                                    {
-                                      item.trangThai ? 'Đã ck' : 'Chờ xử lý'
-                                    }
-
-                                  </td> */}
-                                  </tr>
-                                )
-                              })
-                            }
-                          </tbody>
-                          <tfoot>
-                            <tr>
-                              <td colSpan={2}>Tổng tiền</td>
-                              <td>{tongTien.toLocaleString()}</td>
-                            </tr>
-                          </tfoot>
-                        </table>
-
-                      </div>
-                    </>
-                  ) : (null)
-                }
 
               </div>
               {/* <div className="overlay" className={liXi == 0 ? 'none' : ''} onClick={() => setLixi(0)}></div> */}
