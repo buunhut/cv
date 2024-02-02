@@ -977,7 +977,7 @@ function App() {
                   <div className="baoItem">
                     <div className="baoContent">
                       <p>
-                        Chúc mừng năm mới, sức khoẻ dồi dào, tràn đầy năng lượng.
+                        Chúc mừng năm mới. Sức khoẻ dồi dào, tràn đầy năng lượng.
                       </p>
                       <h3>Sức khoẻ</h3>
 
@@ -989,7 +989,7 @@ function App() {
                   <div className="baoItem">
                     <div className="baoContent">
                       <p>
-                        Chúc mừng năm mới, tiền vào như nước, vàng bạc đầy nhà.
+                        Chúc mừng năm mới. Tiền vào như nước, vàng bạc đầy nhà.
                       </p>
                       <h3>Tài lộc</h3>
 
@@ -1002,7 +1002,7 @@ function App() {
                   <div className="baoItem">
                     <div className="baoContent">
                       <p>
-                        Chúc mừng năm mới, hạnh phúc đong đầy, đường tình viên mãn.
+                        Chúc mừng năm mới. Hạnh phúc đong đầy, đường tình viên mãn.
                       </p>
                       <h3>Tình yêu</h3>
 
@@ -1014,7 +1014,7 @@ function App() {
                   <div className="baoItem">
                     <div className="baoContent">
                       <p>
-                        Chúc mừng năm mới, sự nghiệp thăng tiến, mọi việc hanh thông.
+                        Chúc mừng năm mới. Sự nghiệp thăng tiến, mọi việc hanh thông.
                       </p>
                       <h3>Sự nghiệp</h3>
 
@@ -1027,7 +1027,7 @@ function App() {
                   <div className="baoItem">
                     <div className="baoContent">
                       <p>
-                        Chúc mừng năm mới, Vạn sự như ý, toàn gặp điều may.
+                        Chúc mừng năm mới. Vạn sự như ý, cả năm gặp toàn điều may.
                       </p>
                       <h3>May mắn</h3>
 
@@ -1039,7 +1039,7 @@ function App() {
                   <div className="baoItem">
                     <div className="baoContent">
                       <p>
-                        Chúc mừng năm mới, tiếng cười ngập tràn, luôn luôn tươi trẻ.
+                        Chúc mừng năm mới. Tiếng cười ngập tràn, luôn luôn tươi trẻ.
                       </p>
                       <h3>Niềm vui</h3>
                     </div>
