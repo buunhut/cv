@@ -427,6 +427,10 @@ body {
         position: absolute;
         bottom: 0;
         width: 100%;
+        font-family: "Lobster", sans-serif;
+
+        // background: linear-gradient(to bottom, #3498db, #2980b9);
+        // animation: wave 2s infinite alternate;
       }
     }
     button.back {
@@ -1058,6 +1062,18 @@ body.dark {
   100% {
     opacity: 0;
     transform: translateY(-5px);
+  }
+}
+
+@keyframes wave {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
   }
 }
 
