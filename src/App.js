@@ -120,15 +120,13 @@ function App() {
     // ]
     [
       20000, 50000, 100000,
-      20000, 50000, 100000,
-      20000, 50000, 100000,
+      20000, 50000, 100000, 200000,
       20000, 50000, 100000, 200000,
       20000, 50000, 100000, 200000, 500000,
       20000, 50000, 100000, 200000, 500000, 1000000,
       20000, 50000, 100000, 200000, 500000,
       20000, 50000, 100000, 200000,
-      20000, 50000, 100000,
-      20000, 50000, 100000,
+      20000, 50000, 100000, 200000,
       20000, 50000, 100000,
     ]
   )
@@ -293,9 +291,6 @@ function App() {
         } else {
           message.error('Có lỗi xảy ra', 5)
         }
-
-
-
       }).catch((err) => {
         console.log(err)
       })
@@ -904,7 +899,11 @@ function App() {
         showLiXi ? (
           <div className='liXi'>
             <div className='topTitle'>
-              <h3>Chúc Mừng Năm Mới</h3>
+              <h3>
+                Chúc Mừng Năm Mới
+
+              </h3>
+
             </div>
             <button onClick={handleShowLiXi} className='back'>
               <i className="fa-solid fa-xmark"></i>
