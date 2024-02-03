@@ -54,12 +54,18 @@ function App() {
     })
 
 
-    const setTimeRun = moment(date).format('DD/MM/YYYY')
-    if (setTimeRun > '01/02/2024' || setTimeRun < '09/02/2024') {
+    const setTimeRun = moment(date)
+    // console.log("runtime ", setTimeRun)
+    if (
+      moment(setTimeRun, 'DD/MM/YYYY HH:mm') >= moment('03/02/2024 22:45', 'DD/MM/YYYY HH:mm') ||
+      moment(setTimeRun, 'DD/MM/YYYY HH:mm') <= moment('03/02/2024 23:59', 'DD/MM/YYYY HH:mm')) {
       setMenhGia([
-        20000, 50000, 100000, 200000, 500000, 1000000,
+        500000, 1000000,
       ])
-    } else if (setTimeRun === '09/02/2024') {
+    } else if (
+      //chạy thiệt
+      moment(setTimeRun, 'DD/MM/YYYY HH:mm') >= moment('09/02/2024 20:00', 'DD/MM/YYYY HH:mm') ||
+      moment(setTimeRun, 'DD/MM/YYYY HH:mm') <= moment('09/02/2024 23:59', 'DD/MM/YYYY HH:mm')) {
       setMenhGia([
         20000, 50000, 100000, 200000,
         20000, 50000, 100000, 200000, 500000, 1000000,
@@ -153,10 +159,7 @@ function App() {
       20000, 50000, 100000, 200000,
     ]
   )
-
-
-
-
+  console.log(menhGia)
 
   //show lì xì
   const handleShowLiXi = () => {
