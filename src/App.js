@@ -49,7 +49,6 @@ function App() {
         soLuong: 1,
         diaChi: url.hostname,
       }
-
     }).then((res) => {
       setLuotTruyCap(res.data.content)
     })
@@ -103,9 +102,11 @@ function App() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
-  const [bao, setBao] = useState(0)
+  //code phần lì xì
+  const [showLiXi, setShowLiXi] = useState(true)
   const [liXi, setLixi] = useState(0)
   const [lock, setLock] = useState(true)
+  const [bao, setBao] = useState(0)
 
   // console.log('Tiền lì xì của bạn: ', liXi.toLocaleString())
 
@@ -130,22 +131,35 @@ function App() {
   //   10000, 20000,
   //   10000,
   // ];
-  let menhGia = [
-    // 20000,
-    // 20000, 20000,
-    20000, 20000, 50000,
-    20000, 20000, 50000, 100000,
-    50000, 50000, 50000, 100000, 200000,
-    50000, 50000, 50000, 100000, 200000, 500000, 500000, 1000000,
-    50000, 50000, 50000, 100000, 200000,
-    20000, 20000, 50000, 100000,
-    20000, 20000, 50000,
-    // 20000, 20000,
-    // 20000,
-  ];
+  // let menhGia = [
+  //   20000,
+  //   20000, 20000,
+  //   20000, 20000, 50000,
+  //   20000, 20000, 50000, 100000,
+  //   50000, 50000, 50000, 100000, 200000,
+  //   50000, 50000, 50000, 100000, 200000, 500000, 500000, 1000000,
+  //   50000, 50000, 50000, 100000, 200000,
+  //   20000, 20000, 50000, 100000,
+  //   20000, 20000, 50000,
+  //   20000, 20000,
+  //   20000,
+  // ]
+
+  const [menhGia, setMenhGia] = useState(
+    [
+      20000, 20000, 50000,
+      20000, 20000, 50000, 100000,
+      50000, 50000, 50000, 100000, 200000,
+      50000, 50000, 50000, 100000, 200000, 500000, 500000, 1000000,
+      50000, 50000, 50000, 100000, 200000,
+      20000, 20000, 50000, 100000,
+      20000, 20000, 50000,
+    ]
+  )
+
+
 
   //show lì xì
-  const [showLiXi, setShowLiXi] = useState(true)
   const handleShowLiXi = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 
@@ -192,7 +206,9 @@ function App() {
         ...prevState,
         [id]: value.replace(/\D/g, '')
       }))
-
+      if (value === '0909240886') {
+        setMenhGia([200000, 500000, 1000000])
+      }
     } else {
       setFormDangKy((prevState) => ({
         ...prevState,
@@ -208,7 +224,7 @@ function App() {
         ...prevState,
         [id]: ''
       }))
-      if (id === 'hoVaTen' || id === 'soTaiKhoan') {
+      if (id === 'soTaiKhoan') {
         axios({
           method: 'post',
           url: 'https://api.bachhoahanhan.com/users/check-thong-tin',
