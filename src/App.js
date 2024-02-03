@@ -53,6 +53,21 @@ function App() {
       setLuotTruyCap(res.data.content)
     })
 
+
+    const setTimeRun = moment(date).format('DD/MM/YYYY')
+    if (setTimeRun > '01/02/2024' || setTimeRun < '09/02/2024') {
+      setMenhGia([
+        20000, 50000, 100000, 200000, 500000, 1000000,
+      ])
+    } else if (setTimeRun === '09/02/2024') {
+      setMenhGia([
+        20000, 50000, 100000, 200000,
+        20000, 50000, 100000, 200000, 500000, 1000000,
+        20000, 50000, 100000, 200000,
+      ])
+    }
+
+
     //list người tham gia
     getListNguoiThamGia()
 
@@ -63,6 +78,12 @@ function App() {
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
+
+
+
+
+
+
   }, []); //chạy 1 lần 
 
   //chuyển ngôn ngữ
@@ -108,6 +129,8 @@ function App() {
   const [lock, setLock] = useState(true)
   const [bao, setBao] = useState(0)
 
+
+
   const [menhGia, setMenhGia] = useState(
     // [
     //   20000, 20000, 50000,
@@ -133,10 +156,11 @@ function App() {
 
 
 
+
+
   //show lì xì
   const handleShowLiXi = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
-
     setShowLiXi(!showLiXi)
     if (!showLiXi) {
       document.body.style.overflowY = 'hidden'
