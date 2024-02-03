@@ -108,52 +108,28 @@ function App() {
   const [lock, setLock] = useState(true)
   const [bao, setBao] = useState(0)
 
-  // console.log('Tiền lì xì của bạn: ', liXi.toLocaleString())
-
-  // let menhGia = [
-  //   10000,
-  //   10000, 20000,
-  //   10000, 20000, 50000,
-  //   10000, 20000, 50000,
-  //   10000, 20000, 50000, 100000,
-  //   10000, 20000, 50000, 100000,
-  //   10000, 20000, 50000, 100000, 200000,
-  //   10000, 20000, 50000, 100000, 200000,
-  //   10000, 20000, 50000, 100000, 200000, 500000,
-  //   10000, 20000, 50000, 100000, 200000, 500000, 1000000,
-  //   10000, 20000, 50000, 100000, 200000, 500000,
-  //   10000, 20000, 50000, 100000, 200000,
-  //   10000, 20000, 50000, 100000, 200000,
-  //   10000, 20000, 50000, 100000,
-  //   10000, 20000, 50000, 100000,
-  //   10000, 20000, 50000,
-  //   10000, 20000, 50000,
-  //   10000, 20000,
-  //   10000,
-  // ];
-  // let menhGia = [
-  //   20000,
-  //   20000, 20000,
-  //   20000, 20000, 50000,
-  //   20000, 20000, 50000, 100000,
-  //   50000, 50000, 50000, 100000, 200000,
-  //   50000, 50000, 50000, 100000, 200000, 500000, 500000, 1000000,
-  //   50000, 50000, 50000, 100000, 200000,
-  //   20000, 20000, 50000, 100000,
-  //   20000, 20000, 50000,
-  //   20000, 20000,
-  //   20000,
-  // ]
-
   const [menhGia, setMenhGia] = useState(
+    // [
+    //   20000, 20000, 50000,
+    //   20000, 20000, 50000, 100000,
+    //   50000, 50000, 50000, 100000, 200000,
+    //   50000, 50000, 50000, 100000, 200000, 500000, 500000, 1000000,
+    //   50000, 50000, 50000, 100000, 200000,
+    //   20000, 20000, 50000, 100000,
+    //   20000, 20000, 50000,
+    // ]
     [
-      20000, 20000, 50000,
-      20000, 20000, 50000, 100000,
-      50000, 50000, 50000, 100000, 200000,
-      50000, 50000, 50000, 100000, 200000, 500000, 500000, 1000000,
-      50000, 50000, 50000, 100000, 200000,
-      20000, 20000, 50000, 100000,
-      20000, 20000, 50000,
+      20000, 50000, 100000,
+      20000, 50000, 100000,
+      20000, 50000, 100000,
+      20000, 50000, 100000, 200000,
+      20000, 50000, 100000, 200000, 500000,
+      20000, 50000, 100000, 200000, 500000, 1000000,
+      20000, 50000, 100000, 200000, 500000,
+      20000, 50000, 100000, 200000,
+      20000, 50000, 100000,
+      20000, 50000, 100000,
+      20000, 50000, 100000,
     ]
   )
 
@@ -206,9 +182,20 @@ function App() {
         ...prevState,
         [id]: value.replace(/\D/g, '')
       }))
-      if (value === '0909240886') {
-        setMenhGia([200000, 500000, 1000000])
-      }
+      // if (
+      //   value === '0909240886' ||
+      //   value === '0835252527' ||
+      //   value === '0919317710' ||
+      //   value === '0918369336' ||
+      //   value === '0836369336' ||
+      //   value === '0832366566' ||
+      //   value === '0855990669' ||
+      //   value === '0818369336'
+      // ) {
+      //   setMenhGia([100000, 200000, 500000])
+      // } else if (value === '0939710395') {
+      //   setMenhGia([500000, 1000000])
+      // }
     } else {
       setFormDangKy((prevState) => ({
         ...prevState,
@@ -241,7 +228,6 @@ function App() {
             } else if (id === 'soTaiKhoan') {
               message.warning('Tài khoản ' + value + ' đã nhận lì xì rồi', 5)
             }
-
           }
         }).catch((err) => {
           console.log(err)
@@ -253,7 +239,6 @@ function App() {
         [id]: 'Vui lòng nhập thông tin'
       }))
     }
-
   }
 
   const handleXacNhanThongTin = () => {
@@ -948,7 +933,6 @@ function App() {
                             value={formDangKy.soTaiKhoan}
                             onChange={handleChangInput}
                             onBlur={onBlurInput}
-
                           />
                         </div>
                         <div className="inputItem">
@@ -959,14 +943,14 @@ function App() {
                             value={formDangKy.nganHang}
                             onChange={handleChangInput}
                             onBlur={onBlurInput}
-
                           >
                             <option value="">Ngân hàng</option>
-                            <option value="acb">Acb</option>
-                            <option value="vietcombank">Vietcombank</option>
-                            <option value="sacombank">Sacombank</option>
-                            <option value="techcombank">Techcombank</option>
-                            <option value="argibank">Argibank</option>
+                            <option value="acb">ACB</option>
+                            <option value="argibank">AGRIBANK</option>
+                            <option value="bidv">BIDV</option>
+                            <option value="vietcombank">VIETCOMBANK</option>
+                            <option value="sacombank">SACOMBANK</option>
+                            <option value="techcombank">TECHCOMBANK</option>
                           </select>
                         </div>
                         <div className="inputItem">
