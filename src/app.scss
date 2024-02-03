@@ -229,7 +229,7 @@ body {
   #formLogin {
     width: 360px;
     margin: 0 auto;
-    padding: 20px;
+    padding: 10px;
     background-color: white;
     position: absolute;
     top: -100%;
@@ -620,8 +620,14 @@ body {
         }
         tbody {
           tr {
+            cursor: pointer;
+            transition: all 0.3s;
             &:nth-child(even) {
-              background-color: rgba(224, 224, 224, 0.676);
+              background-color: rgba(240, 240, 240, 0.6);
+            }
+            &:hover {
+              background-color: rgb(230, 230, 230);
+              // color: white;
             }
             td {
               text-align: left;

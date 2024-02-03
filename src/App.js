@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import './app.scss';
-import { QRCode, Space, Image, message } from 'antd';
+import { QRCode, Space, Image, message, Tooltip } from 'antd';
 // import * as moment from 'moment'
 import moment from 'moment-timezone';
 import axios from 'axios'
@@ -61,9 +61,9 @@ function App() {
       moment(setTimeRun, 'DD/MM/YYYY HH:mm') >= moment('09/02/2024 20:00', 'DD/MM/YYYY HH:mm') ||
       moment(setTimeRun, 'DD/MM/YYYY HH:mm') <= moment('09/02/2024 23:59', 'DD/MM/YYYY HH:mm')) {
       setMenhGia([
-        20000, 50000, 100000, 200000, 500000,
-        20000, 50000, 100000, 200000, 500000, 1000000,
-        20000, 50000, 100000, 200000, 500000,
+        100000, 50000, 100000, 50000, 200000, 500000,
+        20000, 50000, 100000, 50000, 200000, 500000, 1000000,
+        100000, 50000, 100000, 50000, 200000, 500000,
       ])
     }
 
@@ -900,10 +900,8 @@ function App() {
             <div className='topTitle'>
               <h3>
                 Chúc Mừng Năm Mới
-
               </h3>
-
-            </div>
+              =            </div>
             <button onClick={handleShowLiXi} className='back'>
               <i className="fa-solid fa-xmark"></i>
             </button>
@@ -997,23 +995,28 @@ function App() {
                                     listNguoiThamGia?.map((item, index) => {
                                       tongTien += item.liXi
                                       return (
-                                        <tr key={index}>
-                                          <td>
-                                            {moment(item.ngay).format('DD/MM/YYYY hh:mm')}
-                                          </td>
-                                          <td className='hoVaTen'>
-                                            {item.hoVaTen}
-                                          </td>
-                                          <td>
-                                            {item.liXi.toLocaleString()}
-                                          </td>
-                                          {/* <td>
+                                        <Tooltip placement="top" title={item.loiChuc} key={index}
+                                          color='orangered'
+                                        >
+                                          <tr >
+                                            <td>
+                                              {moment(item.ngay).format('DD/MM/YYYY hh:mm')}
+                                            </td>
+                                            <td className='hoVaTen'>
+                                              {item.hoVaTen}
+                                            </td>
+                                            <td>
+                                              {item.liXi.toLocaleString()}
+                                            </td>
+                                            {/* <td>
                                     {
                                       item.trangThai ? 'Đã ck' : 'Chờ xử lý'
                                     }
 
                                   </td> */}
-                                        </tr>
+                                          </tr>
+                                        </Tooltip>
+
                                       )
                                     })
                                   }
