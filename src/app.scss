@@ -224,7 +224,7 @@ body {
     right: 0;
     bottom: 0;
     z-index: 103;
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: rgba(0, 0, 0, 0.9);
   }
   #formLogin {
     width: 360px;
@@ -280,7 +280,7 @@ body {
     }
     &.trans0 {
       transition: all 0.3s;
-      top: 25%;
+      top: 28%;
       transform: translate(-50%, -50%);
     }
     .contentLiXi {
@@ -289,12 +289,12 @@ body {
       padding: 10px;
       // background-color: #ee1959;
       img {
-        width: 60px;
-        height: 60px;
+        width: 69px;
+        height: 69px;
         border-radius: 50%;
         position: absolute;
-        top: 24px;
-        left: 24px;
+        top: 13px;
+        left: 13px;
       }
       h2 {
         color: red;
@@ -308,7 +308,7 @@ body {
       h4 {
         margin: 10px auto;
         color: red;
-        font-size: 23px;
+        font-size: 20px;
       }
       p {
         margin: 10px auto 0px;

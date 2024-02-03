@@ -304,6 +304,7 @@ function App() {
   }
 
   const [lxId, setLxId] = useState(0)
+  const [ghiChu, setGhiChu] = useState('')
 
   const handleMoBao = (e) => {
     const { id } = e.target
@@ -315,6 +316,7 @@ function App() {
       liXiElement.scrollTo({ top: 0, behavior: 'smooth' });
     }
     setLock(true)
+    setGhiChu(id)
 
     const data = {
       lxId,
@@ -1123,13 +1125,22 @@ function App() {
               <div id='formLogin' className={liXi == 0 ? '' : 'trans0'}>
                 <div className="contentLiXi">
                   <img src="./img/rongLogo.jpeg" alt="" />
-                  <h3>Lì xì may mắn</h3>
+                  <h3>Lì XÌ MAY MẮN</h3>
                   <h2>{liXi.toLocaleString()}đ</h2>
-                  <h4>Chúc thật nhiều sức khoẻ</h4>
-                  <p><i>Đợi nhận tiền nhé <i className="fa-regular fa-face-smile"></i></i></p>
+                  <h4>
+                    {
+                      ghiChu === 'sucKhoe' ? 'Chúc bạn sức khoẻ dồi dào' :
+                        ghiChu === 'taiLoc' ? 'Chúc bạn tiền vào như nước' :
+                          ghiChu === 'mayMan' ? 'Chúc bạn nhiều điều may mắn' :
+                            ghiChu === 'suNghiep' ? 'Chúc bạn thuận bườm xuôi gió' :
+                              ghiChu === 'tinhYeu' ? 'Chúc bạn tình yêu hạnh phúc' :
+                                ghiChu === 'niemVui' ? 'Chúc bạn luôn luôn vui vẻ' :
+                                  'Chúc mừng năm mới'
+                    }
+                  </h4>
+                  <p><i>Đợi tiền vào tài khoản bạn nhé <i className="fa-regular fa-face-smile"></i></i></p>
                 </div>
               </div>
-
             </div>
           </div >
         ) : (null)
