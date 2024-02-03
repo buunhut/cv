@@ -57,22 +57,15 @@ function App() {
     const setTimeRun = moment(date)
     // console.log("runtime ", setTimeRun)
     if (
-      moment(setTimeRun, 'DD/MM/YYYY HH:mm') >= moment('03/02/2024 22:45', 'DD/MM/YYYY HH:mm') ||
-      moment(setTimeRun, 'DD/MM/YYYY HH:mm') <= moment('03/02/2024 23:59', 'DD/MM/YYYY HH:mm')) {
-      setMenhGia([
-        500000, 1000000,
-      ])
-    } else if (
       //chạy thiệt
       moment(setTimeRun, 'DD/MM/YYYY HH:mm') >= moment('09/02/2024 20:00', 'DD/MM/YYYY HH:mm') ||
       moment(setTimeRun, 'DD/MM/YYYY HH:mm') <= moment('09/02/2024 23:59', 'DD/MM/YYYY HH:mm')) {
       setMenhGia([
-        20000, 50000, 100000, 200000,
+        20000, 50000, 100000, 200000, 500000,
         20000, 50000, 100000, 200000, 500000, 1000000,
-        20000, 50000, 100000, 200000,
+        20000, 50000, 100000, 200000, 500000,
       ])
     }
-
 
     //list người tham gia
     getListNguoiThamGia()
@@ -84,11 +77,6 @@ function App() {
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-
-
-
-
-
 
   }, []); //chạy 1 lần 
 
@@ -138,28 +126,15 @@ function App() {
 
 
   const [menhGia, setMenhGia] = useState(
-    // [
-    //   20000, 20000, 50000,
-    //   20000, 20000, 50000, 100000,
-    //   50000, 50000, 50000, 100000, 200000,
-    //   50000, 50000, 50000, 100000, 200000, 500000, 500000, 1000000,
-    //   50000, 50000, 50000, 100000, 200000,
-    //   20000, 20000, 50000, 100000,
-    //   20000, 20000, 50000,
-    // ]
     [
-      20000, 50000, 100000, 200000,
+      20000, 50000, 100000,
       20000, 50000, 100000, 200000,
       20000, 50000, 100000, 200000, 500000,
-      20000, 50000, 100000, 200000, 500000,
-      20000, 50000, 100000, 200000, 500000, 1000000,
-      20000, 50000, 100000, 200000, 500000,
-      20000, 50000, 100000, 200000, 500000,
       20000, 50000, 100000, 200000,
-      20000, 50000, 100000, 200000,
+      20000, 50000, 100000,
     ]
   )
-  console.log(menhGia)
+  // console.log(menhGia)
 
   //show lì xì
   const handleShowLiXi = () => {
@@ -387,9 +362,6 @@ function App() {
 
   }
   let tongTien = 0
-
-
-
 
 
   return (
