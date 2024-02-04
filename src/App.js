@@ -401,6 +401,16 @@ function App() {
     return () => clearInterval(timer);
   }, [targetDate]);
 
+  //handle xem lại 
+  const handlePreview = (item) => {
+
+    console.log(item)
+
+    setLixi(item.liXi)
+    setGhiChu(item.ghiChu)
+    setHoVaTen(item.hoVaTen)
+  }
+
   return (
     <>
       {
@@ -1012,7 +1022,7 @@ function App() {
                         </div>
                         <button type='button'
                           onClick={handleXacNhanThongTin}
-                          disabled={!canClick}
+                        // disabled={!canClick}
                         >
                           {canClick ? 'Nhận Lì Xì Ngay' : `${Math.floor(timeRemaining.value / 86400)} ngày ${timeRemaining.hours} giờ ${timeRemaining.minutes} phút ${timeRemaining.seconds} giây`}
                         </button>
@@ -1041,7 +1051,7 @@ function App() {
                                         <Tooltip placement="top" title={item.loiChuc} key={index}
                                           color='orangered'
                                         >
-                                          <tr >
+                                          <tr onClick={() => handlePreview(item)} >
                                             <td>
                                               {moment(item.ngay).format('DD/MM/YYYY hh:mm')}
                                             </td>
@@ -1175,11 +1185,15 @@ function App() {
                           Kính chúc: <span>{hoVaTen}</span>
                           <br />
                           Sức khỏe dồi dào
+                          <br />
+                          Vạn sự như ý.
                         </p>
                       ) :
                         ghiChu === 'taiLoc' ? (
                           <p>
                             Kính chúc: <span>{hoVaTen}</span>
+                            <br />
+                            Tấn tài - Tấn lộc
                             <br />
                             Tiền vào như nước
                           </p>) :
@@ -1188,24 +1202,32 @@ function App() {
                               Kính chúc: <span>{hoVaTen}</span>
                               <br />
                               Nhiều điều may mắn
+                              <br />
+                              Cả năm bình an.
                             </p>) :
                             ghiChu === 'suNghiep' ? (
                               <p>
                                 Kính chúc: <span>{hoVaTen}</span>
                                 <br />
-                                Thuận bườm xuôi gió
+                                Làm ăn phát đạt
+                                <br />
+                                Thuận bườm xuôi gió.
                               </p>) :
                               ghiChu === 'tinhYeu' ? (
                                 <p>
                                   Kính chúc: <span>{hoVaTen}</span>
                                   <br />
                                   Tình yêu hạnh phúc
+                                  <br />
+                                  Lộc phúc đầy nhà.
                                 </p>) :
                                 ghiChu === 'niemVui' ? (
                                   <p>
                                     Kính chúc: <span>{hoVaTen}</span>
                                     <br />
                                     Luôn luôn vui vẻ
+                                    <br />
+                                    Trẻ mãi không già.
                                   </p>) :
                                   <>
                                     Chúc mừng năm mới
