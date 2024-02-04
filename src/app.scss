@@ -296,19 +296,45 @@ body {
         top: 13px;
         left: 13px;
       }
-      h2 {
+      h5 {
+        margin-bottom: 10px;
         color: red;
-        margin: 10px auto 0px;
-        font-size: 39px;
+        font-size: 28px;
+        font-family: "Lobster", sans-serif;
+        font-weight: 100;
+        text-align: right;
       }
       h3 {
         color: royalblue;
-        font: 22px;
+        font-family: "Lobster", sans-serif;
+        font-weight: 100;
+        font-size: 22px;
+      }
+
+      h2 {
+        color: royalblue;
+        margin: 5px auto 0px;
+        font-size: 39px;
+        font-family: "Lobster", sans-serif;
+        font-weight: 100;
       }
       h4 {
-        margin: 10px auto;
+        margin: 5px auto;
         color: red;
         font-size: 20px;
+        p {
+          line-height: 30px;
+          font-family: "Lobster", sans-serif;
+          font-weight: 100;
+          color: red;
+
+          span {
+            text-transform: capitalize;
+            font-family: "Lobster", sans-serif;
+            font-weight: 100;
+            color: red;
+          }
+        }
       }
       p {
         margin: 10px auto 0px;

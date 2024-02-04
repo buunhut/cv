@@ -107,6 +107,11 @@ function App() {
 
   }
 
+  //Viết hoa
+  const capitalizeFirstLetter = (string) => {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  }
+
   //zalo chat
   const phoneNumber = '0909240886'; // Thay thế bằng số điện thoại của bạn
   const openZaloChat = () => {
@@ -307,6 +312,7 @@ function App() {
 
   const [lxId, setLxId] = useState(0)
   const [ghiChu, setGhiChu] = useState('')
+  const [hoVaTen, setHoVaTen] = useState('')
 
   const handleMoBao = (e) => {
     const { id } = e.target
@@ -317,9 +323,9 @@ function App() {
     if (liXiElement) {
       liXiElement.scrollTo({ top: 0, behavior: 'smooth' });
     }
+    setHoVaTen(formDangKy.hoVaTen)
     setLock(true)
     setGhiChu(id)
-
     const data = {
       lxId,
       liXi: menhGia[bao],
@@ -994,7 +1000,6 @@ function App() {
 
                           />
                         </div>
-
                         <div className="inputItem">
                           <i className="fa-solid fa-pen"
                             style={{ color: alertForm.loiChuc !== '' ? 'red' : '' }}
@@ -1003,11 +1008,12 @@ function App() {
                             value={formDangKy.loiChuc}
                             onChange={handleChangInput}
                             onBlur={onBlurInput}
-
                           />
                         </div>
-                        <button type='button' onClick={handleXacNhanThongTin} disabled={!canClick}>
-
+                        <button type='button'
+                          onClick={handleXacNhanThongTin}
+                          disabled={!canClick}
+                        >
                           {canClick ? 'Nhận Lì Xì Ngay' : `${Math.floor(timeRemaining.value / 86400)} ngày ${timeRemaining.hours} giờ ${timeRemaining.minutes} phút ${timeRemaining.seconds} giây`}
                         </button>
                         {/* <p><i>(Vui lòng điền chính xác thông tin, để hệ thống chuyển khoản tiền lì xì cho bạn nhé)</i></p> */}
@@ -1071,7 +1077,6 @@ function App() {
                         ) : (null)
                       }
                     </>
-
                   ) : (
                     <div className="listBaoLiXi">
                       <div className="baoItem">
@@ -1160,17 +1165,51 @@ function App() {
               <div id='formLogin' className={liXi == 0 ? '' : 'trans0'}>
                 <div className="contentLiXi">
                   <img src="./img/rongLogo.jpeg" alt="" />
-                  <h3>Lì XÌ MAY MẮN</h3>
-                  <h2>{liXi.toLocaleString()}đ</h2>
+                  <h5>Xuân Giáp Thìn - 2024</h5>
+                  <h3>Lì xì may mắn</h3>
+                  <h2>{liXi.toLocaleString()}</h2>
                   <h4>
                     {
-                      ghiChu === 'sucKhoe' ? 'Chúc bạn sức khoẻ dồi dào' :
-                        ghiChu === 'taiLoc' ? 'Chúc bạn tiền vào như nước' :
-                          ghiChu === 'mayMan' ? 'Chúc bạn nhiều điều may mắn' :
-                            ghiChu === 'suNghiep' ? 'Chúc bạn thuận bườm xuôi gió' :
-                              ghiChu === 'tinhYeu' ? 'Chúc bạn tình yêu hạnh phúc' :
-                                ghiChu === 'niemVui' ? 'Chúc bạn luôn luôn vui vẻ' :
-                                  'Chúc mừng năm mới'
+                      ghiChu === 'sucKhoe' ? (
+                        <p>
+                          Kính chúc: <span>{hoVaTen}</span>
+                          <br />
+                          Sức khỏe dồi dào
+                        </p>
+                      ) :
+                        ghiChu === 'taiLoc' ? (
+                          <p>
+                            Kính chúc: <span>{hoVaTen}</span>
+                            <br />
+                            Tiền vào như nước
+                          </p>) :
+                          ghiChu === 'mayMan' ? (
+                            <p>
+                              Kính chúc: <span>{hoVaTen}</span>
+                              <br />
+                              Nhiều điều may mắn
+                            </p>) :
+                            ghiChu === 'suNghiep' ? (
+                              <p>
+                                Kính chúc: <span>{hoVaTen}</span>
+                                <br />
+                                Thuận bườm xuôi gió
+                              </p>) :
+                              ghiChu === 'tinhYeu' ? (
+                                <p>
+                                  Kính chúc: <span>{hoVaTen}</span>
+                                  <br />
+                                  Tình yêu hạnh phúc
+                                </p>) :
+                                ghiChu === 'niemVui' ? (
+                                  <p>
+                                    Kính chúc: <span>{hoVaTen}</span>
+                                    <br />
+                                    Luôn luôn vui vẻ
+                                  </p>) :
+                                  <>
+                                    Chúc mừng năm mới
+                                  </>
                     }
                   </h4>
                   <p><i>Đợi tiền vào tài khoản bạn nhé <i className="fa-regular fa-face-smile"></i></i></p>
