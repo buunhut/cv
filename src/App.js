@@ -403,7 +403,11 @@ function App() {
 
   //handle xem lại 
   const handlePreview = (item) => {
-    handleBackToTop()
+    const liXiElement = document.querySelector('.liXi');
+    if (liXiElement) {
+      liXiElement.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
     setLixi(item.liXi)
     setGhiChu(item.ghiChu)
     setHoVaTen(item.hoVaTen)
