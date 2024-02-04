@@ -402,12 +402,13 @@ function App() {
   }, [targetDate]);
 
   //handle xem lại 
+  const [xuLy, setXuLy] = useState(false)
   const handlePreview = (item) => {
     const liXiElement = document.querySelector('.liXi');
     if (liXiElement) {
       liXiElement.scrollTo({ top: 0, behavior: 'smooth' });
     }
-
+    setXuLy(item.xuLy)
     setLixi(item.liXi)
     setGhiChu(item.ghiChu)
     setHoVaTen(item.hoVaTen)
@@ -1251,7 +1252,16 @@ function App() {
                                   </>
                     }
                   </h4>
-                  <p><i>Tiền lì xì sẽ được CK cho bạn sau <i className="fa-regular fa-face-smile"></i></i></p>
+                  <p>
+                    {
+                      xuLy ? (
+                        <i>Đã chuyển khoản bạn nhé <i className="fa-regular fa-face-smile"></i></i>
+                      ) : (
+                        <i>Chờ chuyển khoản bạn nhé <i className="fa-regular fa-face-smile"></i></i>
+                      )
+                    }
+
+                  </p>
                 </div>
               </div>
             </div>
