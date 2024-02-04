@@ -346,12 +346,11 @@ function App() {
     }).catch((err) => {
       console.log(err)
     })
-
-
-
   }
 
   const [listNguoiThamGia, setListNguoiThamGia] = useState([])
+  let tongTien = 0
+
   // console.log(listNguoiThamGia)
   const getListNguoiThamGia = () => {
     axios({
@@ -365,9 +364,9 @@ function App() {
     })
 
   }
-  let tongTien = 0
 
   //countdown
+  const targetDate = moment('09/02/2024 20:00:00', 'DD/MM/YYYY HH:mm:ss');
   const calculateTimeRemaining = (targetDate) => {
     const now = moment();
     const diff = moment.duration(targetDate.diff(now));
@@ -380,7 +379,6 @@ function App() {
     };
   };
 
-  const targetDate = moment('09/02/2024 20:00:00', 'DD/MM/YYYY HH:mm:ss');
   const [timeRemaining, setTimeRemaining] = useState(calculateTimeRemaining(targetDate));
   const [canClick, setCanClick] = useState(false);
 
@@ -979,6 +977,7 @@ function App() {
                             <option value="bidv">BIDV</option>
                             <option value="donga">DONGABANK</option>
                             <option value="eximbank">EXIMBANK</option>
+                            <option value="namabank">NAMABANK</option>
                             <option value="vietcombank">VIETCOMBANK</option>
                             <option value="sacombank">SACOMBANK</option>
                             <option value="techcombank">TECHCOMBANK</option>
