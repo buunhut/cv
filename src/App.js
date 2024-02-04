@@ -403,9 +403,6 @@ function App() {
 
   //handle xem lại 
   const handlePreview = (item) => {
-
-    console.log(item)
-
     setLixi(item.liXi)
     setGhiChu(item.ghiChu)
     setHoVaTen(item.hoVaTen)
@@ -1195,7 +1192,7 @@ function App() {
                             <br />
                             Tấn tài - Tấn lộc
                             <br />
-                            Tiền vào như nước
+                            Tiền vào như nước.
                           </p>) :
                           ghiChu === 'mayMan' ? (
                             <p>
@@ -1217,7 +1214,7 @@ function App() {
                                 <p>
                                   Kính chúc: <span>{hoVaTen}</span>
                                   <br />
-                                  Tình yêu hạnh phúc
+                                  Tình cảm đong đầy
                                   <br />
                                   Lộc phúc đầy nhà.
                                 </p>) :
@@ -1225,12 +1222,12 @@ function App() {
                                   <p>
                                     Kính chúc: <span>{hoVaTen}</span>
                                     <br />
-                                    Luôn luôn vui vẻ
+                                    Thật nhiều niền vui
                                     <br />
-                                    Trẻ mãi không già.
+                                    Luôn luôn tươi trẻ.
                                   </p>) :
                                   <>
-                                    Chúc mừng năm mới
+                                    Chúc mừng năm mới.
                                   </>
                     }
                   </h4>
