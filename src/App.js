@@ -1251,7 +1251,7 @@ function App() {
                                   </>
                     }
                   </h4>
-                  <p><i>Đợi tiền vào tài khoản bạn nhé <i className="fa-regular fa-face-smile"></i></i></p>
+                  <p><i>Tiền lì xì sẽ được CK cho bạn sau <i className="fa-regular fa-face-smile"></i></i></p>
                 </div>
               </div>
             </div>
