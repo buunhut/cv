@@ -301,10 +301,10 @@ body {
         height: 80px;
         border-radius: 50%;
         position: absolute;
-        top: 80px;
+        top: 75px;
         left: 7px;
         .ant-qrcode {
-          border: none
+          border: none;
         }
       }
       h5 {
@@ -320,6 +320,7 @@ body {
         font-family: "Lobster", sans-serif;
         font-weight: 100;
         font-size: 22px;
+        margin-left: 60px;
       }
 
       h2 {
@@ -328,6 +329,7 @@ body {
         font-size: 46px;
         font-family: "Lobster", sans-serif;
         font-weight: 100;
+        margin-left: 60px;
       }
       h4 {
         margin: 5px auto;

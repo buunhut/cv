@@ -141,7 +141,6 @@ function App() {
       20000, 50000, 100000,
     ]
   )
-  // console.log(menhGia)
 
   //show lì xì
   const handleShowLiXi = () => {
@@ -413,6 +412,8 @@ function App() {
     setGhiChu(item.ghiChu)
     setHoVaTen(item.hoVaTen)
   }
+
+  // console.log(menhGia)
 
   return (
     <>
