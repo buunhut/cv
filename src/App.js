@@ -1067,7 +1067,7 @@ function App() {
                                           <td className='loiChuc'>
                                             {item.loiChuc}
                                           </td>
-                                          <Tooltip placement="top" title={item.xuLy ? 'Đã CK' : 'Chờ'}
+                                          <Tooltip placement="top" title={item.xuLy ? 'Đã CK' : 'Chờ CK'}
                                             color='orangered'
                                           >
                                             <td className='baoLiXi'>
