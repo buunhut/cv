@@ -1049,11 +1049,11 @@ function App() {
                                       tongTien += item.liXi
                                       return (
 
-                                        <tr>
+                                        <tr key={index}>
                                           <td className='ngayThang'>
                                             {moment(item.ngay).format('HH:mm DD/MM/YYYY')}
                                           </td>
-                                          <Tooltip placement="top" title={item.loiChuc} key={index}
+                                          <Tooltip placement="top" title={item.loiChuc}
                                             color='orangered'
                                           >
                                             <td className='hoVaTen'>
@@ -1063,9 +1063,13 @@ function App() {
                                           <td className='loiChuc'>
                                             {item.loiChuc}
                                           </td>
-                                          <td className='baoLiXi'>
-                                            {item.liXi.toLocaleString()}
-                                          </td>
+                                          <Tooltip placement="top" title={item.xuLy ? 'Đã CK' : 'Chờ'}
+                                            color='orangered'
+                                          >
+                                            <td className='baoLiXi'>
+                                              {item.liXi.toLocaleString()}
+                                            </td>
+                                          </Tooltip>
                                           <td className='preview'>
                                             <i className="fa-regular fa-eye" onClick={() => handlePreview(item)}  ></i>
                                           </td>
@@ -1082,13 +1086,13 @@ function App() {
                                     })
                                   }
                                 </tbody>
-                                <tfoot>
+                                {/* <tfoot>
                                   <tr>
-                                    <td colSpan={2}>Tổng tiền</td>
+                                    <td colSpan={3}>Tổng tiền</td>
                                     <td className='baoLiXi'>{tongTien.toLocaleString()}</td>
                                     <td></td>
                                   </tr>
-                                </tfoot>
+                                </tfoot> */}
                               </table>
 
                             </div>
