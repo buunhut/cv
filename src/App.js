@@ -317,11 +317,6 @@ function App() {
     const { id } = e.target
     shuffleArray(menhGia)
     setLixi(menhGia[bao])
-    handleBackToTop()
-    const liXiElement = document.querySelector('.liXi');
-    if (liXiElement) {
-      liXiElement.scrollTo({ top: 0, behavior: 'smooth' });
-    }
     setHoVaTen(formDangKy.hoVaTen)
     setLock(true)
     setGhiChu(id)
@@ -329,6 +324,11 @@ function App() {
       lxId,
       liXi: menhGia[bao],
       ghiChu: id
+    }
+    handleBackToTop()
+    const liXiElement = document.querySelector('.liXi');
+    if (liXiElement) {
+      liXiElement.scrollTo({ top: 0, behavior: 'smooth' });
     }
     axios({
       method: 'post',
