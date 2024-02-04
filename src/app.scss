@@ -638,8 +638,18 @@ body {
               background-color: orangered;
               color: white;
               padding: 10px 5px;
-              &:last-child {
+              &.ngayThang {
+                width: 100px;
+              }
+              &.hoVaTen {
+                // width: 30px;
+              }
+              &.baoLiXi {
+                width: 80px;
                 text-align: right;
+              }
+              &.preview {
+                width: 30px;
               }
             }
           }
@@ -659,11 +669,25 @@ body {
               text-align: left;
               padding: 10px 5px;
 
-              &:last-child {
-                text-align: right;
+              &.ngayThang {
+                width: 100px;
               }
               &.hoVaTen {
+                // width: 30px;
                 text-transform: capitalize;
+              }
+              &.baoLiXi {
+                width: 80px;
+                text-align: right;
+              }
+              &.preview {
+                width: 30px;
+                color: silver;
+                transition: all 0.3s;
+                cursor: pointer;
+                &:hover {
+                  color: orangered;
+                }
               }
             }
           }
@@ -671,11 +695,12 @@ body {
         tfoot {
           font-weight: 600;
           tr {
+            border-top: 1px solid silver;
             td {
               text-align: left;
               padding: 10px 5px;
 
-              &:last-child {
+              &.baoLiXi {
                 text-align: right;
               }
             }
@@ -972,6 +997,13 @@ body.dark {
           top: -500px;
 
           margin: 0 auto;
+        }
+      }
+      .danhSach {
+        table {
+          td.loiChuc {
+            display: none;
+          }
         }
       }
     }

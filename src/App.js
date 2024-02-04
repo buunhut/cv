@@ -403,6 +403,7 @@ function App() {
 
   //handle xem lại 
   const handlePreview = (item) => {
+    handleBackToTop()
     setLixi(item.liXi)
     setGhiChu(item.ghiChu)
     setHoVaTen(item.hoVaTen)
@@ -1034,9 +1035,11 @@ function App() {
                               <table>
                                 <thead>
                                   <tr>
-                                    <td>Ngày</td>
-                                    <td>Họ Và Tên</td>
-                                    <td>Được Lì Xì</td>
+                                    <td className='ngayThang'>Ngày</td>
+                                    <td className='hoVaTen'>Họ Và Tên</td>
+                                    <td className='loiChuc'>Lời chúc</td>
+                                    <td className='baoLiXi'>Bao Lì Xì</td>
+                                    <td></td>
                                     {/* <td>Trạng Thái</td> */}
                                   </tr>
                                 </thead>
@@ -1045,27 +1048,35 @@ function App() {
                                     listNguoiThamGia?.map((item, index) => {
                                       tongTien += item.liXi
                                       return (
-                                        <Tooltip placement="top" title={item.loiChuc} key={index}
-                                          color='orangered'
-                                        >
-                                          <tr onClick={() => handlePreview(item)} >
-                                            <td>
-                                              {moment(item.ngay).format('DD/MM/YYYY hh:mm')}
-                                            </td>
+
+                                        <tr>
+                                          <td className='ngayThang'>
+                                            {moment(item.ngay).format('HH:mm DD/MM/YYYY')}
+                                          </td>
+                                          <Tooltip placement="top" title={item.loiChuc} key={index}
+                                            color='orangered'
+                                          >
                                             <td className='hoVaTen'>
                                               {item.hoVaTen}
                                             </td>
-                                            <td>
-                                              {item.liXi.toLocaleString()}
-                                            </td>
-                                            {/* <td>
+                                          </Tooltip>
+                                          <td className='loiChuc'>
+                                            {item.loiChuc}
+                                          </td>
+                                          <td className='baoLiXi'>
+                                            {item.liXi.toLocaleString()}
+                                          </td>
+                                          <td className='preview'>
+                                            <i className="fa-regular fa-eye" onClick={() => handlePreview(item)}  ></i>
+                                          </td>
+                                          {/* <td>
                                     {
                                       item.trangThai ? 'Đã ck' : 'Chờ xử lý'
                                     }
 
                                   </td> */}
-                                          </tr>
-                                        </Tooltip>
+                                        </tr>
+
 
                                       )
                                     })
@@ -1074,7 +1085,8 @@ function App() {
                                 <tfoot>
                                   <tr>
                                     <td colSpan={2}>Tổng tiền</td>
-                                    <td>{tongTien.toLocaleString()}</td>
+                                    <td className='baoLiXi'>{tongTien.toLocaleString()}</td>
+                                    <td></td>
                                   </tr>
                                 </tfoot>
                               </table>
