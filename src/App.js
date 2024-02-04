@@ -1260,9 +1260,9 @@ function App() {
                   <p>
                     {
                       xuLy ? (
-                        <i>Đã chuyển khoản bạn nhé <i className="fa-regular fa-face-smile"></i></i>
+                        <i>Đã chuyển khoản <i className="fa-regular fa-face-smile"></i></i>
                       ) : (
-                        <i>Chờ chuyển khoản bạn nhé <i className="fa-regular fa-face-smile"></i></i>
+                        <i>Chờ chuyển khoản <i className="fa-regular fa-face-smile"></i></i>
                       )
                     }
 
