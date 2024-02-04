@@ -1193,6 +1193,10 @@ function App() {
               <div id='formLogin' className={liXi == 0 ? '' : 'trans0'}>
                 <div className="contentLiXi">
                   <img src="./img/rongLogo.jpeg" alt="" />
+                  <div className='qrCode'>
+                    <QRCode value={'http://nodejs.edu.vn'} size={80} />
+
+                  </div>
                   <h5>Xuân Giáp Thìn - 2024</h5>
                   <h3>Lì xì may mắn</h3>
                   <h2>{liXi.toLocaleString()}</h2>
