@@ -4,6 +4,8 @@ import { QRCode, Space, Image, message, Tooltip } from 'antd';
 // import * as moment from 'moment'
 import moment from 'moment-timezone';
 import axios from 'axios'
+import countdown from 'countdown';
+
 import { io } from 'socket.io-client'
 
 
@@ -365,6 +367,35 @@ function App() {
   }
   let tongTien = 0
 
+  //countdown
+  const calculateTimeRemaining = (targetDate) => {
+    const now = moment();
+    const diff = moment.duration(targetDate.diff(now));
+    return {
+      value: diff.asSeconds(),
+      days: diff.days(),
+      hours: diff.hours(),
+      minutes: diff.minutes(),
+      seconds: diff.seconds(),
+    };
+  };
+
+  const targetDate = moment('09/02/2024 20:00:00', 'DD/MM/YYYY HH:mm:ss');
+  const [timeRemaining, setTimeRemaining] = useState(calculateTimeRemaining(targetDate));
+  const [canClick, setCanClick] = useState(false);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      const remaining = calculateTimeRemaining(targetDate);
+      setTimeRemaining(remaining);
+      if (remaining.value <= 0) {
+        setCanClick(true);
+        clearInterval(timer);
+      }
+    }, 1000);
+
+    return () => clearInterval(timer);
+  }, [targetDate]);
 
   return (
     <>
@@ -903,7 +934,7 @@ function App() {
               <h3>
                 Chúc Mừng Năm Mới
               </h3>
-              =            </div>
+            </div>
             <button onClick={handleShowLiXi} className='back'>
               <i className="fa-solid fa-xmark"></i>
             </button>
@@ -946,6 +977,8 @@ function App() {
                             <option value="acb">ACB</option>
                             <option value="argibank">AGRIBANK</option>
                             <option value="bidv">BIDV</option>
+                            <option value="donga">DONGABANK</option>
+                            <option value="eximbank">EXIMBANK</option>
                             <option value="vietcombank">VIETCOMBANK</option>
                             <option value="sacombank">SACOMBANK</option>
                             <option value="techcombank">TECHCOMBANK</option>
@@ -974,7 +1007,10 @@ function App() {
 
                           />
                         </div>
-                        <button type='button' onClick={handleXacNhanThongTin}>Nhận Lì Xì Ngay</button>
+                        <button type='button' onClick={handleXacNhanThongTin} disabled={!canClick}>
+
+                          {canClick ? 'Nhận Lì Xì Ngay' : `${Math.floor(timeRemaining.value / 86400)} ngày ${timeRemaining.hours} giờ ${timeRemaining.minutes} phút ${timeRemaining.seconds} giây`}
+                        </button>
                         {/* <p><i>(Vui lòng điền chính xác thông tin, để hệ thống chuyển khoản tiền lì xì cho bạn nhé)</i></p> */}
                       </form>
                       {
