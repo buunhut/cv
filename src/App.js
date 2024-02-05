@@ -346,6 +346,12 @@ function App() {
       }).catch((err) => {
         console.log(err)
       })
+      handleBackToTop()
+      const liXiElement = document.querySelector('.liXi');
+      if (liXiElement) {
+        liXiElement.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+
 
 
     } else {
