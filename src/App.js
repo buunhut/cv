@@ -358,7 +358,7 @@ function App() {
   const [hoVaTen, setHoVaTen] = useState('')
 
   const handleMoBao = (e) => {
-    // handleBackToTop()
+    handleBackToTop()
     const liXiElement = document.querySelector('.liXi');
     if (liXiElement) {
       liXiElement.scrollTo({ top: 0, behavior: 'smooth' });
@@ -448,6 +448,7 @@ function App() {
   //handle xem lại 
   const [xuLy, setXuLy] = useState(false)
   const handlePreview = (item) => {
+    handleBackToTop()
     const liXiElement = document.querySelector('.liXi');
     if (liXiElement) {
       liXiElement.scrollTo({ top: 0, behavior: 'smooth' });
@@ -982,14 +983,24 @@ function App() {
           <button type='button'>Login</button>
         </form>
       </div>
-      <div className="backToTop" style={{ display: showBackToTop ? 'block' : 'none' }} onClick={handleBackToTop}>
-        <button><i className="fa-solid fa-angles-up"></i></button>
-      </div>
-      <div className='zaloChat'
-        onClick={openZaloChat}
-      >
-        <button>Zalo</button>
-      </div>
+      {
+        showLiXi ? (null) : (
+          <div className="backToTop" style={{ display: showBackToTop ? 'block' : 'none' }} onClick={handleBackToTop}>
+            <button><i className="fa-solid fa-angles-up"></i></button>
+          </div>
+        )
+      }
+      {
+        showLiXi ? (null) : (
+          <div className='zaloChat'
+            onClick={openZaloChat}
+          >
+            <button>Zalo</button>
+          </div>
+
+
+        )
+      }
       {
         showLiXi ? (
           <div className='liXi'>
