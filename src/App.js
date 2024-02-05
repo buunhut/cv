@@ -731,8 +731,14 @@ function App() {
 
 
               </div>
-              {/* <div className="overlay" className={liXi == 0 ? 'none' : ''} onClick={() => setLixi(0)}></div> */}
-              <div className={liXi > 0 ? 'overlay' : ''} onClick={() => setLixi(0)}></div>
+              <div className={liXi > 0 ? 'overlay' : ''}
+                onClick={() => {
+                  setLixi(0)
+                  handleBackToTop()
+                }
+                }>
+
+              </div>
               <div id='formLogin' className={liXi == 0 ? '' : 'liXiTrans0'}>
                 <div className="contentLiXi">
                   <img src="./img/rongLogo.png" alt="" />
