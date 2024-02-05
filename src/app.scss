@@ -283,6 +283,8 @@ body {
       top: 28%;
       transform: translate(-50%, -50%);
     }
+
+    //thông báo lì xì
     .contentLiXi {
       border: 2px solid red;
       border-radius: 10px;
@@ -438,6 +440,7 @@ body {
     }
   }
 
+  //lì xì
   .liXi {
     // position: fixed;
     // top: 0;
@@ -564,7 +567,7 @@ body {
           justify-content: flex-start;
           flex-wrap: wrap;
           gap: 10px;
-          margin-bottom: 30px;
+          margin: 0 auto 30px;
           .baoItem {
             width: 180px;
             height: 240px;
@@ -1029,15 +1032,18 @@ body.dark {
       padding: 20px 10px;
       .container {
         width: 100%;
-      }
-      #thongBao {
-        width: 100%;
-        &.show {
-          top: -500px;
-
-          margin: 0 auto;
+        .listBaoLiXi {
+          // background-color: red;
+          width: 370px !important;
         }
       }
+      // #thongBao {
+      //   width: 100%;
+      //   &.show {
+      //     top: -500px;
+      //     margin: 0 auto;
+      //   }
+      // }
       .danhSach {
         table {
           td.loiChuc {
