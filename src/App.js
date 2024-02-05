@@ -729,7 +729,7 @@ function App() {
               </div>
               {/* <div className="overlay" className={liXi == 0 ? 'none' : ''} onClick={() => setLixi(0)}></div> */}
               <div className={liXi > 0 ? 'overlay' : ''} onClick={() => setLixi(0)}></div>
-              <div id='formLogin' className={liXi == 0 ? '' : 'trans0'}>
+              <div id='formLogin' className={liXi == 0 ? '' : 'liXiTrans0'}>
                 <div className="contentLiXi">
                   <img src="./img/rongLogo.png" alt="" />
                   <div className='qrCode'>
