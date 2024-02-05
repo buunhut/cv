@@ -575,13 +575,22 @@ body {
           margin: 0 auto 30px;
           .baoItem {
             width: 180px;
-            height: 240px;
+            height: 260px;
             margin-top: 40px;
             padding: 10px;
             position: relative;
             &:hover {
+              height: 260px;
               .baoContent {
                 transform: translateY(-31px);
+              }
+              .baoContent {
+                .hinhAnh {
+                  img {
+                    width: 140px;
+                    height: 140px;
+                  }
+                }
               }
             }
             .baoContent {
@@ -605,17 +614,20 @@ body {
                 // font-weight: 100;
               }
               .hinhAnh {
-                width: 118px;
-                height: 118px;
+                width: 140px;
+                height: 140px;
                 text-align: center;
-                margin: 25px auto 0;
+                margin: 20px auto 0;
                 display: flex;
                 align-items: center;
 
+                justify-content: center;
+
                 img {
-                  width: 100%;
-                  height: 100%;
+                  width: 120px;
+                  height: 120px;
                   border-radius: 50%;
+                  transition: all 0.3s;
                   &.latNguoc {
                     transform: scaleX(-1);
                   }
