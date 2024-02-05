@@ -396,9 +396,6 @@ function App() {
     if (liXiElement) {
       liXiElement.scrollTo({ top: 0, behavior: 'smooth' });
     }
-    window.body.addEventListener('click', () => {
-
-    })
 
   }
 
