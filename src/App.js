@@ -193,6 +193,10 @@ function App() {
     } else {
       document.body.style.overflowY = 'scroll'
     }
+    setLixi(0)
+    setLock(true)
+    setShowLiXi(!showLiXi)
+
     message.destroy()
   }
 
