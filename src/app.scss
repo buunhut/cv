@@ -573,18 +573,18 @@ body {
           flex-wrap: wrap;
           gap: 10px;
           margin: 0 auto 30px;
+
           .baoItem {
             width: 180px;
             height: 260px;
             margin-top: 40px;
             padding: 10px;
             position: relative;
+            // cursor: pointer;
             &:hover {
               height: 260px;
               .baoContent {
                 transform: translateY(-31px);
-              }
-              .baoContent {
                 .hinhAnh {
                   img {
                     width: 140px;
@@ -606,6 +606,7 @@ body {
               transition: all 0.3s;
               padding: 20px 10px;
               border-radius: 10px 10px 0 0;
+              cursor: pointer;
               p {
                 width: 100%;
                 height: 40px;
@@ -658,7 +659,7 @@ body {
               transition: all 0.3s;
               font-size: 16px;
               font-weight: 600;
-              cursor: pointer;
+              // cursor: pointer;
               &:hover {
                 background-color: red;
               }
@@ -667,10 +668,10 @@ body {
         }
         .footer {
           margin: 20px auto 10px;
-          background-color: orangered;
-          padding: 10px 0;
+          background-color: rgb(216, 216, 216);
+          padding: 5px;
           span {
-            color: white;
+            color: rgb(250, 250, 250);
           }
         }
       }

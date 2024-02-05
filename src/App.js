@@ -4,7 +4,6 @@ import { QRCode, Space, Image, message, Tooltip } from 'antd';
 // import * as moment from 'moment'
 import moment from 'moment-timezone';
 import axios from 'axios'
-import countdown from 'countdown';
 
 import { io } from 'socket.io-client'
 
@@ -63,6 +62,42 @@ function App() {
     ]
   )
 
+  //list bao lì xì 
+  const [listBaoLiXi, setListBaoLiXi] = useState(
+    [
+      {
+        loiChuc: 'Chúc mừng năm mới. Sức khoẻ dồi dào, tràn đầy năng lượng.',
+        chuDe: 'Sức Khoẻ',
+        buttonId: 'sucKhoe'
+      },
+      {
+        loiChuc: 'Chúc mừng năm mới. Tiền vào như nước, vàng bạc đầy nhà.',
+        chuDe: 'Tài Lộc',
+        buttonId: 'taiLoc'
+      },
+      {
+        loiChuc: 'Chúc mừng năm mới. Sự nghiệp thăng tiến, mọi việc hanh thông.',
+        chuDe: 'Sự Nghiệp',
+        buttonId: 'suNghiep',
+      },
+      {
+        loiChuc: 'Chúc mừng năm mới. Hạnh phúc đong đầy, đường tình viên mãn.',
+        chuDe: 'Tình Yêu',
+        buttonId: 'tinhYeu'
+      },
+      {
+        loiChuc: 'Chúc mừng năm mới. Vạn sự như ý, cả năm gặp toàn điều may.',
+        chuDe: 'May Mắn',
+        buttonId: 'mayMan'
+      },
+      {
+        loiChuc: 'Chúc mừng năm mới. Tiếng cười ngập tràn, luôn luôn tươi trẻ.',
+        chuDe: 'Niềm Vui',
+        buttonId: 'niemVui'
+      },
+    ]
+  )
+
   const handleScroll = () => {
     if (window.scrollY >= 60) {
       setShowBackToTop(true);
@@ -109,6 +144,7 @@ function App() {
 
     //list người tham gia
     getListNguoiThamGia()
+
 
     // Lắng nghe sự kiện cuộn để cập nhật trạng thái hiển thị nút
     window.addEventListener('scroll', handleScroll);
@@ -161,13 +197,23 @@ function App() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
+  //lock screen
+  const [lockSroll, setLockSroll] = useState(false)
+  const khoaScroll = () => {
+    if (lockSroll) {
+      document.body.style.overflow = '';
+    } else {
+      document.body.style.overflow = 'hidden';
+    }
+    setLockSroll(!lockSroll)
+
+  }
+
   //code phần lì xì
   const [showLiXi, setShowLiXi] = useState(true)
   const [liXi, setLixi] = useState(0)
   const [lock, setLock] = useState(true)
   const [bao, setBao] = useState(0)
-
-
 
   const [menhGia, setMenhGia] = useState(
     [
@@ -341,13 +387,11 @@ function App() {
       }).catch((err) => {
         console.log(err)
       })
-      handleBackToTop()
-      const liXiElement = document.querySelector('.liXi');
-      if (liXiElement) {
-        liXiElement.scrollTo({ top: 0, behavior: 'smooth' });
-      }
-
-
+      // handleBackToTop()
+      // const liXiElement = document.querySelector('.liXi');
+      // if (liXiElement) {
+      //   liXiElement.scrollTo({ top: 0, behavior: 'smooth' });
+      // }
 
     } else {
       message.error('Vui lòng nhập đầy đủ thông tin', 5)
@@ -391,12 +435,12 @@ function App() {
     }).catch((err) => {
       console.log(err)
     })
-    handleBackToTop()
-    const liXiElement = document.querySelector('.liXi');
-    if (liXiElement) {
-      liXiElement.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-
+    // handleBackToTop()
+    // const liXiElement = document.querySelector('.liXi');
+    // if (liXiElement) {
+    //   liXiElement.scrollTo({ top: 0, behavior: 'smooth' });
+    // }
+    khoaScroll()
   }
 
   const [listNguoiThamGia, setListNguoiThamGia] = useState([])
@@ -449,11 +493,12 @@ function App() {
   //handle xem lại 
   const [xuLy, setXuLy] = useState(false)
   const handlePreview = (item) => {
-    handleBackToTop()
-    const liXiElement = document.querySelector('.liXi');
-    if (liXiElement) {
-      liXiElement.scrollTo({ top: 0, behavior: 'smooth' });
-    }
+    // handleBackToTop()
+    // const liXiElement = document.querySelector('.liXi');
+    // if (liXiElement) {
+    //   liXiElement.scrollTo({ top: 0, behavior: 'smooth' });
+    // }
+    khoaScroll()
     setXuLy(item.xuLy)
     setLixi(item.liXi)
     setGhiChu(item.ghiChu)
@@ -628,113 +673,47 @@ function App() {
                     </>
                   ) : (
                     <div className="listBaoLiXi">
-                      <div className="baoItem">
-                        <div className="baoContent">
-                          <p>
-                            Chúc mừng năm mới. Sức khoẻ dồi dào, tràn đầy năng lượng.
-                          </p>
-                          <div className='hinhAnh'>
-                            <img src="./img/rongLogo.png" alt="" />
-                          </div>
-                          <h3>Sức khoẻ</h3>
-                        </div>
-                        {
-                          lock ? ('') : (<button id='sucKhoe' onClick={(event) => handleMoBao(event)}>Mở bao lì xì</button>)
-                        }
-                      </div>
-                      <div className="baoItem">
-                        <div className="baoContent">
-                          <p>
-                            Chúc mừng năm mới. Tiền vào như nước, vàng bạc đầy nhà.
-                          </p>
-                          <div className='hinhAnh'>
-                            <img src="./img/rongLogo.png" alt="" className='latNguoc' />
-                          </div>
-                          <h3>Tài lộc</h3>
-                        </div>
-                        {
-                          lock ? ('') : (<button id='taiLoc' onClick={(event) => handleMoBao(event)}>Mở bao lì xì</button>)
-                        }
-
-                      </div>
-                      <div className="baoItem">
-                        <div className="baoContent">
-                          <p>
-                            Chúc mừng năm mới. Sự nghiệp thăng tiến, mọi việc hanh thông.
-                          </p>
-                          <div className='hinhAnh'>
-                            <img src="./img/rongLogo.png" alt="" />
-                          </div>
-                          <h3>Sự nghiệp</h3>
-
-                        </div>
-                        {
-                          lock ? ('') : (<button id='suNghiep' onClick={(event) => handleMoBao(event)}>Mở bao lì xì</button>)
-                        }
-
-                      </div>
-
-                      <div className="baoItem">
-                        <div className="baoContent">
-                          <p>
-                            Chúc mừng năm mới. Hạnh phúc đong đầy, đường tình viên mãn.
-                          </p>
-                          <div className='hinhAnh'>
-                            <img src="./img/rongLogo.png" alt="" className='latNguoc' />
-                          </div>
-                          <h3>Tình yêu</h3>
-
-                        </div>
-                        {
-                          lock ? ('') : (<button id='tinhYeu' onClick={(event) => handleMoBao(event)}>Mở bao lì xì</button>)
-                        }
-                      </div>
-                      <div className="baoItem">
-                        <div className="baoContent">
-                          <p>
-                            Chúc mừng năm mới. Vạn sự như ý, cả năm gặp toàn điều may.
-                          </p>
-                          <div className='hinhAnh'>
-                            <img src="./img/rongLogo.png" alt="" />
-                          </div>
-                          <h3>May mắn</h3>
-
-                        </div>
-                        {
-                          lock ? ('') : (<button id='mayMan' onClick={(event) => handleMoBao(event)}>Mở bao lì xì</button>)
-                        }
-                      </div>
-                      <div className="baoItem">
-                        <div className="baoContent">
-                          <p>
-                            Chúc mừng năm mới. Tiếng cười ngập tràn, luôn luôn tươi trẻ.
-                          </p>
-                          <div className='hinhAnh'>
-                            <img src="./img/rongLogo.png" alt="" className='latNguoc' />
-                          </div>
-                          <h3>Niềm vui</h3>
-                        </div>
-                        {
-                          lock ? ('') : (<button id='niemVui' onClick={(event) => handleMoBao(event)}>Mở bao lì xì</button>)
-                        }
-
-                      </div>
+                      {
+                        listBaoLiXi?.map((item, index) => {
+                          const { loiChuc, chuDe, buttonId } = item
+                          return (
+                            <div className="baoItem" key={index}>
+                              <div className="baoContent">
+                                <p>
+                                  {loiChuc}
+                                </p>
+                                <div className='hinhAnh'>
+                                  <img src="./img/rongLogo.png" alt="" />
+                                </div>
+                                <h3>{chuDe}</h3>
+                              </div>
+                              {
+                                lock ? ('') : (<button id={buttonId} onClick={(event) => handleMoBao(event)}>Mở bao lì xì</button>)
+                              }
+                            </div>
+                          )
+                        })
+                      }
                     </div>
                   )
                 }
                 {/* <div className='footer'>
-                <span>Vui là chín</span>
-              </div> */}
+                  <span><i>truongbuunhut - 2024</i></span>
+                </div> */}
+                <div>
+                  {/* Thẻ audio với ID và nguồn file âm thanh */}
+                </div>
 
 
               </div>
               <div className={liXi > 0 ? 'overlay' : ''}
                 onClick={() => {
                   setLixi(0)
-                  handleBackToTop()
+                  // handleBackToTop()
+                  khoaScroll()
+
                 }
                 }>
-
               </div>
               <div id='formLogin' className={liXi == 0 ? '' : 'liXiTrans0'}>
                 <div className="contentLiXi">
