@@ -21,6 +21,48 @@ function App() {
   const currentURL = window.location.href;
   const url = new URL(currentURL);
 
+  //dữ liệu list ngân hàng
+  const [listNganHang, setListNganHang] = useState(
+    [
+      {
+        maNganHang: 'acb',
+        tenNganHang: 'acb'
+      },
+      {
+        maNganHang: 'agribank',
+        tenNganHang: 'agribank'
+      },
+      {
+        maNganHang: 'bidv',
+        tenNganHang: 'bidv'
+      },
+      {
+        maNganHang: 'dongabank',
+        tenNganHang: 'dongabank'
+      },
+      {
+        maNganHang: 'eximbank',
+        tenNganHang: 'eximbank'
+      },
+      {
+        maNganHang: 'namabank',
+        tenNganHang: 'namabank'
+      },
+      {
+        maNganHang: 'vietcombank',
+        tenNganHang: 'vietcombank'
+      },
+      {
+        maNganHang: 'sacombank',
+        tenNganHang: 'sacombank'
+      },
+      {
+        maNganHang: 'techcombank',
+        tenNganHang: 'techcombank'
+      },
+    ]
+  )
+
 
 
 
@@ -992,15 +1034,16 @@ function App() {
                             onBlur={onBlurInput}
                           >
                             <option value="">Ngân hàng</option>
-                            <option value="acb">ACB</option>
-                            <option value="argibank">AGRIBANK</option>
-                            <option value="bidv">BIDV</option>
-                            <option value="donga">DONGABANK</option>
-                            <option value="eximbank">EXIMBANK</option>
-                            <option value="namabank">NAMABANK</option>
-                            <option value="vietcombank">VIETCOMBANK</option>
-                            <option value="sacombank">SACOMBANK</option>
-                            <option value="techcombank">TECHCOMBANK</option>
+                            {
+                              listNganHang?.map((item, index) => {
+                                const { maNganHang, tenNganHang } = item
+                                return (
+                                  <option value={maNganHang} key={index}>
+                                    {tenNganHang.toLocaleUpperCase()}
+                                  </option>
+                                )
+                              })
+                            }
                           </select>
                         </div>
                         <div className="inputItem">
@@ -1113,6 +1156,9 @@ function App() {
                           <p>
                             Chúc mừng năm mới. Sức khoẻ dồi dào, tràn đầy năng lượng.
                           </p>
+                          <div className='hinhAnh'>
+                            <img src="./img/rongLogo.jpeg" alt="" />
+                          </div>
                           <h3>Sức khoẻ</h3>
                         </div>
                         {
@@ -1124,6 +1170,9 @@ function App() {
                           <p>
                             Chúc mừng năm mới. Tiền vào như nước, vàng bạc đầy nhà.
                           </p>
+                          <div className='hinhAnh'>
+                            <img src="./img/rongLogo.jpeg" alt="" />
+                          </div>
                           <h3>Tài lộc</h3>
                         </div>
                         {
@@ -1136,6 +1185,9 @@ function App() {
                           <p>
                             Chúc mừng năm mới. Hạnh phúc đong đầy, đường tình viên mãn.
                           </p>
+                          <div className='hinhAnh'>
+                            <img src="./img/rongLogo.jpeg" alt="" />
+                          </div>
                           <h3>Tình yêu</h3>
 
                         </div>
@@ -1148,6 +1200,9 @@ function App() {
                           <p>
                             Chúc mừng năm mới. Sự nghiệp thăng tiến, mọi việc hanh thông.
                           </p>
+                          <div className='hinhAnh'>
+                            <img src="./img/rongLogo.jpeg" alt="" />
+                          </div>
                           <h3>Sự nghiệp</h3>
 
                         </div>
@@ -1161,6 +1216,9 @@ function App() {
                           <p>
                             Chúc mừng năm mới. Vạn sự như ý, cả năm gặp toàn điều may.
                           </p>
+                          <div className='hinhAnh'>
+                            <img src="./img/rongLogo.jpeg" alt="" />
+                          </div>
                           <h3>May mắn</h3>
 
                         </div>
@@ -1173,6 +1231,9 @@ function App() {
                           <p>
                             Chúc mừng năm mới. Tiếng cười ngập tràn, luôn luôn tươi trẻ.
                           </p>
+                          <div className='hinhAnh'>
+                            <img src="./img/rongLogo.jpeg" alt="" />
+                          </div>
                           <h3>Niềm vui</h3>
                         </div>
                         {
