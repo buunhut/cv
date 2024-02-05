@@ -184,12 +184,10 @@ function App() {
 
   //show lì xì
   const handleShowLiXi = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-    setShowLiXi(!showLiXi)
-    if (!showLiXi) {
-      document.body.style.overflowY = 'hidden'
-    } else {
-      document.body.style.overflowY = 'scroll'
+    handleBackToTop()
+    const liXiElement = document.querySelector('.liXi');
+    if (liXiElement) {
+      liXiElement.scrollTo({ top: 0, behavior: 'smooth' });
     }
     setLixi(0)
     setLock(true)
