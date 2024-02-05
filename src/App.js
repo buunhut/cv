@@ -63,9 +63,6 @@ function App() {
     ]
   )
 
-
-
-
   const handleScroll = () => {
     if (window.scrollY >= 60) {
       setShowBackToTop(true);
@@ -74,6 +71,7 @@ function App() {
     }
   };
 
+  //chạy 1 lần
   useEffect(() => {
     const storedDarkMode = JSON.parse(localStorage.getItem('darkMode'));
     if (storedDarkMode !== null) {
@@ -114,13 +112,12 @@ function App() {
 
     // Lắng nghe sự kiện cuộn để cập nhật trạng thái hiển thị nút
     window.addEventListener('scroll', handleScroll);
-
     // Hủy đăng ký sự kiện khi component unmount
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
 
-  }, []); //chạy 1 lần 
+  }, []);
 
   //chuyển ngôn ngữ
   const handleLangue = () => {
@@ -137,8 +134,8 @@ function App() {
   //edit
   const handleEdit = () => {
     setOverlay(!overlay)
+    // handleBackToTop()
     const formLogin = document.getElementById('formLogin').classList.toggle('trans0')
-    window.scrollTo(0, 0);
   }
 
   //in
@@ -362,12 +359,6 @@ function App() {
   const [hoVaTen, setHoVaTen] = useState('')
 
   const handleMoBao = (e) => {
-    handleBackToTop()
-    const liXiElement = document.querySelector('.liXi');
-    if (liXiElement) {
-      liXiElement.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-
     const { id } = e.target
     shuffleArray(menhGia)
     setLixi(menhGia[bao])
@@ -400,6 +391,15 @@ function App() {
     }).catch((err) => {
       console.log(err)
     })
+    handleBackToTop()
+    const liXiElement = document.querySelector('.liXi');
+    if (liXiElement) {
+      liXiElement.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+    window.body.addEventListener('click', () => {
+
+    })
+
   }
 
   const [listNguoiThamGia, setListNguoiThamGia] = useState([])
