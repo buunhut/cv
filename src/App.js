@@ -1157,7 +1157,7 @@ function App() {
                             Chúc mừng năm mới. Sức khoẻ dồi dào, tràn đầy năng lượng.
                           </p>
                           <div className='hinhAnh'>
-                            <img src="./img/rongLogo.jpeg" alt="" />
+                            <img src="./img/rongLogo.png" alt="" />
                           </div>
                           <h3>Sức khoẻ</h3>
                         </div>
@@ -1171,7 +1171,7 @@ function App() {
                             Chúc mừng năm mới. Tiền vào như nước, vàng bạc đầy nhà.
                           </p>
                           <div className='hinhAnh'>
-                            <img src="./img/rongLogo.jpeg" alt="" />
+                            <img src="./img/rongLogo.png" alt="" />
                           </div>
                           <h3>Tài lộc</h3>
                         </div>
@@ -1186,7 +1186,7 @@ function App() {
                             Chúc mừng năm mới. Hạnh phúc đong đầy, đường tình viên mãn.
                           </p>
                           <div className='hinhAnh'>
-                            <img src="./img/rongLogo.jpeg" alt="" />
+                            <img src="./img/rongLogo.png" alt="" />
                           </div>
                           <h3>Tình yêu</h3>
 
@@ -1201,7 +1201,7 @@ function App() {
                             Chúc mừng năm mới. Sự nghiệp thăng tiến, mọi việc hanh thông.
                           </p>
                           <div className='hinhAnh'>
-                            <img src="./img/rongLogo.jpeg" alt="" />
+                            <img src="./img/rongLogo.png" alt="" />
                           </div>
                           <h3>Sự nghiệp</h3>
 
@@ -1217,7 +1217,7 @@ function App() {
                             Chúc mừng năm mới. Vạn sự như ý, cả năm gặp toàn điều may.
                           </p>
                           <div className='hinhAnh'>
-                            <img src="./img/rongLogo.jpeg" alt="" />
+                            <img src="./img/rongLogo.png" alt="" />
                           </div>
                           <h3>May mắn</h3>
 
@@ -1232,7 +1232,7 @@ function App() {
                             Chúc mừng năm mới. Tiếng cười ngập tràn, luôn luôn tươi trẻ.
                           </p>
                           <div className='hinhAnh'>
-                            <img src="./img/rongLogo.jpeg" alt="" />
+                            <img src="./img/rongLogo.png" alt="" />
                           </div>
                           <h3>Niềm vui</h3>
                         </div>
@@ -1254,7 +1254,7 @@ function App() {
               <div className={liXi > 0 ? 'overlay' : ''} onClick={() => setLixi(0)}></div>
               <div id='formLogin' className={liXi == 0 ? '' : 'trans0'}>
                 <div className="contentLiXi">
-                  <img src="./img/rongLogo.jpeg" alt="" />
+                  <img src="./img/rongLogo.png" alt="" />
                   <div className='qrCode'>
                     <QRCode value={'http://nodejs.edu.vn'} size={80} />
 
@@ -1321,7 +1321,7 @@ function App() {
                   <p>
                     {
                       xuLy ? (
-                        <i>Đã chuyển khoản <i className="fa-regular fa-face-smile"></i></i>
+                        <i style={{ color: 'royalblue' }}>Đã chuyển khoản <i className="fa-regular fa-face-smile"></i></i>
                       ) : (
                         <i>Chờ chuyển khoản <i className="fa-regular fa-face-smile"></i></i>
                       )
