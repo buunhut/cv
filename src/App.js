@@ -96,8 +96,6 @@ function App() {
     }).then((res) => {
       setLuotTruyCap(res.data.content)
     })
-
-
     const setTimeRun = moment(date)
     // console.log("runtime ", setTimeRun)
     if (
@@ -106,7 +104,7 @@ function App() {
       moment(setTimeRun, 'DD/MM/YYYY HH:mm') <= moment('09/02/2024 23:59', 'DD/MM/YYYY HH:mm')) {
       setMenhGia([
         100000, 50000, 100000, 50000, 200000, 500000,
-        20000, 50000, 100000, 50000, 200000, 500000, 1000000,
+        100000, 50000, 100000, 50000, 200000, 500000, 1000000,
         100000, 50000, 100000, 50000, 200000, 500000,
       ])
     }
@@ -196,7 +194,6 @@ function App() {
     setLixi(0)
     setLock(true)
     setShowLiXi(!showLiXi)
-
     message.destroy()
   }
 
@@ -361,6 +358,12 @@ function App() {
   const [hoVaTen, setHoVaTen] = useState('')
 
   const handleMoBao = (e) => {
+    // handleBackToTop()
+    const liXiElement = document.querySelector('.liXi');
+    if (liXiElement) {
+      liXiElement.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
     const { id } = e.target
     shuffleArray(menhGia)
     setLixi(menhGia[bao])
@@ -371,11 +374,6 @@ function App() {
       lxId,
       liXi: menhGia[bao],
       ghiChu: id
-    }
-    handleBackToTop()
-    const liXiElement = document.querySelector('.liXi');
-    if (liXiElement) {
-      liXiElement.scrollTo({ top: 0, behavior: 'smooth' });
     }
     axios({
       method: 'post',
@@ -1176,7 +1174,7 @@ function App() {
                             Chúc mừng năm mới. Tiền vào như nước, vàng bạc đầy nhà.
                           </p>
                           <div className='hinhAnh'>
-                            <img src="./img/rongLogo.png" alt="" />
+                            <img src="./img/rongLogo.png" alt="" className='latNguoc' />
                           </div>
                           <h3>Tài lộc</h3>
                         </div>
@@ -1184,21 +1182,6 @@ function App() {
                           lock ? ('') : (<button id='taiLoc' onClick={(event) => handleMoBao(event)}>Mở bao lì xì</button>)
                         }
 
-                      </div>
-                      <div className="baoItem">
-                        <div className="baoContent">
-                          <p>
-                            Chúc mừng năm mới. Hạnh phúc đong đầy, đường tình viên mãn.
-                          </p>
-                          <div className='hinhAnh'>
-                            <img src="./img/rongLogo.png" alt="" />
-                          </div>
-                          <h3>Tình yêu</h3>
-
-                        </div>
-                        {
-                          lock ? ('') : (<button id='tinhYeu' onClick={(event) => handleMoBao(event)}>Mở bao lì xì</button>)
-                        }
                       </div>
                       <div className="baoItem">
                         <div className="baoContent">
@@ -1215,6 +1198,22 @@ function App() {
                           lock ? ('') : (<button id='suNghiep' onClick={(event) => handleMoBao(event)}>Mở bao lì xì</button>)
                         }
 
+                      </div>
+
+                      <div className="baoItem">
+                        <div className="baoContent">
+                          <p>
+                            Chúc mừng năm mới. Hạnh phúc đong đầy, đường tình viên mãn.
+                          </p>
+                          <div className='hinhAnh'>
+                            <img src="./img/rongLogo.png" alt="" className='latNguoc' />
+                          </div>
+                          <h3>Tình yêu</h3>
+
+                        </div>
+                        {
+                          lock ? ('') : (<button id='tinhYeu' onClick={(event) => handleMoBao(event)}>Mở bao lì xì</button>)
+                        }
                       </div>
                       <div className="baoItem">
                         <div className="baoContent">
@@ -1237,7 +1236,7 @@ function App() {
                             Chúc mừng năm mới. Tiếng cười ngập tràn, luôn luôn tươi trẻ.
                           </p>
                           <div className='hinhAnh'>
-                            <img src="./img/rongLogo.png" alt="" />
+                            <img src="./img/rongLogo.png" alt="" className='latNguoc' />
                           </div>
                           <h3>Niềm vui</h3>
                         </div>
