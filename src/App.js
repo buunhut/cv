@@ -193,6 +193,7 @@ function App() {
     } else {
       document.body.style.overflowY = 'scroll'
     }
+    message.destroy()
   }
 
   //xáo trộm
