@@ -547,7 +547,18 @@ function App() {
       audioRef.current.src = audioFile[index];
       audioRef.current.play()
     }
+  }
+  //sort
+  const [sort, setSort] = useState(false)
+  const handleSort = () => {
+    setSort(!sort)
+    if (sort) {
+      setListNguoiThamGia(listNguoiThamGia.sort((a, b) => a.liXi - b.liXi))
 
+    } else {
+      setListNguoiThamGia(listNguoiThamGia.sort((a, b) => b.liXi - a.liXi))
+
+    }
   }
 
   return (
@@ -644,12 +655,10 @@ function App() {
                         </button>
                         {/* <p><i>(Vui lòng điền chính xác thông tin, để hệ thống chuyển khoản tiền lì xì cho bạn nhé)</i></p> */}
                       </form>
-
                       {
                         listNguoiThamGia.length > 0 ? (
                           <>
                             {/* <h3>Danh sách</h3> */}
-
                             <div className='danhSach'>
                               <table>
                                 <thead>
@@ -657,7 +666,18 @@ function App() {
                                     <td className='ngayThang'>Ngày</td>
                                     <td className='hoVaTen'>Họ Và Tên</td>
                                     <td className='loiChuc'>Lời chúc</td>
-                                    <td className='baoLiXi'>Bao Lì Xì</td>
+                                    <td className='baoLiXi'>
+                                      <div className='sort' onClick={handleSort}>
+                                        <i className="fa-solid fa-caret-up"
+                                        // onClick={handleSortNhoToiLon}
+                                        ></i>
+                                        <i className="fa-solid fa-caret-down"
+                                        // onClick={handleSortLonToiNho}
+
+                                        ></i>
+                                      </div>
+                                      Bao Lì Xì
+                                    </td>
                                     <td></td>
                                     {/* <td>Trạng Thái</td> */}
                                   </tr>
@@ -763,8 +783,6 @@ function App() {
                   // handleBackToTop()
                   khoaScroll()
                   audioRef.current.pause();
-
-
                 }
                 }>
               </div>
@@ -848,9 +866,6 @@ function App() {
               </div>
             </div>
           </div >
-
-
-
         ) : (
           en ? (
             <>

@@ -709,8 +709,20 @@ body {
                 // width: 30px;
               }
               &.baoLiXi {
-                width: 80px;
+                // width: 100px;
                 text-align: right;
+                display: flex;
+                align-items: center;
+                justify-content: flex-end;
+                gap: 10px;
+                .sort {
+                  margin-top: -5px;
+                  i {
+                    display: block;
+                    height: 10px;
+                    cursor: pointer;
+                  }
+                }
               }
               &.preview {
                 width: 30px;
