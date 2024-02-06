@@ -368,6 +368,8 @@ function App() {
       }
     }
     if (valid) {
+      playAudio()
+
       const currentTime = new Date()
       const data = {
         ...formDangKy,
@@ -415,7 +417,6 @@ function App() {
     } else {
       message.error('Vui lòng nhập đầy đủ thông tin', 5)
     }
-    playAudio()
 
   }
 
@@ -536,6 +537,8 @@ function App() {
     './music/tet_binh_an.mp3',
     './music/mua_xuan_oi.mp3',
     './music/tet_binh_an_2.mp3',
+    './music/long_phung_sum_vay.mp3',
+
 
   ]
   const randomIndex = () => Math.floor(Math.random() * audioFile.length);
@@ -591,7 +594,7 @@ function App() {
                             value={formDangKy.hoVaTen}
                             onChange={handleChangInput}
                             onBlur={onBlurInput}
-                            onClick={playAudio}
+                          // onClick={playAudio}
                           />
                         </div>
                         <div className="inputItem">
