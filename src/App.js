@@ -151,7 +151,18 @@ function App() {
     getListNguoiThamGia()
 
     // play nhạc
-    // setAutoPlay(true)
+    // Add event listener for visibility change
+    const handleVisibilityChange = () => {
+      if (document.hidden && audioRef.current) {
+        // Pause the audio when the document is not visible
+        audioRef.current.pause();
+      } else {
+        audioRef.current.play();
+
+      }
+    };
+
+    document.addEventListener('visibilitychange', handleVisibilityChange);
 
 
     // Lắng nghe sự kiện cuộn để cập nhật trạng thái hiển thị nút
@@ -159,6 +170,7 @@ function App() {
     // Hủy đăng ký sự kiện khi component unmount
     return () => {
       window.removeEventListener('scroll', handleScroll);
+      document.removeEventListener('visibilitychange', handleVisibilityChange);
     };
 
   }, []);
