@@ -1,14 +1,8 @@
-import { useEffect, useRef, useState } from 'react';
 import './app.scss';
-import { QRCode, Space, Image, message, Tooltip } from 'antd';
-// import * as moment from 'moment'
+import { useEffect, useRef, useState } from 'react';
+import { QRCode, Space, message, Tooltip } from 'antd';
 import moment from 'moment-timezone';
 import axios from 'axios'
-import ReactPlayer from 'react-player';
-
-import { io } from 'socket.io-client'
-import Player from './component/Player';
-
 
 function App() {
   const [dark, setDark] = useState(false);
@@ -21,7 +15,6 @@ function App() {
   const date = new Date()
   const currentURL = window.location.href;
   const url = new URL(currentURL);
-  const [chayNhac, setChayNhac] = useState(true)
 
   //dữ liệu list ngân hàng
   const [listNganHang, setListNganHang] = useState(
@@ -109,8 +102,6 @@ function App() {
     }
   };
 
-
-
   //chạy 1 lần
   useEffect(() => {
     const storedDarkMode = JSON.parse(localStorage.getItem('darkMode'));
@@ -141,9 +132,9 @@ function App() {
       moment(setTimeRun, 'DD/MM/YYYY HH:mm') >= moment('09/02/2024 20:00', 'DD/MM/YYYY HH:mm') ||
       moment(setTimeRun, 'DD/MM/YYYY HH:mm') <= moment('09/02/2024 23:59', 'DD/MM/YYYY HH:mm')) {
       setMenhGia([
-        100000, 50000, 100000, 50000, 200000, 500000,
-        100000, 50000, 100000, 50000, 200000, 500000, 1000000,
-        100000, 50000, 100000, 50000, 200000, 500000,
+        100000, 200000, 100000, 200000, 100000, 200000, 500000,
+        100000, 200000, 100000, 200000, 100000, 200000, 500000, 1000000,
+        100000, 200000, 100000, 200000, 100000, 200000, 500000,
       ])
     }
 
@@ -158,13 +149,9 @@ function App() {
         audioRef.current.pause();
       } else {
         audioRef.current.play();
-
       }
     };
-
     document.addEventListener('visibilitychange', handleVisibilityChange);
-
-
     // Lắng nghe sự kiện cuộn để cập nhật trạng thái hiển thị nút
     window.addEventListener('scroll', handleScroll);
     // Hủy đăng ký sự kiện khi component unmount
@@ -172,7 +159,6 @@ function App() {
       window.removeEventListener('scroll', handleScroll);
       document.removeEventListener('visibilitychange', handleVisibilityChange);
     };
-
   }, []);
 
   //chuyển ngôn ngữ
@@ -282,7 +268,6 @@ function App() {
     nganHang: '',
     loiChuc: ''
   })
-  // console.log('form: ', formDangKy)
 
   const handleChangInput = (e) => {
     let { id, value } = e.target
@@ -531,18 +516,14 @@ function App() {
     playAudio()
   }
 
-
-
   const audioFile = [
     './music/tet_binh_an.mp3',
     './music/mua_xuan_oi.mp3',
     './music/tet_binh_an_2.mp3',
     './music/long_phung_sum_vay.mp3',
-
-
   ]
-  const randomIndex = () => Math.floor(Math.random() * audioFile.length);
 
+  const randomIndex = () => Math.floor(Math.random() * audioFile.length);
   const audioRef = useRef(null)
   const playAudio = () => {
     const index = randomIndex()
