@@ -762,6 +762,8 @@ function App() {
                   setLixi(0)
                   // handleBackToTop()
                   khoaScroll()
+                  audioRef.current.pause();
+
 
                 }
                 }>
