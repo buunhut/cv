@@ -4,6 +4,7 @@ import { QRCode, Space, Image, message, Tooltip } from 'antd';
 // import * as moment from 'moment'
 import moment from 'moment-timezone';
 import axios from 'axios'
+import ReactPlayer from 'react-player';
 
 import { io } from 'socket.io-client'
 
@@ -505,7 +506,7 @@ function App() {
     setHoVaTen(item.hoVaTen)
   }
 
-  // console.log(menhGia)
+  const audioFile = './img/tet_binh_an.mp3'
 
   return (
     <>
@@ -597,6 +598,18 @@ function App() {
                         </button>
                         {/* <p><i>(Vui lòng điền chính xác thông tin, để hệ thống chuyển khoản tiền lì xì cho bạn nhé)</i></p> */}
                       </form>
+                      {/* audio */}
+                      {/* <div>
+                        <ReactPlayer
+                          url={audioFile}
+                          controls
+                          loop
+                          width="300px"
+                          height="50px"
+                        />
+                      </div>
+ */}
+
                       {
                         listNguoiThamGia.length > 0 ? (
                           <>
@@ -688,7 +701,12 @@ function App() {
                                 <h3>{chuDe}</h3>
                               </div>
                               {
-                                lock ? ('') : (<button id={buttonId} onClick={(event) => handleMoBao(event)}>Mở bao lì xì</button>)
+                                lock ? ('') : (<button
+                                  id={buttonId}
+                                  onClick={(event) => handleMoBao(event)}
+
+
+                                >Mở bao lì xì</button>)
                               }
                             </div>
                           )
@@ -700,9 +718,6 @@ function App() {
                 {/* <div className='footer'>
                   <span><i>truongbuunhut - 2024</i></span>
                 </div> */}
-                <div>
-                  {/* Thẻ audio với ID và nguồn file âm thanh */}
-                </div>
 
 
               </div>
