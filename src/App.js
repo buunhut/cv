@@ -520,7 +520,12 @@ function App() {
 
 
 
-  const audioFile = ['./music/tet_binh_an.mp3', './music/mua_xuan_oi.mp3']
+  const audioFile = [
+    './music/tet_binh_an.mp3',
+    './music/mua_xuan_oi.mp3',
+    './music/tet_binh_an_2.mp3',
+
+  ]
   const randomIndex = () => Math.floor(Math.random() * audioFile.length);
 
   const audioRef = useRef(null)
