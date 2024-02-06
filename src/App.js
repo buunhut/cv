@@ -411,7 +411,6 @@ function App() {
   const [hoVaTen, setHoVaTen] = useState('')
 
   const handleMoBao = (e) => {
-    playAudio()
     const { id } = e.target
     shuffleArray(menhGia)
     setLixi(menhGia[bao])
@@ -450,6 +449,8 @@ function App() {
     //   liXiElement.scrollTo({ top: 0, behavior: 'smooth' });
     // }
     khoaScroll()
+    playAudio()
+
   }
 
   const [listNguoiThamGia, setListNguoiThamGia] = useState([])
@@ -470,7 +471,8 @@ function App() {
   }
 
   //countdown
-  const targetDate = moment('06/02/2024 15:30:00', 'DD/MM/YYYY HH:mm:ss');
+  const targetDate = moment('09/02/2024 20:30:00', 'DD/MM/YYYY HH:mm:ss');
+  // const targetDate = moment('06/02/2024 16:00:00', 'DD/MM/YYYY HH:mm:ss');
   const calculateTimeRemaining = (targetDate) => {
     const now = moment();
     const diff = moment.duration(targetDate.diff(now));
@@ -512,6 +514,7 @@ function App() {
     setLixi(item.liXi)
     setGhiChu(item.ghiChu)
     setHoVaTen(item.hoVaTen)
+    playAudio()
   }
 
   const audioFile = ['./music/tet_binh_an.mp3', './music/mua_xuan_oi.mp3']
@@ -523,9 +526,7 @@ function App() {
     if (audioRef.current) {
       audioRef.current.src = audioFile[index];
       audioRef.current.play()
-
     }
-    console.log("hát nhạc")
   }
 
   return (
