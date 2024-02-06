@@ -526,6 +526,16 @@ function App() {
                 {
                   lock ? (
                     <>
+                      <div className='audio'>
+                        <ReactPlayer
+                          url={audioFile}
+                          controls
+                          loop
+                          width="300px"
+                          height="50px"
+                        />
+                      </div>
+
                       <form action="">
                         <div className="inputItem">
                           <i className="fa-solid fa-user"
@@ -599,16 +609,7 @@ function App() {
                         {/* <p><i>(Vui lòng điền chính xác thông tin, để hệ thống chuyển khoản tiền lì xì cho bạn nhé)</i></p> */}
                       </form>
                       {/* audio */}
-                      {/* <div>
-                        <ReactPlayer
-                          url={audioFile}
-                          controls
-                          loop
-                          width="300px"
-                          height="50px"
-                        />
-                      </div>
- */}
+
 
                       {
                         listNguoiThamGia.length > 0 ? (
