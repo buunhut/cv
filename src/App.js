@@ -340,7 +340,6 @@ function App() {
   }
 
   const handleXacNhanThongTin = () => {
-    playAudio()
     let valid = true
     for (let key in formDangKy) {
       if (formDangKy[key] === '') {
@@ -404,6 +403,8 @@ function App() {
     } else {
       message.error('Vui lòng nhập đầy đủ thông tin', 5)
     }
+    playAudio()
+
   }
 
   const [lxId, setLxId] = useState(0)
@@ -517,6 +518,8 @@ function App() {
     playAudio()
   }
 
+
+
   const audioFile = ['./music/tet_binh_an.mp3', './music/mua_xuan_oi.mp3']
   const randomIndex = () => Math.floor(Math.random() * audioFile.length);
 
@@ -527,6 +530,7 @@ function App() {
       audioRef.current.src = audioFile[index];
       audioRef.current.play()
     }
+
   }
 
   return (
@@ -534,10 +538,9 @@ function App() {
       <div>
         <audio ref={audioRef} loop ></audio>
       </div>
-
       {
         showLiXi ? (
-          <div className='liXi'>
+          <div className='liXi' >
             <div className='topTitle'>
               <h3>
                 Chúc Mừng Năm Mới
