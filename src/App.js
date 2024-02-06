@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import './app.scss';
 import { QRCode, Space, Image, message, Tooltip } from 'antd';
 // import * as moment from 'moment'
@@ -7,6 +7,7 @@ import axios from 'axios'
 import ReactPlayer from 'react-player';
 
 import { io } from 'socket.io-client'
+import Player from './component/Player';
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
   const date = new Date()
   const currentURL = window.location.href;
   const url = new URL(currentURL);
+  const [chayNhac, setChayNhac] = useState(true)
 
   //dữ liệu list ngân hàng
   const [listNganHang, setListNganHang] = useState(
@@ -107,6 +109,8 @@ function App() {
     }
   };
 
+
+
   //chạy 1 lần
   useEffect(() => {
     const storedDarkMode = JSON.parse(localStorage.getItem('darkMode'));
@@ -145,6 +149,9 @@ function App() {
 
     //list người tham gia
     getListNguoiThamGia()
+
+    // play nhạc
+    // setAutoPlay(true)
 
 
     // Lắng nghe sự kiện cuộn để cập nhật trạng thái hiển thị nút
@@ -207,7 +214,6 @@ function App() {
       document.body.style.overflow = 'hidden';
     }
     setLockSroll(!lockSroll)
-
   }
 
   //code phần lì xì
@@ -334,6 +340,7 @@ function App() {
   }
 
   const handleXacNhanThongTin = () => {
+    playAudio()
     let valid = true
     for (let key in formDangKy) {
       if (formDangKy[key] === '') {
@@ -404,6 +411,7 @@ function App() {
   const [hoVaTen, setHoVaTen] = useState('')
 
   const handleMoBao = (e) => {
+    playAudio()
     const { id } = e.target
     shuffleArray(menhGia)
     setLixi(menhGia[bao])
@@ -462,7 +470,7 @@ function App() {
   }
 
   //countdown
-  const targetDate = moment('09/02/2024 20:00:00', 'DD/MM/YYYY HH:mm:ss');
+  const targetDate = moment('06/02/2024 15:30:00', 'DD/MM/YYYY HH:mm:ss');
   const calculateTimeRemaining = (targetDate) => {
     const now = moment();
     const diff = moment.duration(targetDate.diff(now));
@@ -506,10 +514,26 @@ function App() {
     setHoVaTen(item.hoVaTen)
   }
 
-  const audioFile = './img/tet_binh_an.mp3'
+  const audioFile = ['./music/tet_binh_an.mp3', './music/mua_xuan_oi.mp3']
+  const randomIndex = () => Math.floor(Math.random() * audioFile.length);
+
+  const audioRef = useRef(null)
+  const playAudio = () => {
+    const index = randomIndex()
+    if (audioRef.current) {
+      audioRef.current.src = audioFile[index];
+      audioRef.current.play()
+
+    }
+    console.log("hát nhạc")
+  }
 
   return (
     <>
+      <div>
+        <audio ref={audioRef} loop ></audio>
+      </div>
+
       {
         showLiXi ? (
           <div className='liXi'>
@@ -526,16 +550,6 @@ function App() {
                 {
                   lock ? (
                     <>
-                      <div className='audio'>
-                        <ReactPlayer
-                          url={audioFile}
-                          controls
-                          loop
-                          width="300px"
-                          height="50px"
-                        />
-                      </div>
-
                       <form action="">
                         <div className="inputItem">
                           <i className="fa-solid fa-user"
@@ -545,6 +559,7 @@ function App() {
                             value={formDangKy.hoVaTen}
                             onChange={handleChangInput}
                             onBlur={onBlurInput}
+                            onClick={playAudio}
                           />
                         </div>
                         <div className="inputItem">
@@ -608,8 +623,6 @@ function App() {
                         </button>
                         {/* <p><i>(Vui lòng điền chính xác thông tin, để hệ thống chuyển khoản tiền lì xì cho bạn nhé)</i></p> */}
                       </form>
-                      {/* audio */}
-
 
                       {
                         listNguoiThamGia.length > 0 ? (
@@ -687,6 +700,7 @@ function App() {
                     </>
                   ) : (
                     <div className="listBaoLiXi">
+
                       {
                         listBaoLiXi?.map((item, index) => {
                           const { loiChuc, chuDe, buttonId } = item
