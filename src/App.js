@@ -126,10 +126,11 @@ function App() {
       setLuotTruyCap(res.data.content)
     })
     const setTimeRun = moment(date)
-    // console.log("runtime ", setTimeRun)
+
+    //chạy thiệt
+
     if (
-      //chạy thiệt
-      moment(setTimeRun, 'DD/MM/YYYY HH:mm') >= moment('09/02/2024 20:00', 'DD/MM/YYYY HH:mm') ||
+      moment(setTimeRun, 'DD/MM/YYYY HH:mm') >= moment('09/02/2024 20:30', 'DD/MM/YYYY HH:mm') &&
       moment(setTimeRun, 'DD/MM/YYYY HH:mm') <= moment('09/02/2024 23:59', 'DD/MM/YYYY HH:mm')) {
       setMenhGia([
         100000, 200000, 100000, 200000, 100000, 200000, 500000,
@@ -222,11 +223,11 @@ function App() {
 
   const [menhGia, setMenhGia] = useState(
     [
-      20000, 50000, 100000,
-      20000, 50000, 100000, 200000,
-      20000, 50000, 100000, 200000, 500000,
-      20000, 50000, 100000, 200000,
-      20000, 50000, 100000,
+      20000, 50000, 100000, 50000, 20000,
+      20000, 50000, 100000, 50000, 20000, 200000,
+      20000, 50000, 100000, 50000, 20000, 200000, 500000,
+      20000, 50000, 100000, 50000, 20000, 200000,
+      20000, 50000, 100000, 50000, 20000,
     ]
   )
 
@@ -517,10 +518,16 @@ function App() {
   }
 
   const audioFile = [
-    './music/tet_binh_an.mp3',
-    './music/mua_xuan_oi.mp3',
-    './music/tet_binh_an_2.mp3',
-    './music/long_phung_sum_vay.mp3',
+    // './music/tet_binh_an.mp3',
+    // './music/mua_xuan_oi.mp3',
+    // './music/tet_binh_an_2.mp3',
+    // './music/long_phung_sum_vay.mp3',
+    './music/tet_1.mp3',
+    './music/tet_2.mp3',
+    './music/tet_3.mp3',
+    './music/tet_4.mp3',
+    './music/tet_5.mp3',
+    './music/tet_6.mp3',
   ]
 
   const randomIndex = () => Math.floor(Math.random() * audioFile.length);
@@ -544,6 +551,7 @@ function App() {
 
     }
   }
+
 
   return (
     <>
