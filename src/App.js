@@ -574,7 +574,7 @@ function App() {
                 {
                   lock ? (
                     <>
-                      <h3>Chúc cả nhà năm mới Bình An <br></br>
+                      <h3 className='loiChucNamMoi'>Chúc cả nhà năm mới Bình An <br></br>
                         Tâm bình thế giới bình, <br></br> Tâm an vạn sự an.</h3>
                       <form action="">
                         <div className="inputItem">
