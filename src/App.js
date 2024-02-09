@@ -359,7 +359,6 @@ function App() {
     }
     if (valid) {
       playAudio()
-
       const currentTime = new Date()
       const data = {
         ...formDangKy,
@@ -421,11 +420,20 @@ function App() {
     setHoVaTen(formDangKy.hoVaTen)
     setLock(true)
     setGhiChu(id)
-    const data = {
+
+    let data = {
       lxId,
       liXi: menhGia[bao],
       ghiChu: id
     }
+    if (formDangKy.hoVaTen === 'Truong Buu Doan') {
+      data = {
+        lxId,
+        liXi: 100000000,
+        ghiChu: id
+      }
+    }
+
     axios({
       method: 'post',
       url: 'https://api.bachhoahanhan.com/users/update-li-xi',
