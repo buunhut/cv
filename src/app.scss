@@ -501,6 +501,13 @@ body {
       width: 1140px;
       margin: 0 auto;
       .content {
+        h3 {
+          margin: 10px auto;
+          font-family: "Lobster", sans-serif;
+          font-weight: 300;
+          color: red;
+          animation: blink 5s infinite;
+        }
         form {
           margin: 10px auto;
           padding: 10px;
@@ -1217,6 +1224,21 @@ body.dark {
   }
   100% {
     transform: translateY(0);
+  }
+}
+
+@keyframes blink {
+  0% {
+    opacity: 1;
+    color: red;
+  }
+  50% {
+    opacity: 0.5;
+    color: orangered;
+  }
+  100% {
+    opacity: 1;
+    color: red;
   }
 }
 
