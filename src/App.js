@@ -48,6 +48,10 @@ function App() {
         tenNganHang: 'vietcombank'
       },
       {
+        maNganHang: 'vietin',
+        tenNganHang: 'vietinbank'
+      },
+      {
         maNganHang: 'sacombank',
         tenNganHang: 'sacombank'
       },
@@ -644,7 +648,7 @@ function App() {
                         <button
                           type='button'
                           onClick={handleXacNhanThongTin}
-                          // disabled={!canClick}
+                        // disabled={!canClick}
                         >
                           Nhận Lì Xì Ngay
                         </button>
