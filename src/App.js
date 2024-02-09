@@ -644,15 +644,9 @@ function App() {
                         <button
                           type='button'
                           onClick={handleXacNhanThongTin}
-                          disabled={!canClick}
+                          // disabled={!canClick}
                         >
-                          {canClick ? 'Nhận Lì Xì Ngay' :
-                            `
-                          ${Math.floor(timeRemaining.value / 86400) > 0 ? `${Math.floor(timeRemaining.value / 86400)} ngày` : ''}
-                          ${timeRemaining.hours} giờ 
-                          ${timeRemaining.minutes} phút 
-                          ${timeRemaining.seconds} giây
-                          `}
+                          Nhận Lì Xì Ngay
                         </button>
                         {/* <p><i>(Vui lòng điền chính xác thông tin, để hệ thống chuyển khoản tiền lì xì cho bạn nhé)</i></p> */}
                       </form>
