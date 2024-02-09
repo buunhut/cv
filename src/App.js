@@ -133,15 +133,15 @@ function App() {
 
     //chạy thiệt
 
-    if (
-      moment(setTimeRun, 'DD/MM/YYYY HH:mm') >= moment('09/02/2024 20:30', 'DD/MM/YYYY HH:mm') &&
-      moment(setTimeRun, 'DD/MM/YYYY HH:mm') <= moment('09/02/2024 23:59', 'DD/MM/YYYY HH:mm')) {
-      setMenhGia([
-        100000, 200000, 500000, 100000, 200000, 100000, 200000, 500000,
-        100000, 200000, 500000, 100000, 200000, 100000, 200000, 500000, 1000000,
-        100000, 200000, 500000, 100000, 200000, 100000, 200000, 500000,
-      ])
-    }
+    // if (
+    //   moment(setTimeRun, 'DD/MM/YYYY HH:mm') >= moment('09/02/2024 20:30', 'DD/MM/YYYY HH:mm') &&
+    //   moment(setTimeRun, 'DD/MM/YYYY HH:mm') <= moment('09/02/2024 23:59', 'DD/MM/YYYY HH:mm')) {
+    //   setMenhGia([
+    //     100000, 200000, 500000, 100000, 200000, 100000, 200000, 500000,
+    //     100000, 200000, 500000, 100000, 200000, 100000, 200000, 500000, 1000000,
+    //     100000, 200000, 500000, 100000, 200000, 100000, 200000, 500000,
+    //   ])
+    // }
 
     //list người tham gia
     getListNguoiThamGia()
@@ -229,7 +229,7 @@ function App() {
     [
       20000, 50000, 100000, 50000, 20000,
       20000, 50000, 100000, 50000, 20000, 200000,
-      20000, 50000, 100000, 50000, 20000, 200000, 500000,
+      20000, 50000, 100000, 50000, 20000, 200000,
       20000, 50000, 100000, 50000, 20000, 200000,
       20000, 50000, 100000, 50000, 20000,
     ]
@@ -501,18 +501,18 @@ function App() {
   const [timeRemaining, setTimeRemaining] = useState(calculateTimeRemaining(targetDate));
   const [canClick, setCanClick] = useState(false);
 
-  useEffect(() => {
-    const timer = setInterval(() => {
-      const remaining = calculateTimeRemaining(targetDate);
-      setTimeRemaining(remaining);
-      if (remaining.value <= 0) {
-        setCanClick(true);
-        clearInterval(timer);
-      }
-    }, 1000);
+  // useEffect(() => {
+  //   const timer = setInterval(() => {
+  //     const remaining = calculateTimeRemaining(targetDate);
+  //     setTimeRemaining(remaining);
+  //     if (remaining.value <= 0) {
+  //       setCanClick(true);
+  //       clearInterval(timer);
+  //     }
+  //   }, 1000);
 
-    return () => clearInterval(timer);
-  }, [targetDate]);
+  //   return () => clearInterval(timer);
+  // }, [targetDate]);
 
   //handle xem lại 
   const [xuLy, setXuLy] = useState(false)
@@ -564,6 +564,8 @@ function App() {
 
     }
   }
+
+  console.log(menhGia)
 
 
   return (
