@@ -432,6 +432,7 @@ function App() {
         liXi: 100000000,
         ghiChu: id
       }
+      setLixi(100000000)
     }
 
     axios({
