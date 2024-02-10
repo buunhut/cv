@@ -228,9 +228,9 @@ function App() {
   const [menhGia, setMenhGia] = useState(
     [
       20000, 50000, 100000, 50000, 20000,
-      20000, 50000, 100000, 50000, 20000, 200000,
-      20000, 50000, 100000, 50000, 20000, 200000,
-      20000, 50000, 100000, 50000, 20000, 200000,
+      20000, 50000, 100000, 50000, 20000,
+      20000, 50000, 100000, 50000, 20000,
+      20000, 50000, 100000, 50000, 20000,
       20000, 50000, 100000, 50000, 20000,
     ]
   )
@@ -788,20 +788,13 @@ function App() {
 
               </div>
               <div className={liXi > 0 ? 'overlay' : ''}
-                onClick={() => {
-                  setLixi(0)
-                  // handleBackToTop()
-                  khoaScroll()
-                  audioRef.current.pause();
-                }
-                }>
+              >
               </div>
               <div id='formLogin' className={liXi == 0 ? '' : 'liXiTrans0'}>
                 <div className="contentLiXi">
                   <img src="./img/rongLogo.png" alt="" />
                   <div className='qrCode'>
                     <QRCode value={'http://nodejs.edu.vn'} size={80} />
-
                   </div>
                   <h5>Xuân Giáp Thìn - 2024</h5>
                   <h3>Lì xì may mắn</h3>
@@ -870,9 +863,17 @@ function App() {
                         <i>Chờ chuyển khoản <i className="fa-regular fa-face-smile"></i></i>
                       )
                     }
-
                   </p>
                 </div>
+                <button type='button' className='nutDong'
+                  onClick={() => {
+                    setLixi(0)
+                    // handleBackToTop()
+                    khoaScroll()
+                    audioRef.current.pause();
+                  }
+                  }
+                >Đóng</button>
               </div>
             </div>
           </div >
