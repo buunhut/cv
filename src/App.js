@@ -48,7 +48,7 @@ function App() {
         tenNganHang: 'vietcombank'
       },
       {
-        maNganHang: 'vietin',
+        maNganHang: 'vietinbank',
         tenNganHang: 'vietinbank'
       },
       {
